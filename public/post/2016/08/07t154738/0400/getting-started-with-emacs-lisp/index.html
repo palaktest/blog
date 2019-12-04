@@ -1,0 +1,428 @@
+<!doctype html>
+
+<html lang="en-us">
+
+<head>
+  <title>My New Hugo Site</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="The HTML5 Herald" />
+  <meta name="author" content="" /><meta name="generator" content="Hugo 0.60.1" />
+    
+
+  <meta property="og:title" content="escaping the tar pit" />
+<meta property="og:description" content="If you don&#39;t know by now, I&#39;m sort of a personal efficiency maven. I don&#39;t like to waste keystrokes, I&#39;m always experimenting with different key bindings and shortcuts, and I feel almost personally offended when I see someone reach for their mouse to click a button that I know has a keyboard equivalent.
+But this isn&#39;t about my pet peeves; this is about tuning yourself in to the improvements you can make on a daily basis that will increase your lifetime efficiency dramatically." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://example.org/post/2016/04/07t064259/0400/escaping-the-tar-pit/" />
+<meta property="article:published_time" content="2016-04-07T06:42:59-04:00" />
+<meta property="article:modified_time" content="2016-04-07T06:42:59-04:00" />
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="escaping the tar pit"/>
+<meta name="twitter:description" content="If you don&#39;t know by now, I&#39;m sort of a personal efficiency maven. I don&#39;t like to waste keystrokes, I&#39;m always experimenting with different key bindings and shortcuts, and I feel almost personally offended when I see someone reach for their mouse to click a button that I know has a keyboard equivalent.
+But this isn&#39;t about my pet peeves; this is about tuning yourself in to the improvements you can make on a daily basis that will increase your lifetime efficiency dramatically."/>
+
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css" />
+  <script src="https://kit.fontawesome.com/b76b73e8e8.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Slab|Ruda" />
+  <link rel="stylesheet" type="text/css" href="/css/styles.css" /></head>
+
+<body>
+  <div id="container">
+    <header>
+      <h1>
+                <a href="/">My New Hugo Site</a>
+            </h1>
+
+      <ul id="social-media">
+      </ul>
+      
+    </header>
+
+    
+<nav>
+    <ul>
+        
+    </ul>
+</nav>
+
+    <main>
+
+
+
+
+<article>
+
+    <h1>getting started with emacs lisp</h1>
+
+    
+        <aside>
+    <ul>
+        <li>
+            <time class="post-date" datetime="2016-08-07T15:47:38-04:00">Aug 7, 2016</time>
+        </li>
+        
+
+        
+
+        <li>13 minutes read</li>
+    </ul>
+</aside>
+
+    
+
+    <p>As you certainly know by now, I was an outspoken and enthusiastic Vim user for
+about 15 years. During that time, I tried Emacs a couple of times, but it didn't
+really stick until last year. One of the reasons Emacs makes me so happy is its
+Lisp-based extension language (Emacs Lisp, or just Elisp for short).</p>
+<p>I do not have a formal background in computer science, so I never had the
+experience of being forced to do exercises in Scheme or Lisp; Elisp is the first
+(and only) Lisp I've ever learned. For that reason, I'm sure I went about it all
+wrong, but I think I know it pretty well now and I want to share with you some
+of the tricks and concepts I've learned so you can hopefully have an easier time
+than I did.</p>
+<p>Introductory Lisp articles abound, so I will try to focus on the Emacs features
+and functions that make Elisp development unique.<del>MORE</del></p>
+<h2 id="lisp-interaction-mode">Lisp Interaction Mode</h2>
+<p>The best way I've found to start playing with Elisp or to experiment with
+creating new functions is to use the aptly named &ldquo;scratch buffer.&rdquo; When you
+start Emacs, a scratch buffer is always created for you, and its name is,
+appropriately, <code>*scratch*</code>.</p>
+<p>The scratch buffer is set to Lisp Interaction Mode, which is derived from Emacs
+Lisp Mode, which itself is derived from Prog Mode (the parent of all
+&ldquo;programming&rdquo; modes). Lisp Interaction Mode changes only a couple of things from
+Emacs Lisp Mode, but its intent is to make it easier to type in and actually
+interact with Emacs Lisp code.</p>
+<p>This mode will become your best friend as you begin to find your way around the
+expansive world of the Emacs Lisp language.</p>
+<h2 id="essential-bindings">Essential Bindings</h2>
+<p>There are a few massively useful functions available in Lisp Interaction Mode
+that you really need easy key bindings for, because you will use them all the
+time. The first is <code>eval-last-sexp</code>, which evaluates the S-expression (or
+&ldquo;sexp&rdquo;) right before the cursor. I have two bindings for this one, which I'll
+talk a little bit about.</p>
+<p>First, for any Emacs user, I think that <code>&lt;C-return&gt;</code> is a nice key combo for
+this.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cl" data-lang="cl">(define-key lisp-interaction-mode-map (kbd <span style="color:#e6db74">&#34;&lt;C-return&gt;&#34;</span>) <span style="color:#e6db74">&#39;eval-last-sexp</span>)
+</code></pre></div><p>For Evil Mode users out there, it is important to note that <code>eval-last-sexp</code>
+evaluates the expression immediately <em>behind</em> point, which means it only works
+predictably while in insert mode (when the cursor is a pipe style and you can
+see which character is immediately behind it).</p>
+<p>For that reason, I have an insert mode binding to run <code>eval-last-sexp</code>, but I
+use the same key in normal mode to run <code>eval-defun</code>, which evaluates the entire
+function definition that point is within the bounds of.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cl" data-lang="cl">(evil-define-key <span style="color:#e6db74">&#39;insert</span> global-map (kbd <span style="color:#e6db74">&#34;s-d&#34;</span>) <span style="color:#e6db74">&#39;eval-last-sexp</span>)
+(evil-define-key <span style="color:#e6db74">&#39;normal</span> global-map (kbd <span style="color:#e6db74">&#34;s-d&#34;</span>) <span style="color:#e6db74">&#39;eval-defun</span>)
+</code></pre></div><p>Finally, Lisp Interaction Mode by default binds <code>C-j</code> to another useful
+function, <code>eval-print-last-sexp</code>, which evaluates the S-expression behind point
+and then <em>prints its return value into the buffer</em>. This is really handy for
+debugging things.</p>
+<h2 id="a-contrived-example">A Contrived Example</h2>
+<p>Often, before I even set about writing a new function, I want to prove that I
+can accomplish some task or that I can find existing functions to glue together
+that will do what I need. Lisp Interaction Mode is a perfect platform for this
+exploration.</p>
+<p>As an example, let's pretend that we want to write a function to count the
+frequency of words used in a buffer. The result of the function should be an
+<em>association list</em> (&ldquo;alist&rdquo; for short) where the keys are the words in the
+buffer and the values are the counts of how many times each word appears.</p>
+<p>The basic approach that I think I want to use, without writing any code yet, is:</p>
+<ol>
+<li>Create an empty alist, then</li>
+<li>From the beginning of the buffer,</li>
+<li>Search forward for a word using a regular expression search, and</li>
+<li>If the word is already in our alist, increment the count, otherwise</li>
+<li>Add the word to the alist with a count of 1.</li>
+<li>Finally, return the alist sorted in descending order by frequency.</li>
+</ol>
+<p>To do this, I know I need a few functions based on my prior experience. At a
+minimum, I probably need:</p>
+<ul>
+<li>
+<p><code>save-excursion</code> to let me move around in the buffer without leaving point or
+mark in different locations after I'm done. This isn't critical for the
+function to work, but it's polite to use it.</p>
+</li>
+<li>
+<p><code>let</code> to bind some local variables to use.</p>
+</li>
+<li>
+<p><code>re-search-forward</code> to perform the regular expression search.</p>
+</li>
+<li>
+<p><code>push</code> to build up an association list.</p>
+</li>
+<li>
+<p><code>reverse</code> and <code>sort</code> to do the sorting at the end.</p>
+</li>
+</ul>
+<p>I remember most of these function names because I've used them before, but I
+usually don't remember the exact arguments they take. That's OK, though, because
+Emacs Lisp is self-documenting and all of the standard library functions are
+extremely well-documented.</p>
+<p>A good example here is <code>re-search-forward</code>, which takes several arguments, and I
+can't remember the order. Look up the function by typing <code>C-h f re-search-forward RET</code>. Your eyes will rapidly glaze over with a layer of real
+human tears as you behold a split window containing a practical explanation of
+how this function operates.</p>
+<p>OK, let's start with a very rough little expression that we can use to prove
+that this idea works.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cl" data-lang="cl">(save-excursion
+  (goto-char <span style="color:#ae81ff">0</span>)
+  (re-search-forward <span style="color:#e6db74">&#34;\\w+&#34;</span> (point-max) <span style="color:#66d9ef">t</span>)
+  (match-string-no-properties <span style="color:#ae81ff">0</span>))
+</code></pre></div><p>This expression saves the location of point, moves to the very beginning of the
+buffer, searches forward for a &ldquo;word&rdquo; (using a naive pattern matching any
+sequence of one or more word characters), and then returns the matched string
+with no text properties.</p>
+<p>Just a few minor points here:</p>
+<ul>
+<li>I mess around with the contents of <code>*scratch*</code> all the time while
+testing. It's probably a good idea to go ahead and make the buffer start with
+a single word before running this code.</li>
+<li>I didn't describe all of the arguments to <code>re-search-forward</code>, but I showed
+you how to look up functions. Hint hint.</li>
+<li>The same goes for <code>match-string-no-properties</code>.</li>
+</ul>
+<p>You can now run this code in two ways. First, you can position point at the end
+of the expression (at the end of the last line), (if you're an Evil user,
+make sure you're in <strong>insert mode</strong>), and press <code>C-&lt;return&gt;</code> (using my binding
+from up above). The result will be printed in the minibuffer.</p>
+<p>Second, you can press <code>C-j</code> and the result will be printed into the buffer
+itself. This is useful if you want to grab that value and actually use it for
+something else. Most of the time, I use <code>C-&lt;return&gt;</code>.</p>
+<p>If you evaluate this expression with <code>C-&lt;return&gt;</code>, the first word in the buffer
+should be printed in the <em>minibuffer</em>.</p>
+<h2 id="debugging">Debugging</h2>
+<p>We now have a piece of code that can find the first word in the buffer, so the
+next step is to see if we can find <em>all</em> of the words in the buffer. To do this,
+let's evaluate the search as part of a <em>while loop</em>. I think this will work:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cl" data-lang="cl">(save-excursion
+  (goto-char <span style="color:#ae81ff">0</span>)
+  (while (re-search-forward <span style="color:#e6db74">&#34;\\w+&#34;</span> (point-max) <span style="color:#66d9ef">t</span>)
+    (match-string-no-properties <span style="color:#ae81ff">0</span>)))
+</code></pre></div><p>The only problem is, if you run this piece of code, it will happily go about its
+business matching words (hopefully) and give you no feedback at all. Well, if it
+works perfectly, it will finally return the very last word matched, but there is
+a lot of uncertainty there.</p>
+<p>Rather than being uncertain, I always prefer to be certain. The simplest way to
+reach certainty with this loop is with <em>a crash course in the Elisp debugger</em>.</p>
+<p>We can trigger the debugger by calling <code>debug</code>, so let's do that within the
+loop:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cl" data-lang="cl">(save-excursion
+  (goto-char <span style="color:#ae81ff">0</span>)
+  (while (re-search-forward <span style="color:#e6db74">&#34;\\w+&#34;</span> (point-max) <span style="color:#66d9ef">t</span>)
+    (debug)
+    (match-string-no-properties <span style="color:#ae81ff">0</span>)))
+</code></pre></div><p>When you evaluate this statement, the debugger window will open
+immediately. There are only a couple of keystrokes in the debugger that you need
+to know, and those are:</p>
+<ul>
+<li><code>d</code>: Step through</li>
+<li><code>c</code>: Continue</li>
+<li><code>e</code>: Eval expression</li>
+<li><code>q</code>: Top level (debugger code word for &ldquo;quit&rdquo;)</li>
+</ul>
+<p>There are several other commands, and as always you can learn about them by
+pressing <code>C-h m</code> from the debugger window to open the help for the current
+mode.</p>
+<p>When you enter the debugger, the <code>(while)</code> expression is at the top of the stack
+(because you broke within in). Press <code>d</code> repeatedly to step through the code and
+observe the return values of each expression.</p>
+<p>To prove that our code works, we can press <code>d</code> to step into the
+<code>match-string-no-properties</code> call. Pressing <code>d</code> again steps into
+<code>buffer-substring-no-properties</code>, which is used internally to get the text from
+the buffer, and then pressing <code>d</code> a third and final time reveals the return
+value of the expression on the top line of the debugger. Hopefully that is the
+first word in your scratch buffer!</p>
+<p>You can repeat this process a couple of times to see that the while loop is
+matching subsequent words in the buffer. <strong>Certainty restored!</strong></p>
+<h2 id="building-the-association-list">Building the Association List</h2>
+<p>The final piece of the puzzle is to accumulate the counts of these words in an
+association list that we can ultimately sort and return. Elisp does have support
+for a proper hash table data structure, but for this toy it seemed too heavy, so
+I went with the association list approach.</p>
+<p>There are a couple of caveats that I'll try to explain, but the point of this
+exercise is not to learn all of the ins and outs of Elisp, but rather to give
+you the tools you need to figure things out for yourself.</p>
+<p>Before going any further, I'd like to introduce you to a little guy called
+<code>let</code>. You will see <code>let</code> used all the time in Elisp code and it's important to
+understand what it does. The <code>let</code> form allows you to bind variables that only
+retain their values within that form. As an example:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cl" data-lang="cl">(<span style="color:#66d9ef">let</span> ((foo <span style="color:#e6db74">&#34;Hello&#34;</span>)
+      (bar <span style="color:#e6db74">&#34;World!&#34;</span>))
+  (message <span style="color:#e6db74">&#34;%s %s&#34;</span> foo bar))
+
+(message foo)
+</code></pre></div><p>Evaluating the first expression will print &ldquo;Hello World!&rdquo; in the minibuffer, but
+if you evaluate that entire block, the second form will result in an error
+because the symbol <code>foo</code> is not bound to any value outside of the <code>let</code>
+form. This gives you a way to create, essentially, &ldquo;local&rdquo; variables. It is
+polite to do this so that you don't clutter Emacs&rsquo; symbol table with temporary
+stuff.</p>
+<p>We'll use <code>let</code> to create a variable to hold our return value (which we'll call
+<code>words</code>), and then in each loop we'll either increment the value of the word's
+existing count or we'll push the new word onto the list.</p>
+<p>Here's what the final function looks like:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cl" data-lang="cl">(<span style="color:#66d9ef">let</span> ((words))
+  (save-excursion
+    (goto-char <span style="color:#ae81ff">0</span>)
+    (while (re-search-forward <span style="color:#e6db74">&#34;\\w+&#34;</span> (point-max) <span style="color:#66d9ef">t</span>)
+      (<span style="color:#66d9ef">let</span> ((word (match-string-no-properties <span style="color:#ae81ff">0</span>)))
+        (cl-incf (<span style="color:#a6e22e">cdr</span> (or (<span style="color:#a6e22e">assoc</span> word words)
+                          (<span style="color:#a6e22e">first</span> (push (<span style="color:#a6e22e">cons</span> word <span style="color:#ae81ff">0</span>) words)))))))
+    (<span style="color:#a6e22e">reverse</span> (<span style="color:#a6e22e">sort</span> words (lambda (a b) (<span style="color:#a6e22e">&lt;</span> (<span style="color:#a6e22e">cdr</span> a) (<span style="color:#a6e22e">cdr</span> b)))))))
+</code></pre></div><p>There are a couple of things worth explaining, but I'll leave the rest of the
+code interpretation as an exercise for the reader.</p>
+<p><code>cl-incf</code> is a <em>Lisp macro</em> provided by a library called <code>cl-lib.el</code>. This
+library provides a ton of useful functions that are found in the more powerful
+Common Lisp language and many Emacs packages depend on it. <code>cl-lib.el</code> is now
+part of Emacs, so you can freely use these macros and functions.</p>
+<p>{% infobox %}
+Many of the functions and macros in <code>cl-lib.el</code> are also aliased to their names
+without the <code>cl-</code> prefix (e.g. <code>incf</code>). <em>You are strongly encouraged</em> to use the
+<code>cl-</code> prefixed versions! Some day the aliases may be deprecated, so heed my
+warning.
+{% endinfobox %}</p>
+<p>Congratulations, you just built an Elisp expression that returns a sorted word
+frequency for the current buffer. This is useful, but you'll probably want to be
+able to run this code on demand, either by pressing a key or through a menu. To
+do that, we should put it into a function.</p>
+<h2 id="creating-functions">Creating Functions</h2>
+<p>Creating a function is very easy with the <code>defun</code> macro; you simply wrap up your
+S-expression and provide a list of arguments and a documentation string and
+you're off to the races.</p>
+<p>Here is what ours might look like:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cl" data-lang="cl">(defun air--get-word-frequency ()
+  <span style="color:#e6db74">&#34;Return an alist with counts for all words in the current buffer.&#34;</span>
+  (<span style="color:#66d9ef">let</span> ((words))
+    (save-excursion
+      (goto-char <span style="color:#ae81ff">0</span>)
+      (while (re-search-forward <span style="color:#e6db74">&#34;\\w+&#34;</span> (point-max) <span style="color:#66d9ef">t</span>)
+        (<span style="color:#66d9ef">let</span> ((word (match-string-no-properties <span style="color:#ae81ff">0</span>)))
+          (cl-incf (<span style="color:#a6e22e">cdr</span> (or (<span style="color:#a6e22e">assoc</span> word words)
+                            (<span style="color:#a6e22e">first</span> (push (<span style="color:#a6e22e">cons</span> word <span style="color:#ae81ff">0</span>) words)))))))
+      (<span style="color:#a6e22e">reverse</span> (<span style="color:#a6e22e">sort</span> words (lambda (a b) (<span style="color:#a6e22e">&lt;</span> (<span style="color:#a6e22e">cdr</span> a) (<span style="color:#a6e22e">cdr</span> b))))))))
+</code></pre></div><p>If you evaluate this expression, the function <code>air--get-word-frequency</code> will be
+created, and you'll be able to look up its definition with <code>C-h f air--get-word-frequency RET</code> just like any other function.</p>
+<p>There is no &ldquo;return&rdquo; statement in Elisp; functions return the last value
+evaluated, so in this case the result of evaluating <code>reverse</code> becomes the
+function's return value.</p>
+<p>Note that I have used my typical <code>air</code> prefix, which helps keep my functions
+separate from those of Emacs itself and all of my installed packages. If you're
+writing code to share, it's polite to use a unique prefix string of some kind.</p>
+<p>You'll also notice that I have used two hyphens after my unique prefix. This is
+an Elisp convention that indicates that this function is not meant to be used
+outside of its package. I have done this because this function returns a raw
+alist; it isn't very useful to call on its own, and Emacs will truncate that
+data when displaying it to you.</p>
+<p>To make this function more useful, let's make a separate function that we can
+call from a key binding that will display the results in a human-readable
+way. This will also introduce some other wonderful Elisp helpers.</p>
+<h2 id="interactive-functions">Interactive Functions</h2>
+<p>This is what our callable function looks like:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cl" data-lang="cl">(defun air-show-word-frequency ()
+  <span style="color:#e6db74">&#34;Display a word frequency analysis for the current buffer.&#34;</span>
+  (interactive)
+  (<span style="color:#66d9ef">let*</span> ((buf (get-buffer-create <span style="color:#e6db74">&#34;*Word Frequency*&#34;</span>))
+         (word-freq (air--get-word-frequency))
+         (text (concat <span style="color:#e6db74">&#34;Word\t\tCount\n----\t\t-----\n&#34;</span>
+                       (mapconcat (lambda (word)
+                                    (<span style="color:#a6e22e">format</span> <span style="color:#e6db74">&#34;%s\t\t%s&#34;</span> (<span style="color:#a6e22e">car</span> word) (<span style="color:#a6e22e">cdr</span> word)))
+                                  word-freq <span style="color:#e6db74">&#34;\n&#34;</span>))))
+    (with-current-buffer buf
+      (erase-buffer)
+      (insert text)
+      (goto-char <span style="color:#ae81ff">0</span>))
+    (pop-to-buffer buf)))
+</code></pre></div><p>There are some new and interesting things going on here, and I invite you to
+explore and experiment, but I will explain the most important ones.</p>
+<ul>
+<li>
+<p>The <code>interactive</code> call immediately after the docstring is <strong>required</strong> if
+you wish to call this function from a key binding. For more information about
+this interesting and useful function, press <code>C-h f interactive RET</code>.</p>
+</li>
+<li>
+<p>I am using a modified form of <code>let</code> called <code>let*</code>. The star version forces
+each symbol assignment to occur <em>in the order written</em>. Note that the value of
+<code>text</code> refers to the value of <code>word-freq</code>; if you do not use a <code>let*</code> form,
+you can (and likely will) get &ldquo;unbound symbol&rdquo; errors.</p>
+</li>
+</ul>
+<p>You will notice right away that I'm creating a new buffer for this. Buffers are
+like the national currency of Emacs; they are used for much more than simply
+displaying information to the user, although that is one of their primary
+functions.</p>
+<p>The <code>with-current-buffer</code> form is a convenient way to evaluate expressions with
+the named buffer temporarily &ldquo;current.&rdquo; Functions like <code>insert</code> operate on the
+current buffer, so this gives you a way to say &ldquo;go run all of these things
+against the other buffer, then set everything back the way it was.&rdquo;</p>
+<p>Now you can go ahead and bind a key to this function, if you want. You would
+accomplish that using <code>define-key</code>, for example, like this:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cl" data-lang="cl">(define-key global-map (kbd <span style="color:#e6db74">&#34;C-c w c&#34;</span>) <span style="color:#e6db74">&#39;air-show-word-frequency</span>)
+</code></pre></div><p>You can evaluate that expression and then press <code>C-c w c</code> to show the word count
+for the current buffer.</p>
+<h2 id="congratulations">Congratulations!</h2>
+<p>You've made it through another <strong>2,900 words</strong> about Emacs! Your dedication and
+attention are literally awe-inspiring.</p>
+<p>If you have followed along closely, you now know how to:</p>
+<ul>
+<li>
+<p>Interact with Elisp code live, within Emacs,</p>
+</li>
+<li>
+<p>Debug Elisp code interactively using Debugger Mode, and</p>
+</li>
+<li>
+<p>Define Elisp functions that you can call from other functions and
+interactively from key bindings</p>
+</li>
+</ul>
+<p>You should also have learned some new Elisp tricks for working with alists,
+buffers, and more! There are so many functions in the standard library that it
+will take you some time to get comfortable. Always remember to use the <code>C-h f</code>
+menu to search for commands (this is easier if you're using Helm, <em>which you
+really should be</em>).</p>
+<p>If I've left any stones un-turned, please leave a comment below. Do me a favor,
+though, and explore on your own before asking for Elisp help; I'm happy to
+provide assistance, but try Google first!</p>
+
+
+</article>
+
+
+<section class="post-nav">
+    <ul>
+        
+        <li>
+            <a href="http://example.org/post/2016/08/06t100654/0400/what-is-good-software/"><i class="fa fa-chevron-circle-left"></i> what is good software</a>
+        </li>
+        
+        
+        <li>
+            <a href="http://example.org/post/2016/09/24t124659/0400/an-agenda-for-life-with-org-mode/">an agenda for life with org mode <i class="fa fa-chevron-circle-right"></i> </a>
+        </li>
+        
+    </ul>
+</section>
+    
+
+
+
+
+
+</main>
+    <footer>
+        <h6> |
+            Rendered by <a href="https://gohugo.io" title="Hugo">Hugo</a> |
+            <a href="http://example.org/index.xml">Subscribe </a></h6>
+    </footer>
+</div>
+<script src="/js/scripts.js"></script>
+
+</body>
+
+</html>
+

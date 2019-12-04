@@ -1,0 +1,196 @@
+<!doctype html>
+
+<html lang="en-us">
+
+<head>
+  <title>My New Hugo Site</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="The HTML5 Herald" />
+  <meta name="author" content="" /><meta name="generator" content="Hugo 0.60.1" />
+    
+
+  <meta property="og:title" content="escaping the tar pit" />
+<meta property="og:description" content="If you don&#39;t know by now, I&#39;m sort of a personal efficiency maven. I don&#39;t like to waste keystrokes, I&#39;m always experimenting with different key bindings and shortcuts, and I feel almost personally offended when I see someone reach for their mouse to click a button that I know has a keyboard equivalent.
+But this isn&#39;t about my pet peeves; this is about tuning yourself in to the improvements you can make on a daily basis that will increase your lifetime efficiency dramatically." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://example.org/post/2016/04/07t064259/0400/escaping-the-tar-pit/" />
+<meta property="article:published_time" content="2016-04-07T06:42:59-04:00" />
+<meta property="article:modified_time" content="2016-04-07T06:42:59-04:00" />
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="escaping the tar pit"/>
+<meta name="twitter:description" content="If you don&#39;t know by now, I&#39;m sort of a personal efficiency maven. I don&#39;t like to waste keystrokes, I&#39;m always experimenting with different key bindings and shortcuts, and I feel almost personally offended when I see someone reach for their mouse to click a button that I know has a keyboard equivalent.
+But this isn&#39;t about my pet peeves; this is about tuning yourself in to the improvements you can make on a daily basis that will increase your lifetime efficiency dramatically."/>
+
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css" />
+  <script src="https://kit.fontawesome.com/b76b73e8e8.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Slab|Ruda" />
+  <link rel="stylesheet" type="text/css" href="/css/styles.css" /></head>
+
+<body>
+  <div id="container">
+    <header>
+      <h1>
+                <a href="/">My New Hugo Site</a>
+            </h1>
+
+      <ul id="social-media">
+      </ul>
+      
+    </header>
+
+    
+<nav>
+    <ul>
+        
+    </ul>
+</nav>
+
+    <main>
+
+
+
+
+<article>
+
+    <h1>rbenv for the win</h1>
+
+    
+        <aside>
+    <ul>
+        <li>
+            <time class="post-date" datetime="2013-03-08T00:00:00Z">Mar 8, 2013</time>
+        </li>
+        
+
+        
+
+        <li>5 minutes read</li>
+    </ul>
+</aside>
+
+    
+
+    <p>I'm sure that this is not news to many of you, but rbenv is awesome. Because I
+faced some challenges along the way while setting up this Octopress blog
+environment and have now gone through the motions on both my Mac laptop and
+Linux desktop, I am going to take a few minutes to share my findings.</p>
+<p>If you have no interest in using Ruby, you can move along.<del>MORE</del></p>
+<h2 id="what-is-rbenv">What is rbenv?</h2>
+<p>For those who don't know, rbenv is a sort of *NIX-oriented way of creating a
+Ruby walled garden with the precise version of Ruby itself and its associated
+gems captured in a way that doesn't affect the rest of your system. Primarily,
+this allows you to indicate a specific Ruby version that your application
+requires and ensure that it doesn't change. You can feel free to upgrade your
+system's Ruby distribution and it will not meddle with your application.</p>
+<p>As an added bonus, gem-based tools like bundler are also captured and
+controlled by rbenv so you don't have conflicts with your system installation
+of bundler, for example. Getting all of this to work is actually not too hard,
+but it can be more of a challenge if you have, just for example, a Mac laptop
+that has had several Ruby applications run on it in the past and a muddle of
+bizarre gems scattered all around.</p>
+<p>The general methodology of rbenv is very similar to Python's virtualenv (which
+serves essentially the same purpose on the Python side of the fence). You
+build Ruby itself into a specific location, load some path-management commands
+into one of your shell configuration scripts, and then whenever you run ruby,
+bundle, gem, etc., you actually run a &ldquo;shim&rdquo; command that rbenv provides,
+which redirects all of the internal Ruby path settings (classpath, basically)
+to find the precise stuff you're looking for.</p>
+<p>Moreover, a handy little <code>.ruby-version</code> file is created in your application's
+directory when you choose a version, so that &ldquo;tag,&rdquo; if you will, lives
+alongside your app and can inform other people what version they will need to
+satisfy with their own rbenv environments.</p>
+<p>With rbenv and bundler combined, you can rest assured that all support
+libraries are sane and organized, which is pretty awesome.</p>
+<h2 id="installation">Installation</h2>
+<p>OK, so how do we install it?</p>
+<p>I won't go step-by-step through the instructions that are already out there,
+but I will link to everything you need and explain some of the caveats and
+semi-weirdness that I encountered.</p>
+<p>First, you need rbenv itself. If you are on a Mac, you should use Homebrew to
+install it, and that is covered in the <a href="https://github.com/sstephenson/rbenv">rbenv README</a>.</p>
+<p>If you are in some flavor of Debian or Ubuntu or probably Gentoo, you can get
+rbenv from your package management system du jour, maybe something like this:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo apt-get update
+$ sudo apt-get install rbenv
+</code></pre></div><p>Once that's installed, you are also going to want the <code>ruby-build</code> package
+also by Sam Stephenson, which streamlines the download and compilation of your
+selected version(s) of Ruby. This is covered on the
+<a href="https://github.com/sstephenson/ruby-build">ruby-build github page</a>, but I had some issue installing it as a plugin,
+which I'll cover next.</p>
+<p>I attempted to clone the project straight in <code>~/.rbenv/plugins/ruby-build</code> as
+instructed, but rbenv could never find the command. I would run <code>rbenv  install</code> and it would just tell me that the command could not be found. So I
+opted for the system-wide installation, which, at least in my case, is not a
+big deal because I'm the only user of the system. To do this, you clone the
+project wherever you want and run its installer script:</p>
+<p>{% infobox %}
+I finally figured this out; see
+<a href="/blog/2013/03/11/rbenv-revisited/">Rbenv revisited</a> for the details!
+{% endinfobox %}</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ git clone git://github.com/sstephenson/ruby-build ruby-build
+$ cd ruby-build
+$ sudo ./install.sh
+</code></pre></div><p>It will install the <code>ruby-build</code> executable into <code>/usr/local/bin</code> along with
+the <code>rbenv-install</code> and <code>rbenv-uninstall</code> plugin commands and then you can
+either run <code>ruby-build</code> itself, or run <code>rbenv install</code> to install new Ruby
+versions.</p>
+<h2 id="cautionary-notes">Cautionary notes</h2>
+<p>None of the rbenv black magic works without updating your shell initialization
+scripts. For most folks (I think), this is one of <code>.bash_profile</code>, <code>.profile</code>,
+or <code>.bashrc</code>. For those using other shells, you know what your initialization
+script is. The <a href="https://github.com/sstephenson/rbenv">rbenv README</a> goes into detail about that, but suffice it
+to say, you need to update these files and explicitly source them or restart
+your terminal session before things will work correctly.</p>
+<p>When it comes to building versions of Ruby, if you are using <code>ruby-build</code>
+directly as I am, you need to specify the installation location yourself. I
+recommend using the default location, <code>~/.rbenv/versions/&lt;version name&gt;</code>. So
+if you wanted to install 1.9.3-p392, you would run:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ ruby-build 1.9.3-p392 ~/.rbenv/versions/1.9.3-p392
+</code></pre></div><p>I'm fairly sure that you can name the destination directory however you'd
+like, but it seems to make sense to name it for the exact Ruby version. Once
+the build completes, you will be able to set the version for any directory
+using <code>rbenv version</code>.</p>
+<h2 id="thats-it">That's it</h2>
+<p>So that's about it. If I left anything out that you have questions about, or
+if I was&hellip; You know&hellip; Wrong&hellip; About anything&hellip; Please leave a comment
+below! I'll reply, I promise.</p>
+
+
+</article>
+
+
+<section class="post-nav">
+    <ul>
+        
+        <li>
+            <a href="http://example.org/post/2013/03/07/first-octopress-post/"><i class="fa fa-chevron-circle-left"></i> first octopress post</a>
+        </li>
+        
+        
+        <li>
+            <a href="http://example.org/post/2013/03/08/github-resume-is-so-cool/">github resume is so cool <i class="fa fa-chevron-circle-right"></i> </a>
+        </li>
+        
+    </ul>
+</section>
+    
+
+
+
+
+
+</main>
+    <footer>
+        <h6> |
+            Rendered by <a href="https://gohugo.io" title="Hugo">Hugo</a> |
+            <a href="http://example.org/index.xml">Subscribe </a></h6>
+    </footer>
+</div>
+<script src="/js/scripts.js"></script>
+
+</body>
+
+</html>
+

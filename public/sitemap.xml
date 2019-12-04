@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>http://example.org/</loc>
+    <lastmod>2017-08-26T11:06:23-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/post/</loc>
+    <lastmod>2017-08-26T11:06:23-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/post/2017/08/26t110623/0400/the-right-tool-for-the-job/</loc>
+    <lastmod>2017-08-26T11:06:23-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/post/2017/03/19t104012/0400/organizing-notes-with-refile/</loc>
+    <lastmod>2017-03-19T10:40:12-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/post/2016/12/29t162020/0500/don-t-use-terminal-emacs/</loc>
+    <lastmod>2016-12-29T16:20:20-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/post/2016/11/24t085724/0500/org-capture-from-anywhere-on-your-mac/</loc>
+    <lastmod>2016-11-24T08:57:24-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/post/2016/11/23t140211/0500/creating-org-mode-structure-templates/</loc>
+    <lastmod>2016-11-23T14:02:11-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/post/2016/09/25t112859/0400/agenda-interactions-primer/</loc>
+    <lastmod>2016-09-25T11:28:59-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/post/2016/09/24t124659/0400/an-agenda-for-life-with-org-mode/</loc>
+    <lastmod>2016-09-24T12:46:59-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/post/2016/08/07t154738/0400/getting-started-with-emacs-lisp/</loc>
+    <lastmod>2016-08-07T15:47:38-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/post/2016/08/06t100654/0400/what-is-good-software/</loc>
+    <lastmod>2016-08-06T10:06:54-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/post/2016/07/31t115616/0400/org-navigation-revisited/</loc>
+    <lastmod>2016-07-31T11:56:16-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/post/2016/04/07t064259/0400/escaping-the-tar-pit/</loc>
+    <lastmod>2016-04-07T06:42:59-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/post/2016/03/05t163507/0500/playing-tag-in-org-mode/</loc>
+    <lastmod>2016-03-05T16:35:07-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/post/2016/01/31t181237/0500/advanced-window-management-with-slate/</loc>
+    <lastmod>2016-01-31T18:12:37-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/post/2016/01/30t155904/0500/dig-into-org-mode/</loc>
+    <lastmod>2016-01-30T15:59:04-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/post/2016/01/23t174134/0500/introducing-octopress-el/</loc>
+    <lastmod>2016-01-23T17:41:34-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/post/2016/01/23t143411/0500/living-in-evil/</loc>
+    <lastmod>2016-01-23T14:34:11-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/post/2015/08/04t104548/0400/authoring-emacs-packages/</loc>
+    <lastmod>2015-08-04T10:45:48-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/post/2015/07/14t080519/0400/what-ive-learned-from-20-000-php-files/</loc>
+    <lastmod>2015-07-14T08:05:19-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/post/2015/07/05t130622/0400/a-gentle-introduction-to-emacs-configuration/</loc>
+    <lastmod>2015-07-05T13:06:22-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/post/2015/06/13t063526/0400/shadow-it-is-the-canary-in-the-coal-mine/</loc>
+    <lastmod>2015-06-13T06:35:26-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/post/2015/06/03t201647/0400/evil-mode/</loc>
+    <lastmod>2015-06-03T20:16:47-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/post/2015/05/25t215817/0400/dont-be-typecast-by-php/</loc>
+    <lastmod>2015-05-25T21:58:17-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/post/2015/05/24t170407/0400/from-vim-to-emacs-in-fourteen-days/</loc>
+    <lastmod>2015-05-24T17:04:07-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/post/2015/01/17/learning-to-love-emacs/</loc>
+    <lastmod>2015-01-17T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/post/2014/02/12/sharpening-your-blades/</loc>
+    <lastmod>2014-02-12T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/post/2013/12/03/master-vim-registers-with-ctrl-r/</loc>
+    <lastmod>2013-12-03T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/post/2013/11/19/why-you-should-give-zsh-another-try/</loc>
+    <lastmod>2013-11-19T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/post/2013/10/24/test-complex-vim-settings-easily/</loc>
+    <lastmod>2013-10-24T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/post/2013/04/24/type-like-optimus-prime-the-mechanical-keyboard-renaissance/</loc>
+    <lastmod>2013-04-24T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/post/2013/04/08/why-python-is-your-tooling-language-of-choice/</loc>
+    <lastmod>2013-04-08T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/post/2013/04/06/c-star-music-player-is-my-new-best-friend/</loc>
+    <lastmod>2013-04-06T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/post/2013/03/16/configure-your-old-airport-express-in-mountain-lion/</loc>
+    <lastmod>2013-03-16T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/post/2013/03/14/amazon-cloud-player-vs-google-play/</loc>
+    <lastmod>2013-03-14T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/post/2013/03/12/dmenu-plus-xft-equals-awesome/</loc>
+    <lastmod>2013-03-12T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/post/2013/03/11/rbenv-revisited/</loc>
+    <lastmod>2013-03-11T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/post/2013/03/09/macvim-fullscreen-paradise/</loc>
+    <lastmod>2013-03-09T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/post/2013/03/08/github-resume-is-so-cool/</loc>
+    <lastmod>2013-03-08T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/post/2013/03/08/rbenv-for-the-win/</loc>
+    <lastmod>2013-03-08T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/post/2013/03/07/first-octopress-post/</loc>
+    <lastmod>2013-03-07T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/post/2013/03/07/i-love-git-a-lot/</loc>
+    <lastmod>2013-03-07T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/post/as-promised-vim-musings/</loc>
+  </url>
+  
+  <url>
+    <loc>http://example.org/categories/</loc>
+  </url>
+  
+  <url>
+    <loc>http://example.org/post/2013/01/31/oh-did-you-want-to-see-your-changes-in-sinatra/</loc>
+  </url>
+  
+  <url>
+    <loc>http://example.org/post/2012/12/13/rediscovering-the-linux-desktop/</loc>
+  </url>
+  
+  <url>
+    <loc>http://example.org/post/2013/01/14/run-your-own-private-shared-git-repository/</loc>
+  </url>
+  
+  <url>
+    <loc>http://example.org/tags/</loc>
+  </url>
+  
+  <url>
+    <loc>http://example.org/post/welcome-to-my-chronicle/</loc>
+  </url>
+  
+</urlset>

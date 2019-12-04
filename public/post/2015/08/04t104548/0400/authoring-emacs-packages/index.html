@@ -1,0 +1,308 @@
+<!doctype html>
+
+<html lang="en-us">
+
+<head>
+  <title>My New Hugo Site</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="The HTML5 Herald" />
+  <meta name="author" content="" /><meta name="generator" content="Hugo 0.60.1" />
+    
+
+  <meta property="og:title" content="escaping the tar pit" />
+<meta property="og:description" content="If you don&#39;t know by now, I&#39;m sort of a personal efficiency maven. I don&#39;t like to waste keystrokes, I&#39;m always experimenting with different key bindings and shortcuts, and I feel almost personally offended when I see someone reach for their mouse to click a button that I know has a keyboard equivalent.
+But this isn&#39;t about my pet peeves; this is about tuning yourself in to the improvements you can make on a daily basis that will increase your lifetime efficiency dramatically." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://example.org/post/2016/04/07t064259/0400/escaping-the-tar-pit/" />
+<meta property="article:published_time" content="2016-04-07T06:42:59-04:00" />
+<meta property="article:modified_time" content="2016-04-07T06:42:59-04:00" />
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="escaping the tar pit"/>
+<meta name="twitter:description" content="If you don&#39;t know by now, I&#39;m sort of a personal efficiency maven. I don&#39;t like to waste keystrokes, I&#39;m always experimenting with different key bindings and shortcuts, and I feel almost personally offended when I see someone reach for their mouse to click a button that I know has a keyboard equivalent.
+But this isn&#39;t about my pet peeves; this is about tuning yourself in to the improvements you can make on a daily basis that will increase your lifetime efficiency dramatically."/>
+
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css" />
+  <script src="https://kit.fontawesome.com/b76b73e8e8.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Slab|Ruda" />
+  <link rel="stylesheet" type="text/css" href="/css/styles.css" /></head>
+
+<body>
+  <div id="container">
+    <header>
+      <h1>
+                <a href="/">My New Hugo Site</a>
+            </h1>
+
+      <ul id="social-media">
+      </ul>
+      
+    </header>
+
+    
+<nav>
+    <ul>
+        
+    </ul>
+</nav>
+
+    <main>
+
+
+
+
+<article>
+
+    <h1>authoring emacs packages</h1>
+
+    
+        <aside>
+    <ul>
+        <li>
+            <time class="post-date" datetime="2015-08-04T10:45:48-04:00">Aug 4, 2015</time>
+        </li>
+        
+
+        
+
+        <li>10 minutes read</li>
+    </ul>
+</aside>
+
+    
+
+    <p>Have you extended Emacs in a novel way? Do you want to share your creation with
+the wide world of Emacs users? Well then, you will need to learn how to create a
+proper Emacs package.</p>
+<p>Packaging for Emacs is generally pretty easy and there is a lot of help
+available, both within Emacs itself and obviously on the Internet. There are a
+few things, though, that are conspicuously and annoyingly hard to find help with
+so I decided to document them for you.</p>
+<p>Come with me and learn how to create an Emacs Package from scratch.<del>MORE</del></p>
+<p>An Emacs package, at its most basic level, is just an Elisp file. For a long
+time, authors simply distributed &ldquo;.el&rdquo; files via their own websites or FTP sites
+and you were on your own to download them, put them somewhere on your local
+drive, and make sure that Emacs could find them.</p>
+<p>As you probably know, this isn't how it's done today. Now we have interactive
+package management built right into Emacs. Thanks to Tom Tromey, who originally
+wrote <code>package.el</code>, there is a standard and it has been broadly adopted. Which
+brings me to&hellip;</p>
+<h2 id="package-repositories">Package Repositories</h2>
+<p>If you already know about repositories and want to get down to it, skip over
+this section.</p>
+<p>If you want to build a package for Emacs right now, you probably want to target
+a popular Emacs package repository. The &ldquo;official&rdquo; repository is ELPA (Emacs
+Lisp Package Archive), but contributing to ELPA requires that you complete a
+Free Software Foundation copyright assignment document and also requires your
+software to comply with FSF copyright and licensing rules. If you wind up
+writing something that is amazingly popular and could end up being packaged
+within Emacs, you will have to cross that bridge. Until then, there are
+alternatives.</p>
+<p>The two other most popular repositories are MELPA and Marmalade. I will very
+briefly explain the difference.</p>
+<p>MELPA, or &ldquo;Milkypostman's Emacs Lisp Package Archive,&rdquo; was started by Donald
+Curtis (milkypostman on Github and elsewhere) but is also maintained by Steve
+Purcell. The great benefit of MELPA is that all submissions are reviewed by
+Steve or Donald and must meet some bare minimum of packaging standards before
+being merged. I've submitted two packages to MELPA and found the experience
+helpful and even pleasurable.</p>
+<p>Marmalade was started by Nic Ferrier and is a bit more like the wild west; you
+can get an account on the site, which then gives you access to upload
+packages. Provided that you meet some formatting requirements (which I'll
+explain below), your package is in.</p>
+<p>I suppose you could think of Marmalade as a self-service repository and MELPA as
+a bit more of a curated collection. MELPA strives to offer packages that don't
+overlap and that provide meaningful and useful functionality to Emacs. Marmalade
+is an infrastructure for centralizing the distribution of packages for authors
+who don't want to go through the ELPA legal process.</p>
+<h2 id="anatomy-of-a-package">Anatomy of a Package</h2>
+<p>As I said at the start, the bare minimum Emacs package is a single Elisp file,
+ending in the file extension <code>.el</code>. To distribute a single Elisp file, though,
+is impolite in this modern world; you should probably have at least:</p>
+<ol>
+<li>One or more Elisp files (both of my packages are single files).</li>
+<li>A README file; if you use Github, this is your Github landing page content.</li>
+<li>An Info manual.</li>
+</ol>
+<p>Of course, you may not need nor want a full Info manual if your package is quite
+simple, but figuring out how to author and distribute my package documentation
+in Info format was one of the most frustrating experiences that I encountered,
+so I will explain how it can be done.</p>
+<p>Before I get to that, though, let's talk about basic packaging requirements.</p>
+<h2 id="package-formatting">Package Formatting</h2>
+<p>Elisp scripts included in a package have some annotation requirements. These
+requirements, mostly concerning comments at the top of the files, are described
+in the Packaging chapter of the Emacs Info documentation. You can find it by
+pressing <code>C-h i</code> to open the Info reader and navigating to the &ldquo;Elisp&rdquo; manual,
+then the &ldquo;Packaging&rdquo; chapter within it. For the quite lazy, you can also
+<a href="http://www.gnu.org/software/emacs/manual/html_node/elisp/Packaging.html">read the manual online</a></p>
+<p>One of the things that Emacs documentation isn't great at is providing
+examples of real use. To save you a bit of time decrypting the standards, here
+is the bare minimum annotation you should add to your script files, lifted from
+my Octopress package:</p>
+<pre><code>;;; octopress.el --- A lightweight wrapper for Jekyll and Octopress.
+
+;; Copyright (C) 2015 Aaron Bieber
+
+;; Author: Aaron Bieber &lt;aaron@aaronbieber.com&gt;
+;; Version: 1.0
+;; Package-Requires ((cl-lib &quot;0.5&quot;))
+;; Keywords: octopress, blog
+;; URL: https://github.com/aaronbieber/octopress.el
+
+;;; Commentary:
+
+;; Octopress.el is a lightweight wrapper script to help you interact
+;; with Octopress blog site and the related Jekyll programs. This
+;; package is designed to be unobtrusive and to defer to Octopress and
+;; Jekyll as often as possible.
+
+;; This package was built with the assumption of Octopress 3.0 and
+;; will probably not work with previous (non-gem) versions of
+;; Octopress. Specifically, it expects to be able to use commands like
+;; `octopress new post` rather than the old-style `rake new_post[]`.
+
+;; Full documentation is available as an Info manual.
+
+;;; Code:
+</code></pre><p>Quite often, package authors include a license in this preamble. In this case, I
+opted for the simple copyright statement and will add specific license text
+later. If you submit your package to MELPA, the build system will lift a few
+bits from this heading to create your package's landing page on melpa.org. The
+URL and &ldquo;Commentary&rdquo; section are important in that respect.</p>
+<p>Here is what this looks like <a href="http://melpa.org/#/octopress">on melpa.org</a>. (NB:
+I might have changed the actual file since this post was written, but you can
+always read the real source code.)</p>
+<p>Finally, the very last line of your file should be:</p>
+<pre><code>;;; octopress.el ends here
+</code></pre><p>Where the &ldquo;octopress.el&rdquo; piece matches the very first line, of course.</p>
+<h3 id="getting-help">Getting Help</h3>
+<p>There are many more style conventions that you should follow in your actual
+Elisp code; too many to describe here. The easiest way to make sure your package
+fits nicely within the Emacs ecosystem is to install both &ldquo;flycheck,&rdquo; the
+on-the-fly syntax checker, and &ldquo;flycheck-package,&rdquo; a checker for Elisp package
+authors. With &ldquo;flycheck-mode&rdquo; activated and &ldquo;flycheck-package&rdquo; configured, you
+will get live warnings in your script files when you've done things wrong.</p>
+<h2 id="read-me">Read Me</h2>
+<p>Though it's slightly irritating to keep several versions of documentation in
+sync, each are important. The &ldquo;Commentary&rdquo; block is used by Emacs itself and the
+packaging systems and repositories; the README file is used by Github, of
+course; and the Info manual (described in the next section) is read by humans.</p>
+<p>It's polite to include a README file with any source code you distribute. The
+README has become such an entrenched convention that Neal Stephenson even wrote
+a book whose title, &ldquo;Reamde,&rdquo; parodies the concept. If you use Github, as it
+seems safe to presume that you do, the README is parsed and displayed on the
+landing page of your project.</p>
+<p>If you don't use Github, or don't care what your Github landing page looks like,
+you can skip the README file if you like. Historically, Emacs packages are
+documented solely within the &ldquo;Commentary&rdquo; sections of their source files, and
+that seems perfectly adequate to me.</p>
+<p>Of course, if you do provide a README file for use by Github, you can hint its
+format with a file extension like &ldquo;.md&rdquo; or &ldquo;.markdown&rdquo; so that Github parses the
+file into rich HTML and give your visitors the pleasure of some actual formatting.</p>
+<h2 id="building-documentation">Building Documentation</h2>
+<p>The standard format for Emacs packages (and Emacs itself, and basically every
+other GNU package) is Info. You can read about the Info format on the
+<a href="http://www.gnu.org/software/texinfo/manual/info-stnd/info-stnd.html#Top">Stand-alone GNU Info</a> manual page.</p>
+<h3 id="what-is-info">What Is Info?</h3>
+<p>Info itself is a text-based format providing cross-referencing, hierarchical
+organization, and some other features. To create a manual in Info format, you
+compose it in Texinfo format and use the <code>makeinfo</code> program to convert it to
+Info. Texinfo was designed to yield many formats, so an added benefit is that
+you can use <code>makeinfo</code> to make an HTML format manual as well.</p>
+<p>All of the GNU manual pages I've linked to online are HTML versions of their
+original Texinfo documents, and can be read directly within Emacs or with the
+standalone <code>info</code> reader in Info format.</p>
+<h3 id="creating-your-first-manual">Creating Your First Manual</h3>
+<p>As I explained above, manuals are distributed in Info format, but the best way
+to get your manual into the hands of your end user is to insert a directory
+entry in the main Emacs Info contents page (the page reached with <code>C-h i</code>). To
+do this requires a little fiddling, but the MELPA build system will take care of
+it for you if you simply include your manual in Texinfo format.</p>
+<p>My recommendation is to target MELPA for distribution and include your manual in
+Texinfo format. There are two major advantages here:</p>
+<ul>
+<li>For you, it makes the distribution easier; MELPA's build system will convert
+your Texinfo manual to Info format and generate the directory stub file that
+Emacs looks for when installing packages.</li>
+<li>For ambitious end users, it allows you to include only the original Texinfo
+file in your source control repository; anyone could take that and build other
+formats for themselves if they have preferences about how to read documentation.</li>
+</ul>
+<p>It's also, in my opinion, bad practice to include generated files in source
+control, especially when the distribution targets platforms that necessarily
+have the build mechanisms. Emacs ships with <code>makeinfo</code>, so there is really no
+reason to go do that transformation yourself and bundle its output.</p>
+<p>OK, so how do you create this &ldquo;.texi&rdquo; file? Easy, just learn Texinfo format!
+Don't worry, in spite of its familiar prefix, Texinfo is a lot simpler than
+LaTeX, and you only need a few pieces of boilerplate to make a manual that
+converts nicely into Info or HTML formats.</p>
+<h3 id="texinfo-crash-course">Texinfo Crash Course</h3>
+<p>Texinfo format provides special keywords that start with &ldquo;@&rdquo; symbols. These
+keywords can be single identifiers, like <code>@settitle</code>, which sets the title of
+the document, or block pairs, like <code>@titlepage</code> / <code>@end titlepage</code>, where the
+content between the start and end symbols has some special meaning.</p>
+<p>To get started writing a Texinfo manual for your package, create a new file in
+the root of your package with the extension &ldquo;.texi&rdquo;. It's customary to give it
+the same base name as your package. For example, if your package is called
+&ldquo;superfrobnicator,&rdquo; your manual would be called &ldquo;superfrobnicator.texi&rdquo;.</p>
+<p>Great, so what do you put in this file? Texinfo format is described in detail in
+<a href="http://www.gnu.org/software/texinfo/manual/texinfo/texinfo.html">its online manual</a>. Of particular importance is the section titled
+&ldquo;Beginning a Texinfo File.&rdquo;</p>
+<p>If you are authoring your Texinfo file in Emacs itself, which is certainly
+recommended, you can make use of &ldquo;Texinfo Mode,&rdquo; which gives you some handy
+shortcuts. Provided that you have <code>makeinfo</code> in your path, which you should, you
+can press <code>C-c C-m C-b</code> to &ldquo;make&rdquo; the whole buffer. This will run the contents
+of the current buffer through <code>makeinfo</code> with an Info format target, and open
+the resulting Info document in a new buffer within Emacs. You can proofread,
+navigate, and see what your end-user's experience will be like.</p>
+<p>Once you're satisfied, just commit the &ldquo;.texi&rdquo; file into source control so that
+it's included with the package destined for MELPA and let MELPA's build process
+take care of the rest! Users who install your package from MELPA will have your
+package's documentation linked from the main Emacs Info page.</p>
+<p>There are a few caveats to how this all comes together, so make sure to run a
+local MELPA build as described in the &ldquo;Contributing to MELPA&rdquo; section of MELPA's
+own README so that you can see any warnings or errors that might be thrown. In
+particular, there are certain expected values for tags like <code>@dircategory</code> and
+<code>@direntry</code> and certain acceptable formats. Everything is described in the
+documentation for Texinfo.</p>
+
+
+</article>
+
+
+<section class="post-nav">
+    <ul>
+        
+        <li>
+            <a href="http://example.org/post/2015/07/14t080519/0400/what-ive-learned-from-20-000-php-files/"><i class="fa fa-chevron-circle-left"></i> what ive learned from 20 000 php files</a>
+        </li>
+        
+        
+        <li>
+            <a href="http://example.org/post/2016/01/23t143411/0500/living-in-evil/">living in evil <i class="fa fa-chevron-circle-right"></i> </a>
+        </li>
+        
+    </ul>
+</section>
+    
+
+
+
+
+
+</main>
+    <footer>
+        <h6> |
+            Rendered by <a href="https://gohugo.io" title="Hugo">Hugo</a> |
+            <a href="http://example.org/index.xml">Subscribe </a></h6>
+    </footer>
+</div>
+<script src="/js/scripts.js"></script>
+
+</body>
+
+</html>
+

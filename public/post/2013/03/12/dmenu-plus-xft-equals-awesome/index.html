@@ -1,0 +1,179 @@
+<!doctype html>
+
+<html lang="en-us">
+
+<head>
+  <title>My New Hugo Site</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="The HTML5 Herald" />
+  <meta name="author" content="" /><meta name="generator" content="Hugo 0.60.1" />
+    
+
+  <meta property="og:title" content="escaping the tar pit" />
+<meta property="og:description" content="If you don&#39;t know by now, I&#39;m sort of a personal efficiency maven. I don&#39;t like to waste keystrokes, I&#39;m always experimenting with different key bindings and shortcuts, and I feel almost personally offended when I see someone reach for their mouse to click a button that I know has a keyboard equivalent.
+But this isn&#39;t about my pet peeves; this is about tuning yourself in to the improvements you can make on a daily basis that will increase your lifetime efficiency dramatically." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://example.org/post/2016/04/07t064259/0400/escaping-the-tar-pit/" />
+<meta property="article:published_time" content="2016-04-07T06:42:59-04:00" />
+<meta property="article:modified_time" content="2016-04-07T06:42:59-04:00" />
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="escaping the tar pit"/>
+<meta name="twitter:description" content="If you don&#39;t know by now, I&#39;m sort of a personal efficiency maven. I don&#39;t like to waste keystrokes, I&#39;m always experimenting with different key bindings and shortcuts, and I feel almost personally offended when I see someone reach for their mouse to click a button that I know has a keyboard equivalent.
+But this isn&#39;t about my pet peeves; this is about tuning yourself in to the improvements you can make on a daily basis that will increase your lifetime efficiency dramatically."/>
+
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css" />
+  <script src="https://kit.fontawesome.com/b76b73e8e8.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Slab|Ruda" />
+  <link rel="stylesheet" type="text/css" href="/css/styles.css" /></head>
+
+<body>
+  <div id="container">
+    <header>
+      <h1>
+                <a href="/">My New Hugo Site</a>
+            </h1>
+
+      <ul id="social-media">
+      </ul>
+      
+    </header>
+
+    
+<nav>
+    <ul>
+        
+    </ul>
+</nav>
+
+    <main>
+
+
+
+
+<article>
+
+    <h1>dmenu plus xft equals awesome</h1>
+
+    
+        <aside>
+    <ul>
+        <li>
+            <time class="post-date" datetime="2013-03-12T00:00:00Z">Mar 12, 2013</time>
+        </li>
+        
+
+        
+
+        <li>3 minutes read</li>
+    </ul>
+</aside>
+
+    
+
+    <p>Though I love my Macs, I often use Ubuntu. I have an old laptop running Ubuntu
+(which I'm typing this on right now) and I occasionally run Ubuntu in VMware
+Workstation or VMware Fusion just as an efficient alternative to Windows or
+when I'm doing something that is particularly Linux-friendly.</p>
+<p>My favorite window manager right now is Xmonad, a tiling window manager
+written in Haskell. I know very little of Haskell, which makes navigating its
+configuration files, which are Haskell scripts, somewhat daunting, but the
+window manager itself is simple and incredibly fast.</p>
+<p>There are two tools that everyone who uses Xmonad comes to love: xmobar and
+dmenu. The former places a persistent status bar at the top of the screen,
+which of course you can customize, and the latter is triggered by a keyboard
+shortcut and opens a one-line menu of programs in your path that is filtered
+as you type. The ultimate no-frills launcher.</p>
+<p>This is the story of how I finally got Xft (anti-aliased TrueType fonts)
+working in dmenu. It makes it look amazing. Seriously.<del>MORE</del></p>
+<p>In order to get dmenu to use Xft, you need to patch the source and compile it.
+Fortunately, the patch is provided for you. Download the dmenu source and the
+patch for the same version from the links below:</p>
+<ul>
+<li><a href="http://tools.suckless.org/dmenu/">Suckless Tools Dmenu</a></li>
+<li><a href="http://tools.suckless.org/dmenu/patches/xft">Dmenu Xft support</a></li>
+</ul>
+<p>Then all you have to do, in theory, is extract the source, apply the patch,
+and compile dmenu. Something like this:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ tar zxvf dmenu-4.5.tar.gz
+$ cd dmenu-4.5
+$ mv ../dmenu-4.5-xft.diff .
+$ patch -p1 &lt; dmenu-4.5-xft.diff
+$ make
+$ sudo make install
+</code></pre></div><p>The third line is assuming that the <code>dmenu-4.5.tar.gz</code> and
+<code>dmenu-4.5-xft.diff</code> files were downloaded or moved to the same location
+before you began. There are other ways to do it, but you get the idea, I hope.</p>
+<p>When I attempted to run this, in Ubuntu, it complained that it couldn't find
+freetype.h (or one of the other headers in the Freetype package). Funny, I'm
+sure I installed it.</p>
+<p>Make sure that you do install the Xft libraries themselves:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo apt-get install libxft-dev libxft2
+</code></pre></div><p>Once you've done that, you may still get an error because dmenu doesn't ship
+with a <code>configure</code> script that scours around to find the various dependencies,
+and on top of that, dmenu doesn't have an Xft dependency&hellip; Until you patch
+it. Then it does, but it doesn't know where to find the headers.</p>
+<p>Easily fixed!</p>
+<p>Edit the <code>config.mk</code> file in the dmenu package and find the line that looks
+like this:</p>
+<pre><code>INCS = -I${X11INC} ${XFTINC}
+</code></pre><p>And amend it so that it looks like this:</p>
+<pre><code>INCS = -I${X11INC} ${XFTINC} -I/usr/include/freetype2
+</code></pre><p>If you are running Ubuntu I am 99% sure this will work, but you should do a
+sanity check to make sure that <code>/usr/include/freetype2</code> exists and contains
+the freetype headers (like <code>freetype.h</code>).</p>
+<p>If you are certain you installed it but can't find them there, an easy way to
+sniff them out is:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo updatedb
+$ locate freetype.h
+</code></pre></div><p>Just replace my path with yours if it's different. Then you're on your way!</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ make
+$ sudo make install
+$ dmenu_path | dmenu -fn <span style="color:#e6db74">&#39;Inconsolata-10&#39;</span>
+</code></pre></div><p>That's assuming you have installed the wonderful Inconsolata typeface. If not,
+you should try it!</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo apt-get install fonts-inconsolata
+</code></pre></div><p>Now you're in dmenu anti-aliased font nirvana! Just add some colors and you'll
+feel even better:</p>
+<pre><code>dmenu_run -i -nb '#282b57' -nf '#eeeeff' -sb '#555a9e' -fn 'Inconsolata-10'
+</code></pre><p>Beautiful. Pat yourself on the back, that was great.</p>
+
+
+</article>
+
+
+<section class="post-nav">
+    <ul>
+        
+        <li>
+            <a href="http://example.org/post/2013/03/11/rbenv-revisited/"><i class="fa fa-chevron-circle-left"></i> rbenv revisited</a>
+        </li>
+        
+        
+        <li>
+            <a href="http://example.org/post/2013/03/14/amazon-cloud-player-vs-google-play/">amazon cloud player vs google play <i class="fa fa-chevron-circle-right"></i> </a>
+        </li>
+        
+    </ul>
+</section>
+    
+
+
+
+
+
+</main>
+    <footer>
+        <h6> |
+            Rendered by <a href="https://gohugo.io" title="Hugo">Hugo</a> |
+            <a href="http://example.org/index.xml">Subscribe </a></h6>
+    </footer>
+</div>
+<script src="/js/scripts.js"></script>
+
+</body>
+
+</html>
+

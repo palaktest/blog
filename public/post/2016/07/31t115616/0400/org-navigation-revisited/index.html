@@ -1,0 +1,359 @@
+<!doctype html>
+
+<html lang="en-us">
+
+<head>
+  <title>My New Hugo Site</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="The HTML5 Herald" />
+  <meta name="author" content="" /><meta name="generator" content="Hugo 0.60.1" />
+    
+
+  <meta property="og:title" content="escaping the tar pit" />
+<meta property="og:description" content="If you don&#39;t know by now, I&#39;m sort of a personal efficiency maven. I don&#39;t like to waste keystrokes, I&#39;m always experimenting with different key bindings and shortcuts, and I feel almost personally offended when I see someone reach for their mouse to click a button that I know has a keyboard equivalent.
+But this isn&#39;t about my pet peeves; this is about tuning yourself in to the improvements you can make on a daily basis that will increase your lifetime efficiency dramatically." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://example.org/post/2016/04/07t064259/0400/escaping-the-tar-pit/" />
+<meta property="article:published_time" content="2016-04-07T06:42:59-04:00" />
+<meta property="article:modified_time" content="2016-04-07T06:42:59-04:00" />
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="escaping the tar pit"/>
+<meta name="twitter:description" content="If you don&#39;t know by now, I&#39;m sort of a personal efficiency maven. I don&#39;t like to waste keystrokes, I&#39;m always experimenting with different key bindings and shortcuts, and I feel almost personally offended when I see someone reach for their mouse to click a button that I know has a keyboard equivalent.
+But this isn&#39;t about my pet peeves; this is about tuning yourself in to the improvements you can make on a daily basis that will increase your lifetime efficiency dramatically."/>
+
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css" />
+  <script src="https://kit.fontawesome.com/b76b73e8e8.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Slab|Ruda" />
+  <link rel="stylesheet" type="text/css" href="/css/styles.css" /></head>
+
+<body>
+  <div id="container">
+    <header>
+      <h1>
+                <a href="/">My New Hugo Site</a>
+            </h1>
+
+      <ul id="social-media">
+      </ul>
+      
+    </header>
+
+    
+<nav>
+    <ul>
+        
+    </ul>
+</nav>
+
+    <main>
+
+
+
+
+<article>
+
+    <h1>org navigation revisited</h1>
+
+    
+        <aside>
+    <ul>
+        <li>
+            <time class="post-date" datetime="2016-07-31T11:56:16-04:00">Jul 31, 2016</time>
+        </li>
+        
+
+        
+
+        <li>11 minutes read</li>
+    </ul>
+</aside>
+
+    
+
+    <p>In my previous post, [Playing Tag in Org Mode][tag], I talked about leveraging
+Org Mode's powerful tag system to help you find the notes or references you're
+looking for.</p>
+<p>Since then, I've refined my use of tags and begun making better use of Org
+Mode's custom ID abilities. In this post, I'll share the new navigation code
+I've written and show you how you can use custom IDs to link or jump directly to
+a specific item in your notes.</p>
+<p>Also, as a special treat, I will debut my latest Emacs package,
+[Tiny Menu][tiny-menu] (available right now on MELPA).<del>MORE</del></p>
+<h2 id="custom-ids">Custom IDs</h2>
+<p>Org Mode understands the notion of IDs, though by default I believe it only uses
+the primary <code>ID</code> property for synchronizing items with Mobile Org, a facility
+that to my mind is sorely lacking in functionality and that I abandoned long
+ago.</p>
+<p>Fortunately, there is also a property called <code>CUSTOM_ID</code>. Now, for the purposes
+of this exercise it actually doesn't matter what the property field is called;
+since I had to write a function to enumerate the property values myself, you
+could just as easily use a property with a different name.</p>
+<p>The goal is to give certain Org headings <strong>unique</strong> IDs and then create functions
+for easily:</p>
+<ol>
+<li>Jumping to the item with that ID, and</li>
+<li>Dropping an Org link at point to a selected ID.</li>
+</ol>
+<p>Let's start at the very beginning.</p>
+<h3 id="applying-custom-ids">Applying Custom IDs</h3>
+<p>To apply a custom ID to an item, simply call <code>org-set-property</code> with point on
+the item's heading or within its content area. I have that function bound to
+<code>&lt;leader&gt;p</code> using Evil Leader, but to each their own.</p>
+<p>If you are using Helm (<em>which you really should be</em>), you will be presented with
+a list of possible properties, and among them is <code>CUSTOM_ID</code>. Select that
+property and you will then be prompted for its value. It's up to you to keep the
+ID properties unique. If you are using Helm (<em>which you really should be</em>), you
+will see a narrowing list of values for this property and you'll know that your
+new value is unique because it will narrow to <strong>nothing</strong>.</p>
+<p>Once applied, your new property should look like this:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">* First item
+  :PROPERTIES:
+  :CUSTOM_ID: note-first-item
+  :END:
+  
+  The first item&#39;s content appears here.
+</code></pre></div><p>Congratulations, you can now apply <code>CUSTOM_ID</code> properties to your notes! That's
+swell, but how does this help you?</p>
+<h2 id="jumping-to-custom-ids">Jumping to Custom IDs</h2>
+<p>The most useful thing about unique custom IDs, for me, is jumping directly to a
+specific ID. I am an engineering manager and I have many people reporting to me,
+about whom I keep notes of our one-on-ones, reminders about their vacations, and
+so forth. Each person has a heading in my Org notes file and their <code>CUSTOM_ID</code>
+value is their Active Directory username (e.g. email name) preceded with <code>@</code>. By
+means of example, my custom ID would be <code>@abieber</code>.</p>
+<p>This is a perfect use of custom IDs because our Active Directory usernames must
+be unique across the organization and through time (AD names are not, at this
+point, ever recycled), so I don't need to worry about the uniqueness myself.</p>
+<p>To jump to a custom ID, you need two things:</p>
+<ol>
+<li>A catalog of all of the custom IDs that exist in all of your agenda files,
+and</li>
+<li>A function for selecting the ID and then jumping to it.</li>
+</ol>
+<p>Don't worry, I've already written them for you.</p>
+<h3 id="enumerate-all-custom-id-properties">Enumerate All Custom ID Properties</h3>
+<p>Based heavily upon an existing Org Mode function for enumerating <code>ID</code>
+properties, I've created a &ldquo;global custom IDs&rdquo; function, shown below:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cl" data-lang="cl">(defun air--org-global-custom-ids ()
+  <span style="color:#e6db74">&#34;Find custom ID fields in all org agenda files.&#34;</span>
+  (<span style="color:#66d9ef">let</span> ((files (org-agenda-files))
+        file
+        air-all-org-custom-ids)
+    (while (<span style="color:#66d9ef">setq</span> file (pop files))
+      (with-current-buffer (org-get-agenda-file-buffer file)
+        (save-excursion
+          (save-restriction
+            (widen)
+            (goto-char (point-min))
+            (while (re-search-forward <span style="color:#e6db74">&#34;^[ \t]*:CUSTOM_ID:[ \t]+\\(\\S-+\\)[ \t]*$&#34;</span>
+                                      <span style="color:#66d9ef">nil</span> <span style="color:#66d9ef">t</span>)
+              (add-to-list <span style="color:#e6db74">&#39;air-all-org-custom-ids</span>
+                           <span style="color:#f92672">`</span>(<span style="color:#f92672">,</span>(match-string-no-properties <span style="color:#ae81ff">1</span>)
+                             <span style="color:#f92672">,</span>(concat file <span style="color:#e6db74">&#34;:&#34;</span> (number-to-string (line-number-at-pos))))))))))
+    air-all-org-custom-ids))
+</code></pre></div><p>{% infobox %}
+As always, note that <code>air</code> is simply a &ldquo;namespace prefix&rdquo; to ensure uniqueness
+and that the double hyphen is a convention for indicating that the function is
+&ldquo;private&rdquo; to its package and isn't intended to be a part of the public API.
+{% endinfobox %}</p>
+<p>Calling this function will scan all of the Org files in <code>org-agenda-files</code> and
+return an alist that looks like this:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cl" data-lang="cl">((<span style="color:#e6db74">&#34;note-first-item&#34;</span> <span style="color:#e6db74">&#34;~/Dropbox/org/notes.org:1234&#34;</span>)
+ (<span style="color:#e6db74">&#34;note-second-item&#34;</span> <span style="color:#e6db74">&#34;~/Dropbox/org/notes.org:1245&#34;</span>))
+</code></pre></div><p>The keys in the resulting alist are the IDs themselves and the values are
+strings containing the Org filename and the line on which the ID appears
+separated by a colon.</p>
+<p>I thought about abstracting this function to parameterize the &ldquo;CUSTOM_ID&rdquo;
+property name, but it is written specifically to handle only unique values and I
+couldn't think of any other use cases, so I left it as-is for now. Org Mode
+already has facilities for searching for non-unique values and they work quite
+well.</p>
+<h3 id="making-the-jump">Making the Jump</h3>
+<p>Now that we can build up an enumeration of all of the available custom ID
+values, we can very easily present a narrowing list to aid selection and jump
+directly to the selected item. Again, fear not, I have written this for you
+already.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cl" data-lang="cl">(defun air-org-goto-custom-id ()
+  <span style="color:#e6db74">&#34;Go to the location of a custom ID, selected interactively.&#34;</span>
+  (interactive)
+  (<span style="color:#66d9ef">let*</span> ((all-custom-ids (air--org-global-custom-ids))
+         (custom-id (completing-read
+                     <span style="color:#e6db74">&#34;Custom ID: &#34;</span>
+                     all-custom-ids)))
+    (when custom-id
+      (<span style="color:#66d9ef">let*</span> ((val (<span style="color:#a6e22e">cadr</span> (<span style="color:#a6e22e">assoc</span> custom-id all-custom-ids)))
+             (id-parts (split-string val <span style="color:#e6db74">&#34;:&#34;</span>))
+             (file (<span style="color:#a6e22e">car</span> id-parts))
+             (line (string-to-int (<span style="color:#a6e22e">cadr</span> id-parts))))
+        (pop-to-buffer (org-get-agenda-file-buffer file))
+        (goto-char (point-min))
+        (forward-line line)
+        (org-reveal)
+        (org-up-element)))))
+</code></pre></div><p>The function is simple enough that it should be self-explanatory. We use the
+previous function to get an alist of all IDs, prompt for the desired ID using a
+<code>completing-read</code>, and then jump to the location indicated in the original
+alist, finally calling <code>org-up-element</code> so that point rests on the heading of
+the ID rather than on the property itself.</p>
+<p>I use this <strong>all the time</strong> to jump to the notes for big topics that I'm always
+revisiting or to the notes for each of my employees. Thanks to
+<code>completing-read</code> and Helm (<em>which you really should be using</em>), I don't even
+have to remember what they are or type them in their entirety.</p>
+<h2 id="linking-to-custom-ids">Linking to Custom IDs</h2>
+<p>Finally, I also sometimes like to reference one of those big topics or a
+specific employee in another TODO item, and it is very helpful to have an Org
+native link within that item so that I can jump to the reference quickly to
+refer to it or edit it.</p>
+<p>If you are unfamiliar with Org links, they are extremely powerful and the
+breadth of their capabilities is far beyond the scope of this post. Suffice it
+to say, <a href="http://orgmode.org/guide/Hyperlinks.html">RTFM</a>.</p>
+<p>A link to a custom ID could be an &ldquo;internal link&rdquo; (a link to a location in the
+same Org file), or an &ldquo;external link&rdquo; (a link to a location in a different Org
+file). For our purposes, we will assume that all links are external so that it
+doesn't matter which agenda file the ID is in nor where the link appears.</p>
+<p>The format of such a link is:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">[[file:/path/to/file.org::#id-value][Description]]
+</code></pre></div><p>A link destination can take a number of forms, but Org Mode provides a format
+specifically for <code>ID</code> or <code>CUSTOM_ID</code> values, as shown above. If you elect to use
+a different property for this, you can use the format
+<code>file:/path/to/file.org::1234</code>, where &ldquo;1234&rdquo; is the line number to link to.</p>
+<p>Building and inserting the link is very similar to jumping to it, except that we
+will use the ID's actual value in the link destination and description. Here is
+the function itself:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cl" data-lang="cl">(defun air-org-insert-custom-id-link ()
+  <span style="color:#e6db74">&#34;Insert an Org link to a custom ID selected interactively.&#34;</span>
+  (interactive)
+  (<span style="color:#66d9ef">let*</span> ((all-custom-ids (air--org-global-custom-ids))
+         (custom-id (completing-read
+                     <span style="color:#e6db74">&#34;Custom ID: &#34;</span>
+                     all-custom-ids)))
+    (when custom-id
+      (<span style="color:#66d9ef">let*</span> ((val (<span style="color:#a6e22e">cadr</span> (<span style="color:#a6e22e">assoc</span> custom-id all-custom-ids)))
+             (id-parts (split-string val <span style="color:#e6db74">&#34;:&#34;</span>))
+             (file (<span style="color:#a6e22e">car</span> id-parts))
+             (line (string-to-int (<span style="color:#a6e22e">cadr</span> id-parts))))
+        (org-insert-link <span style="color:#66d9ef">nil</span> (concat file <span style="color:#e6db74">&#34;::#&#34;</span> custom-id) custom-id)))))
+</code></pre></div><p>Now you can bind this function to a key and press it whenever you want to drop a
+link to an item that has a custom ID associated with it. Very handy! I don't use
+this as often as jumping to IDs, but when I do use it, it saves me boatloads of
+time.</p>
+<h2 id="binding-it-all-together">Binding It All Together</h2>
+<p>In my previous post, [Playing Tag in Org Mode][tag], I mentioned in passing that
+I'm running out of useful mnemonics to remember all of my related key
+bindings. I have what I consider to be an above-average ability to memorize new
+keystrokes for things, but functions that I use less often just don't get the
+benefit of muscle memory and without some kind of mnemonic device I just won't
+be able to recall.</p>
+<p>I have started to run into this with some of these Org Mode helpers, especially
+considering I'm now carrying the weight of all of Evil Mode (which after all
+these years feels as natural as typing straight QWERTY) as well as a lot of
+Emacs (I now press <code>C-c C-c</code> compulsively in other programs).</p>
+<p>Tools already exist to solve this in very innovative ways, and one such solution
+is the amazing <a href="https://github.com/abo-abo/hydra">Hydra</a> package. Hydra allows
+you to create chains of key commands with shared prefixes, branching off in
+different directions (hence the reference to the hydra, the multi-headed sea
+monster of Greek lore), and now you can even define visual menus similar to what
+you may be familiar with from Magit.</p>
+<p>Other packages rely on Hydra to provide that interface, and it is of interest to
+me, but I have not yet used Hydra for anything else and I wanted a very
+lightweight solution&hellip; So I wrote one.</p>
+<h3 id="introducing-tiny-menu">Introducing Tiny Menu</h3>
+<p>{% img noborder <a href="https://camo.githubusercontent.com/247cb7707c2dd5fb7b09cfabed6bf5200c71be58/687474703a2f2f6161726f6e6269656265722e636f6d2f6173736574732f696d616765732f74696e792d6d656e752d73637265656e73686f742e706e67">https://camo.githubusercontent.com/247cb7707c2dd5fb7b09cfabed6bf5200c71be58/687474703a2f2f6161726f6e6269656265722e636f6d2f6173736574732f696d616765732f74696e792d6d656e752d73637265656e73686f742e706e67</a> %}</p>
+<p>As its name implies, [Tiny Menu][tiny-menu]
+is&hellip; Tiny. Hydra weighs in at about 1,100 lines of code excluding preamble,
+which considering everything it does is impressive in its own right. Tiny Menu
+is 110 lines of code, and at least 15-20 of that is verbose function
+descriptions.</p>
+<p>The reason Tiny Menu is so small is because it can only display a series of
+single-letter options in the minibuffer. It doesn't pretend to be able to do
+even a quarter of the things that Hydra can do, but if you just want to chain a
+couple of key presses together and have a visual reminder of what's what, it
+could be a good option.</p>
+<p>Thanks to help from <a href="https://github.com/tslilc">Tslil Clingman on Github</a>, Tiny
+Menu natively supports chaining menus together (menu items that point to other
+menus), as well as menus that repeat (selecting a menu item executes that
+command and re-displays the same menu).</p>
+<p>Menus are defined declaratively with a relatively straightforward data
+structure, and there is a helper function for use in key bindings to keep them
+concise and readable. Read the documentation on
+[Tiny Menu's Github page][tiny-menu].</p>
+<h3 id="using-tiny-menu-in-org-mode">Using Tiny Menu in Org Mode</h3>
+<p>I have used Tiny Menu to set up a couple of useful menus to call some of my Org
+Mode jump and link functions. Here is a portion of my Tiny Menu setup focusing
+on the things I've talked about in this post:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cl" data-lang="cl">(<span style="color:#66d9ef">setq</span> tiny-menu-items
+      <span style="color:#f92672">&#39;</span>((<span style="color:#e6db74">&#34;org-things&#34;</span>   (<span style="color:#e6db74">&#34;Things&#34;</span>
+                         ((?t <span style="color:#e6db74">&#34;Tag&#34;</span>     org-tags-view)
+                          (?i <span style="color:#e6db74">&#34;ID&#34;</span>      air-org-goto-custom-id)
+                          (?k <span style="color:#e6db74">&#34;Keyword&#34;</span> org-search-view))))
+        (<span style="color:#e6db74">&#34;org-links&#34;</span>    (<span style="color:#e6db74">&#34;Links&#34;</span>
+                         ((?c <span style="color:#e6db74">&#34;Capture&#34;</span>   org-store-link)
+                          (?l <span style="color:#e6db74">&#34;Insert&#34;</span>    org-insert-link)
+                          (?i <span style="color:#e6db74">&#34;Custom ID&#34;</span> air-org-insert-custom-id-link))))))
+</code></pre></div><p>I have used global Evil normal mode maps as prefixes for these menus. The nice
+thing about Evil bindings is that they can automatically use non-prefix keys as
+prefixes; Evil negotiates that bit of Emacs errata for you. Here are the
+bindings for these menus:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cl" data-lang="cl">(evil-define-key <span style="color:#e6db74">&#39;normal</span> global-map (kbd <span style="color:#e6db74">&#34;\\ t&#34;</span>) (tiny-menu-run-item <span style="color:#e6db74">&#34;org-things&#34;</span>))
+(evil-define-key <span style="color:#e6db74">&#39;normal</span> global-map (kbd <span style="color:#e6db74">&#34;\\ l&#34;</span>) (tiny-menu-run-item <span style="color:#e6db74">&#34;org-links&#34;</span>))
+</code></pre></div><p>Now by pressing <code>\t</code>, I am presented with the <code>org-things</code> menu. To jump to a
+tag, I press <code>\t t</code>; to an ID, <code>\t i</code>; and to a keyword, <code>\t k</code>.</p>
+<p>I've also overridden Org Mode's default <code>C-c C-l</code> binding, which normally runs
+<code>org-insert-link</code>, to instead display the <code>org-links</code> menu. Thus, to insert a
+link, I press <code>C-c C-l l</code>, or, or insert a link to a custom ID by lookup I can
+instead press <code>C-c C-l i</code>.</p>
+<p>Tiny Menu is so small and fast that if you have finally memorized the next key
+in the sequence, you need not slow down to wait for a menu to appear, just press
+the keys at your normal speed. Nevertheless, the menu is there should you like
+to use one of its other less memorable options.</p>
+<h2 id="conclusions">Conclusions</h2>
+<p>In this post, I've talked about creating and using Custom IDs as global
+bookmarks and as links, and how to chain together related commands using
+[Tiny Menu][tiny-menu] to make navigating your Org files a breeze.</p>
+<p>As always, if you have any questions or feedback on anything here, leave a
+comment below! I have received many requests to dive deeper into my use of Org
+Mode and I expect this to be one in a series of posts where I dissect certain
+bits of it.</p>
+<p>[tag]: {% post_url 2016-03-05-playing-tag-in-org-mode %}
+[tiny-menu]: <a href="https://github.com/aaronbieber/tiny-menu.el">https://github.com/aaronbieber/tiny-menu.el</a></p>
+
+
+</article>
+
+
+<section class="post-nav">
+    <ul>
+        
+        <li>
+            <a href="http://example.org/post/2016/04/07t064259/0400/escaping-the-tar-pit/"><i class="fa fa-chevron-circle-left"></i> escaping the tar pit</a>
+        </li>
+        
+        
+        <li>
+            <a href="http://example.org/post/2016/08/06t100654/0400/what-is-good-software/">what is good software <i class="fa fa-chevron-circle-right"></i> </a>
+        </li>
+        
+    </ul>
+</section>
+    
+
+
+
+
+
+</main>
+    <footer>
+        <h6> |
+            Rendered by <a href="https://gohugo.io" title="Hugo">Hugo</a> |
+            <a href="http://example.org/index.xml">Subscribe </a></h6>
+    </footer>
+</div>
+<script src="/js/scripts.js"></script>
+
+</body>
+
+</html>
+

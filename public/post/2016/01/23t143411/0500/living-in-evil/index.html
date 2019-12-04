@@ -1,0 +1,330 @@
+<!doctype html>
+
+<html lang="en-us">
+
+<head>
+  <title>My New Hugo Site</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="The HTML5 Herald" />
+  <meta name="author" content="" /><meta name="generator" content="Hugo 0.60.1" />
+    
+
+  <meta property="og:title" content="escaping the tar pit" />
+<meta property="og:description" content="If you don&#39;t know by now, I&#39;m sort of a personal efficiency maven. I don&#39;t like to waste keystrokes, I&#39;m always experimenting with different key bindings and shortcuts, and I feel almost personally offended when I see someone reach for their mouse to click a button that I know has a keyboard equivalent.
+But this isn&#39;t about my pet peeves; this is about tuning yourself in to the improvements you can make on a daily basis that will increase your lifetime efficiency dramatically." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://example.org/post/2016/04/07t064259/0400/escaping-the-tar-pit/" />
+<meta property="article:published_time" content="2016-04-07T06:42:59-04:00" />
+<meta property="article:modified_time" content="2016-04-07T06:42:59-04:00" />
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="escaping the tar pit"/>
+<meta name="twitter:description" content="If you don&#39;t know by now, I&#39;m sort of a personal efficiency maven. I don&#39;t like to waste keystrokes, I&#39;m always experimenting with different key bindings and shortcuts, and I feel almost personally offended when I see someone reach for their mouse to click a button that I know has a keyboard equivalent.
+But this isn&#39;t about my pet peeves; this is about tuning yourself in to the improvements you can make on a daily basis that will increase your lifetime efficiency dramatically."/>
+
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css" />
+  <script src="https://kit.fontawesome.com/b76b73e8e8.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Slab|Ruda" />
+  <link rel="stylesheet" type="text/css" href="/css/styles.css" /></head>
+
+<body>
+  <div id="container">
+    <header>
+      <h1>
+                <a href="/">My New Hugo Site</a>
+            </h1>
+
+      <ul id="social-media">
+      </ul>
+      
+    </header>
+
+    
+<nav>
+    <ul>
+        
+    </ul>
+</nav>
+
+    <main>
+
+
+
+
+<article>
+
+    <h1>living in evil</h1>
+
+    
+        <aside>
+    <ul>
+        <li>
+            <time class="post-date" datetime="2016-01-23T14:34:11-05:00">Jan 23, 2016</time>
+        </li>
+        
+
+        
+
+        <li>10 minutes read</li>
+    </ul>
+</aside>
+
+    
+
+    <p>Evil Mode is a phenomenal tool; it's a better Vim than Vim. The only problem is,
+there are a lot of other great tools available in Emacs that don't get along
+well with Evil Mode, and if you don't set things up just right you can wind up
+with jumbled key bindings and unexpected behaviors.</p>
+<p>In this post I'll explain how I set up my configuration to use Evil Mode in all
+of the places where I want it, but none of the places where it gets in the
+way.<del>MORE</del></p>
+<h2 id="basic-configuration">Basic Configuration</h2>
+<p>{% infobox %}
+If you already have Evil working and you don't care how I load it into my Emacs,
+you can jump down to &ldquo;Brass Tacks.&rdquo;
+{% endinfobox %}</p>
+<p>First, I use John Wiegley's great
+<a href="https://github.com/jwiegley/use-package">use-package</a> system for importing
+packages into my Emacs. This simplifies my configuration by defining the
+packages I want, downloading them from MELPA or other repositories when they
+don't exist, and defining the configurations that should be applied both before
+and after the package has been loaded, all in one place.</p>
+<p>My Evil Mode configuration is pretty big, and you can read the whole thing <a href="https://github.com/aaronbieber/dotfiles/blob/master/configs/emacs.d/lisp/init-evil.el">in my
+Github repository here</a>, but for the sake of illustration I will use an
+abbreviated version in this post. Something like this:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cl" data-lang="cl">(<span style="color:#a6e22e">use-package</span> evil
+  <span style="color:#e6db74">:ensure</span> <span style="color:#66d9ef">t</span>
+  <span style="color:#e6db74">:config</span>
+  (evil-mode <span style="color:#ae81ff">1</span>)
+  <span style="color:#75715e">;; More configuration goes here</span>
+  )
+</code></pre></div><p>Here is a crash course in <code>use-package</code>: first you name the package you want to
+load (obviously); <code>:ensure t</code> means &ldquo;make sure this package is installed,&rdquo; which
+will try to install it from MELPA if it isn't found; and then everything in the
+<code>:config</code> section is evaluated right after <code>evil</code> is loaded.</p>
+<p>Here I'm just calling <code>evil-mode</code> to activate it, because I want it to be
+turned on globally, all the time.</p>
+<p>So the first thing I do in my own configuration is load four more packages that
+rely on Evil: <code>evil-leader</code>, <code>evil-surround</code>, and
+<code>evil-indent-textobject</code>. Because there is no sense in loading these if Evil
+isn't loaded, I nest their <code>use-package</code> calls within Evil's <code>:config</code>
+section. So now we have something like this:</p>
+<p>(NB: <code>evil-jumper</code> was merged into <code>evil-mode</code> itself in 2016, so you don't need
+to install that package any longer.)</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cl" data-lang="cl">(<span style="color:#a6e22e">use-package</span> evil
+  <span style="color:#e6db74">:ensure</span> <span style="color:#66d9ef">t</span>
+  <span style="color:#e6db74">:config</span>
+  (evil-mode <span style="color:#ae81ff">1</span>)
+
+  (<span style="color:#a6e22e">use-package</span> evil-leader
+    <span style="color:#e6db74">:ensure</span> <span style="color:#66d9ef">t</span>
+    <span style="color:#e6db74">:config</span>
+    (global-evil-leader-mode))
+
+  (<span style="color:#a6e22e">use-package</span> evil-surround
+    <span style="color:#e6db74">:ensure</span> <span style="color:#66d9ef">t</span>
+    <span style="color:#e6db74">:config</span>
+    (global-evil-surround-mode))
+
+  (<span style="color:#a6e22e">use-package</span> evil-indent-textobject
+    <span style="color:#e6db74">:ensure</span> <span style="color:#66d9ef">t</span>))
+</code></pre></div><p>It might occur to you, especially if you've already skimmed my real
+configuration, that this is too short. Where are all the key bindings and the
+special sauces and magical fairy dust that makes Evil behave itself?</p>
+<p>For whatever reason, I like terse <code>use-package</code> calls, so when a configuration
+gets to be the size of my Evil setup, I put all of it into a custom function and
+just call that function from the <code>:config</code> section of the <code>use-package</code>
+declaration. I have one for Evil and another one for Evil Leader, because both
+are pretty long.</p>
+<p>It's completely up to you whether you want to do that or not. My recommendation
+is to keep piling stuff into <code>:config</code> until you feel like it's too long to
+remain quite organized, or too hard to read, then start breaking it up into
+separate functions.</p>
+<h2 id="brass-tacks">Brass Tacks</h2>
+<p>Great, you've got Evil set up and now you're ready to make it play nice with
+other modes. The Evil package actually ships with some sensible default
+configuration for commonly used packages, like Magit (the Git porcelain inside
+Emacs; one of my favorite tools in the world).</p>
+<p>Because Magit itself provides a full complement of non-modified key bindings
+(that is, you don't hold &ldquo;control,&rdquo; &ldquo;meta,&rdquo; or &ldquo;shift&rdquo; for any of them), it
+doesn't make sense to let Evil assert its bindings in any of the Magit
+modes. To do this, Evil uses a special state. First, a recap of Vim
+states: Vim can be in one of five states:</p>
+<ul>
+<li>Normal</li>
+<li>Insert</li>
+<li>Visual</li>
+<li>Operator</li>
+<li>Replace</li>
+</ul>
+<p>We also call those &ldquo;modes&rdquo; in Vim parlance, but because &ldquo;mode&rdquo; has a very
+special meaning in the Emacs world, here we call them &ldquo;states.&rdquo; Evil adds two
+more states:</p>
+<ul>
+<li>Motion</li>
+<li>Emacs</li>
+</ul>
+<p>Motion state is only the movement keys and functions without any other normal
+mode capabilities (like entering the other states, deleting, etc.) The motion
+state is used for pure read-only scenarios, like the Info reader (<code>C-h i</code>).</p>
+<p>Emacs state is the important one. In Emacs state, all Evil key bindings are
+suspended and Emacs behaves as though Evil is not there at all. You can
+temporarily toggle Emacs state yourself by pressing <code>C-z</code>, and this can come in
+handy when a mode you don't use often has some key binding you want to access
+that Evil is overriding (you can figure that out by viewing the mode information
+in <code>C-h m</code>).</p>
+<h3 id="forcing-emacs-state">Forcing Emacs State</h3>
+<p>What we want is to automatically place certain modes into Emacs state by default
+so that we can use their native key bindings without turning Evil off and on,
+which would be super annoying. Fortunately, Evil has a built-in facility to do
+this in the form of a variable called <code>evil-emacs-state-modes</code>. The value of
+that variable is a list of mode names. If you enter a mode whose name is in that
+list, Evil will toggle to Emacs state automatically.</p>
+<p>It bears mentioning that there are also variables like
+<code>evil-insert-state-modes</code>, <code>evil-visual-state-modes</code>, and so on, if you wish to
+have some mode start in any of the available Evil states.</p>
+<p>As an example, there are three modes where I want to use Emacs state by default:
+<code>ag-mode</code>, <code>flycheck-error-list-mode</code>, and <code>git-rebase-mode</code>. To achieve this,
+all you have to do is call the built-in function <code>add-to-list</code> and add these
+values to the appropriate list variable. That looks like this:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cl" data-lang="cl">(add-to-list <span style="color:#e6db74">&#39;evil-emacs-state-modes</span> <span style="color:#e6db74">&#39;ag-mode</span>)
+(add-to-list <span style="color:#e6db74">&#39;evil-emacs-state-modes</span> <span style="color:#e6db74">&#39;flycheck-error-list-mode</span>)
+(add-to-list <span style="color:#e6db74">&#39;evil-emacs-state-modes</span> <span style="color:#e6db74">&#39;git-rebase-mode</span>)
+</code></pre></div><p>The apostrophes are Elisp shorthand for the &ldquo;quote&rdquo; function, which returns the
+given argument without evaluating it. In this case, we want to pass the
+variables and mode names themselves to <code>add-to-list</code>, not their values (the
+value of <code>evil-emacs-state-modes</code> is the list of those modes, and the value of
+the various mode functions are the functions themselves).</p>
+<p>Cool, so now these modes start in Emacs state right away, but it's kind of
+repetitive to type or paste <code>add-to-list</code> over and over, especially if you have
+many such modes. Elisp is a full programming language, so we can simplify it a
+bit:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cl" data-lang="cl">  (dolist (mode <span style="color:#f92672">&#39;</span>(ag-mode
+                  flycheck-error-list-mode
+                  git-rebase-mode))
+    (add-to-list <span style="color:#e6db74">&#39;evil-emacs-state-modes</span> mode))
+</code></pre></div><p>Figuring out how this works is left as an exercise for the reader, but the one
+thing I will mention here is the clever use of <code>'(foo bar baz)</code> to quote the
+whole list at once. You'll see that convention used all over the place in Elisp
+code.</p>
+<h3 id="adding-hjkl-bindings">Adding h/j/k/l Bindings</h3>
+<p>Emacs state is fabulous for modes like Magit, which have their own mature and
+sensible key bindings that you'll just love using and that almost feel a lot
+like Vim on their own. There are other modes, though, where you want to keep
+most of their bindings for special functions, but moving around with arrow keys
+makes you feel like a Visual Studio developer (and we can't have that).</p>
+<p>One such mode is <code>occur-mode</code>, which lets you see a summary of search results,
+similar to editors like Sublime Text. Occur has a bunch of default key bindings
+that overlap Evil's, such as <code>e</code>, which puts Occur into editing mode so that you
+can actually edit the results right there and the source file is changed
+simultaneously. It's a very powerful feature.</p>
+<p>What I want, though, is to be able to move around with h, j, k, and l as I do in
+Vim, but leave the rest of Occur's bindings alone. That is possible with a
+really nice Evil function called, sensibly, <code>evil-add-hjkl-bindings</code>.</p>
+<p>This function is quite versatile. It expects to receive a keymap (which is a
+special Emacs data structure), a state name to apply bindings to, and optionally
+a series of additional keys and functions they should call. More on that later.</p>
+<p>Here is my configuration for Occur:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cl" data-lang="cl">(evil-add-hjkl-bindings occur-mode-map <span style="color:#e6db74">&#39;emacs</span>
+  (kbd <span style="color:#e6db74">&#34;/&#34;</span>)       <span style="color:#e6db74">&#39;evil-search-forward</span>
+  (kbd <span style="color:#e6db74">&#34;n&#34;</span>)       <span style="color:#e6db74">&#39;evil-search-next</span>
+  (kbd <span style="color:#e6db74">&#34;N&#34;</span>)       <span style="color:#e6db74">&#39;evil-search-previous</span>
+  (kbd <span style="color:#e6db74">&#34;C-d&#34;</span>)     <span style="color:#e6db74">&#39;evil-scroll-down</span>
+  (kbd <span style="color:#e6db74">&#34;C-u&#34;</span>)     <span style="color:#e6db74">&#39;evil-scroll-up</span>
+  (kbd <span style="color:#e6db74">&#34;C-w C-w&#34;</span>) <span style="color:#e6db74">&#39;other-window</span>)
+</code></pre></div><p>This automatically applies the Evil h, j, k, and l bindings to <code>occur-mode-map</code>
+when I'm in Emacs state. Additionally, it defines some keys for a couple of
+other common Vim shortcuts that I often use in Occur and maps them to existing
+Evil functions.</p>
+<p>{% infobox %}
+<strong>A crash course on keymaps</strong></p>
+<p>Every major and minor mode has a keymap, even if it isn't used. When built-in
+functions are called to define new modes, default map variables are created
+using the name of the mode with <code>-map</code> added to the end.</p>
+<p>If you want to confirm that a certain keymap exists, first make sure the mode
+it's associated with is loaded, and then use <code>C-m v</code> to call the &ldquo;Describe
+variable&rdquo; function and enter the name of the map. If you have Helm installed,
+you will also see a narrowing list of variable names, which I use all the time
+to hunt down variables.
+{% endinfobox %}</p>
+<p>Sometimes you can get into a situation where one configuration relies on another
+piece of code to be loaded first. In the above example, I am assuming that Occur
+has been loaded and its keymap exists. Because Occur is part of the Emacs core,
+it's pretty much always loaded first, but this is sloppy coding on my part. A
+much more reliable way to make sure things run in order is to use hooks.</p>
+<h3 id="bonus-how-to-use-hooks">Bonus: How to Use Hooks</h3>
+<p>This isn't strictly related to Evil, but it's good to know as you build up your
+Emacs configuration. Hooks are just functions called at certain points in
+time. Much like keymaps, each major and minor mode will have hook variables
+defined automatically for it. The hook for a mode is called immediately after
+that mode is activated, so it's a great place to put any customization that
+relies on that mode being loaded.</p>
+<p>It's very common to make adjustments to a mode's keymap within the hook for that
+mode (because the keymap variable won't be defined until the mode is
+loaded). This also makes your configuration more efficient because you only run
+code in the situations where it's actually used.</p>
+<p>Emacs provides convenience functions for working with hooks, and the main one to
+know is <code>add-hook</code>. A hook is actually a list of functions that, when a mode is
+activated, are called in turn. Just like keymaps, hooks are automatically
+defined as the name of the mode with <code>-hook</code> appended.</p>
+<p>To set up the hjkl bindings in Occur mode only when Occur starts, you could
+write it like this:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cl" data-lang="cl">(add-hook <span style="color:#e6db74">&#39;occur-mode-hook</span>
+          (lambda ()
+            (evil-add-hjkl-bindings occur-mode-map <span style="color:#e6db74">&#39;emacs</span>
+              (kbd <span style="color:#e6db74">&#34;/&#34;</span>)       <span style="color:#e6db74">&#39;evil-search-forward</span>
+              (kbd <span style="color:#e6db74">&#34;n&#34;</span>)       <span style="color:#e6db74">&#39;evil-search-next</span>
+              (kbd <span style="color:#e6db74">&#34;N&#34;</span>)       <span style="color:#e6db74">&#39;evil-search-previous</span>
+              (kbd <span style="color:#e6db74">&#34;C-d&#34;</span>)     <span style="color:#e6db74">&#39;evil-scroll-down</span>
+              (kbd <span style="color:#e6db74">&#34;C-u&#34;</span>)     <span style="color:#e6db74">&#39;evil-scroll-up</span>
+              (kbd <span style="color:#e6db74">&#34;C-w C-w&#34;</span>) <span style="color:#e6db74">&#39;other-window</span>)))
+</code></pre></div><p>The <code>add-hook</code> function prepends the given function to the <code>occur-mode-hook</code>
+variable. In this case, I'm passing an anonymous function (or lambda) to
+<code>add-hook</code> because if I just put the <code>(evil-add-hjkl-bindings ...)</code> call there
+by itself, the result of calling that function would be passed to <code>add-hook</code> and
+it would complain about receiving the wrong variable type.</p>
+<h2 id="conclusions">Conclusions</h2>
+<p>So that's how I make Evil play nice with the various other modes that I use
+often. Of course there is a lot more in my configuration, which you're welcome
+to browse on Github, or if you have specific questions feel free to drop a
+comment below.</p>
+
+
+</article>
+
+
+<section class="post-nav">
+    <ul>
+        
+        <li>
+            <a href="http://example.org/post/2015/08/04t104548/0400/authoring-emacs-packages/"><i class="fa fa-chevron-circle-left"></i> authoring emacs packages</a>
+        </li>
+        
+        
+        <li>
+            <a href="http://example.org/post/2016/01/23t174134/0500/introducing-octopress-el/">introducing octopress el <i class="fa fa-chevron-circle-right"></i> </a>
+        </li>
+        
+    </ul>
+</section>
+    
+
+
+
+
+
+</main>
+    <footer>
+        <h6> |
+            Rendered by <a href="https://gohugo.io" title="Hugo">Hugo</a> |
+            <a href="http://example.org/index.xml">Subscribe </a></h6>
+    </footer>
+</div>
+<script src="/js/scripts.js"></script>
+
+</body>
+
+</html>
+

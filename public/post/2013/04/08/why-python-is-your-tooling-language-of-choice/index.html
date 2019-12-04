@@ -1,0 +1,168 @@
+<!doctype html>
+
+<html lang="en-us">
+
+<head>
+  <title>My New Hugo Site</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="The HTML5 Herald" />
+  <meta name="author" content="" /><meta name="generator" content="Hugo 0.60.1" />
+    
+
+  <meta property="og:title" content="escaping the tar pit" />
+<meta property="og:description" content="If you don&#39;t know by now, I&#39;m sort of a personal efficiency maven. I don&#39;t like to waste keystrokes, I&#39;m always experimenting with different key bindings and shortcuts, and I feel almost personally offended when I see someone reach for their mouse to click a button that I know has a keyboard equivalent.
+But this isn&#39;t about my pet peeves; this is about tuning yourself in to the improvements you can make on a daily basis that will increase your lifetime efficiency dramatically." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://example.org/post/2016/04/07t064259/0400/escaping-the-tar-pit/" />
+<meta property="article:published_time" content="2016-04-07T06:42:59-04:00" />
+<meta property="article:modified_time" content="2016-04-07T06:42:59-04:00" />
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="escaping the tar pit"/>
+<meta name="twitter:description" content="If you don&#39;t know by now, I&#39;m sort of a personal efficiency maven. I don&#39;t like to waste keystrokes, I&#39;m always experimenting with different key bindings and shortcuts, and I feel almost personally offended when I see someone reach for their mouse to click a button that I know has a keyboard equivalent.
+But this isn&#39;t about my pet peeves; this is about tuning yourself in to the improvements you can make on a daily basis that will increase your lifetime efficiency dramatically."/>
+
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css" />
+  <script src="https://kit.fontawesome.com/b76b73e8e8.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Slab|Ruda" />
+  <link rel="stylesheet" type="text/css" href="/css/styles.css" /></head>
+
+<body>
+  <div id="container">
+    <header>
+      <h1>
+                <a href="/">My New Hugo Site</a>
+            </h1>
+
+      <ul id="social-media">
+      </ul>
+      
+    </header>
+
+    
+<nav>
+    <ul>
+        
+    </ul>
+</nav>
+
+    <main>
+
+
+
+
+<article>
+
+    <h1>why python is your tooling language of choice</h1>
+
+    
+        <aside>
+    <ul>
+        <li>
+            <time class="post-date" datetime="2013-04-08T00:00:00Z">Apr 8, 2013</time>
+        </li>
+        
+
+        
+
+        <li>3 minutes read</li>
+    </ul>
+</aside>
+
+    
+
+    <p>{% img left /images/uploads/why-python/python_logo.gif %}</p>
+<p>Python is, by far, the language of your choosing when you need to build a
+toolchain of utilities that interact with local systems, servers, other
+software, running processes, and generally all things outside of your
+application development.</p>
+<p>I leave out application development because I still believe that when it comes
+to server-side application code that lives for exactly one user request, the
+best language is the one you are comfortable with. It may be Python, but it
+may also be Ruby, PHP, Scala, Erlang, Haskell, or one of those new-age sparkly
+languages such as Go or Rust.</p>
+<p>Yet, as you dig deeper into forking processes, maintaining a running state,
+cleaning up after yourself (I'm talking about memory, I will assume that you
+bathe), and generally <em>acting predictably</em>, Python is, without a doubt, your
+chosen language.</p>
+<p>Why? I'll tell you why.<del>MORE</del></p>
+<p>First off, Python, you've heard of it? I hope so. Python is interpreted but
+bytecode compiled, and runs in its own &ldquo;virtual machine&rdquo; or &ldquo;virtual
+environment.&rdquo; This gives it certain other advantages within the programming
+ecosystem but none of those are relevant to this conversation. It's easy to
+learn (relatively speaking) and enforces its scoping and nesting through
+indentation rather than curly braces or parentheses. This generally leads to
+cleaner (looking) code.</p>
+<p>So what makes Python a better tooling language? You can certainly write Python
+web applications, but they are probably not fundamentally any more efficient
+or maintainable than the spaghetti code you wrote in any of the other
+languages I mentioned above. Any application of sufficient size and age,
+regardless of the language, becomes a bit like the New York City Subway
+system&hellip; Layers of old and new tunnels, with homeless people living in
+some of them.</p>
+<p>Setting aside for a moment PHP's long-suffered garbage collection woes, many
+of which were resolved in at least the 5.3 release, and considering only
+language features themselves, the one thing that sets Python above the rest is
+the (somewhat new) <em>subprocess module</em>. Why is this awesome? Because shells
+suck.</p>
+<p>Don't get me wrong, I love shells. I'm in a shell right now and I prefer
+shells to almost everything else as a human being who needs to interact with
+computers. But when programs need to interact with one another, shells
+seriously suck.</p>
+<p>You should first read this nice explanation by Stefan Karpinski, which is
+focused more on the &ldquo;julia&rdquo; language but uses Ruby examples: <a href="http://julialang.org/blog/2012/03/shelling-out-sucks/">Shelling out
+sucks</a>.</p>
+<p>What it boils down to is that UNIX programs like to talk to each other through
+pipes, and the easiest way for anyone to create a pipe in any arbitrary
+language of their choosing is to wire them together using the shell
+environment, because the shell gives you these tools out-of-the-box.
+Unfortunately, there are plenty of ways that things can go Wrong(tm).</p>
+<p>In contrast, Python's subprocess module (which is now the only accepted method
+of interacting with external processes) can create the processes and wire up
+their pipes for you, without a shell in between. You can tell Python to use a
+shell, but it is strongly discouraged and in the majority of cases
+unnecessary.</p>
+<p>If you have not had occasion to run afoul of spawning external programs and
+reading their output or passing them input&hellip; You probably need to do more
+hobby programming. That said, keep Python in mind, it will make your life a
+lot easier.</p>
+
+
+</article>
+
+
+<section class="post-nav">
+    <ul>
+        
+        <li>
+            <a href="http://example.org/post/2013/04/06/c-star-music-player-is-my-new-best-friend/"><i class="fa fa-chevron-circle-left"></i> c star music player is my new best friend</a>
+        </li>
+        
+        
+        <li>
+            <a href="http://example.org/post/2013/04/24/type-like-optimus-prime-the-mechanical-keyboard-renaissance/">type like optimus prime the mechanical keyboard renaissance <i class="fa fa-chevron-circle-right"></i> </a>
+        </li>
+        
+    </ul>
+</section>
+    
+
+
+
+
+
+</main>
+    <footer>
+        <h6> |
+            Rendered by <a href="https://gohugo.io" title="Hugo">Hugo</a> |
+            <a href="http://example.org/index.xml">Subscribe </a></h6>
+    </footer>
+</div>
+<script src="/js/scripts.js"></script>
+
+</body>
+
+</html>
+

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  {{ partial "head.html" . }}
+<body>
+
+  <div id="main">
+    <div id="content">
+
+      <div class="blog-index">
+        {{ range $index, $page := first 10 site.RegularPages }}
+        <article>
+          <header>
+            <h1>{{ .Title | title }}</h1>
+            <p class="meta">
+              <span class="glyphicon glyphicon-calendar"></span> {{ .Date | dateFormat "January 1, 2020" }}
+            </p>
+          </header>
+        </article>
+
+
+        {{ end }}
+      </div>
+
+    </div>
+  </div>
+
+</body>
+</html>

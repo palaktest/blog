@@ -1,0 +1,266 @@
+<!doctype html>
+
+<html lang="en-us">
+
+<head>
+  <title>My New Hugo Site</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="The HTML5 Herald" />
+  <meta name="author" content="" /><meta name="generator" content="Hugo 0.60.1" />
+    
+
+  <meta property="og:title" content="escaping the tar pit" />
+<meta property="og:description" content="If you don&#39;t know by now, I&#39;m sort of a personal efficiency maven. I don&#39;t like to waste keystrokes, I&#39;m always experimenting with different key bindings and shortcuts, and I feel almost personally offended when I see someone reach for their mouse to click a button that I know has a keyboard equivalent.
+But this isn&#39;t about my pet peeves; this is about tuning yourself in to the improvements you can make on a daily basis that will increase your lifetime efficiency dramatically." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://example.org/post/2016/04/07t064259/0400/escaping-the-tar-pit/" />
+<meta property="article:published_time" content="2016-04-07T06:42:59-04:00" />
+<meta property="article:modified_time" content="2016-04-07T06:42:59-04:00" />
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="escaping the tar pit"/>
+<meta name="twitter:description" content="If you don&#39;t know by now, I&#39;m sort of a personal efficiency maven. I don&#39;t like to waste keystrokes, I&#39;m always experimenting with different key bindings and shortcuts, and I feel almost personally offended when I see someone reach for their mouse to click a button that I know has a keyboard equivalent.
+But this isn&#39;t about my pet peeves; this is about tuning yourself in to the improvements you can make on a daily basis that will increase your lifetime efficiency dramatically."/>
+
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css" />
+  <script src="https://kit.fontawesome.com/b76b73e8e8.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Slab|Ruda" />
+  <link rel="stylesheet" type="text/css" href="/css/styles.css" /></head>
+
+<body>
+  <div id="container">
+    <header>
+      <h1>
+                <a href="/">My New Hugo Site</a>
+            </h1>
+
+      <ul id="social-media">
+      </ul>
+      
+    </header>
+
+    
+<nav>
+    <ul>
+        
+    </ul>
+</nav>
+
+    <main>
+
+
+
+
+<article>
+
+    <h1>why you should give zsh another try</h1>
+
+    
+        <aside>
+    <ul>
+        <li>
+            <time class="post-date" datetime="2013-11-19T00:00:00Z">Nov 19, 2013</time>
+        </li>
+        
+
+        
+
+        <li>8 minutes read</li>
+    </ul>
+</aside>
+
+    
+
+    <p>If you're already a fan of &ldquo;the Z shell&rdquo; (zsh), you may not need to read any
+further. If, however, you're like me and have spent years in the Bourne Again
+shell (bash), it might be time to re-evaluate your choice.</p>
+<p>I have used bash for a long time and reached a fair proficiency level in it.
+I was doing things like looping over program output, filtering it, using
+utilities like <code>seq</code> and <code>wc</code> all the time. I could re-run commands from my
+history in more than one way and reverse-search them with Ctrl-R. None of this
+was news to me.</p>
+<p>But then someone told me about this Z shell configuration package called &ldquo;oh
+my zsh,&rdquo; and I decided to dangle my toes into the waters of the Z shell and
+see what it's all about. After all, the OS X terminal drops you into zsh by
+default; there must be something to it.</p>
+<p>I'm never going back.<del>MORE</del></p>
+<p>To begin, here are some specific reasons you should drop bash or tcsh or csh
+and use the Z shell:</p>
+<ol>
+<li>The number one reason to consider zsh as a replacement for the shell you
+already use is ubiquity. You're going to be much more likely to actually
+find zsh on any given machine than newfangled shells like &ldquo;fish.&rdquo; If you
+only ever use your own single personal computer this doesn't matter as
+much.</li>
+<li>The features, oh the features! The bulk of this post will be about these
+features so I will leave it at this for now. Suffice it to say, there are
+a couple of options that are so killer that I can never go back to bash.</li>
+<li>The &ldquo;oh my zsh&rdquo; system provides a further ecosystem of themes and
+extensions that other people maintain, giving you some awesome
+off-the-shelf capabilities as well as a very reasonable framework in which
+to create your own, if you wish.</li>
+</ol>
+<p>Curious? Let's dig in.</p>
+<h2 id="get-started-right-now">Get Started Right Now</h2>
+<p>If you're like me, you're more of a <em>doer</em> than a <em>reader</em>. If you want to see
+what all the fuss is about, here is how you can do that right now:</p>
+<ol>
+<li>Make sure you have zsh installed. It is the default shell in OS X and
+sometimes CentOS; other flavors of Linux may need a quick install. For
+Ubuntu, <code>sudo apt-get install zsh</code>, for Gentoo <code>sudo emerge zsh  zsh-completion</code>.</li>
+<li>If you want to try &ldquo;oh my zsh&rdquo;, get it <a href="https://github.com/robbyrussell/oh-my-zsh">on the oh-my-zsh Github page</a>.
+I highly recommend it, but be prepared to read another README and follow
+more installation instructions.</li>
+</ol>
+<h2 id="oh-the-features">Oh, the Features!</h2>
+<p>As a long-time bash user, perhaps the single most game-changing feature that
+zsh offers is insanely good command completion. What do I mean by &ldquo;good?&rdquo;
+Well, zsh sometimes unexpectedly completes things that I've accidentally typed
+using the wrong case, its menu completion is (to my mind) easier to use
+because it highlights the selected item. On top of those, it's all
+configurable (the Linux user's dream).</p>
+<p>There are straightforward options for whether to ring the terminal bell when
+starting an ambiguous completion and whether to use menu completion
+immediately or attempt a regular inline completion first. Let's talk about
+these options now.</p>
+<p>First, you can see a list of <strong>all</strong> of the options on this handy webpage
+maintained by a Hungarian University. This is the page I used as a reference;
+I'm not sure why it's in English or why it's so highly ranked by Google, but
+here it is: <a href="http://www.cs.elte.hu/zsh-manual/zsh_16.html">ZSH options</a>.</p>
+<p>In zsh, you set and unset options using the commands <code>setopt</code> and <code>unsetopt</code>.
+Zsh has a semi-unique way of dealing with options: the names themselves are
+not case-sensitive and the underscores don't even matter. In other words,
+<code>APPEND_HISTORY</code> is the same as <code>Ap_pEND_hIs_t_ory</code> or just <code>appendhistory</code>.</p>
+<p>Similar to Vim, you can negate an option by prepending &ldquo;no&rdquo; to it. Thus,
+<code>setopt noautomenu</code> is the same as <code>unsetopt automenu</code>.</p>
+<p>With me so far? Excellent. Here are the options that I have set and why:</p>
+<dl>
+<dt><code>autolist</code></dt>
+<dd>When you press tab to try to autocomplete your entry, if the completion
+is ambiguous (what you have typed is not unique), immediately display the
+list of possible completions.
+<p>Note that if you like the behavior of <code>menucomplete</code> described below, you
+probably won't need to set this option, as <code>menucomplete</code> supersedes it.</p>
+</dd>
+<dt><code>autonamedirs</code></dt>
+<dd>Zsh has a really neat feature where you can &ldquo;name&rdquo; directories and then use
+the name instead of the full directory path anywhere where a normal path
+would be accepted. This option tells zsh that if you set an environment
+variable to a literal path, that environment variable should also be
+accepted as a name for that path when preceded by the <code>~</code> (tilde), which is
+how zsh normally identifies the names of named directories. I'll dig into
+this a bit more later on.</dd>
+<dt><code>cdablevars</code></dt>
+<dd>This basically says that if an argument is expected to be a directory and
+all other shell expansion has failed to produce a directory, also try to
+expand it as though it were the name of a named directory, even though it
+doesn't begin with the <code>~</code> character.</dd>
+<dt><code>histignoredups</code></dt>
+<dd>Don't record duplicate commands in the history. Because honestly, did you
+need to know how many times you had to repeat the same command? It's just
+embarrassing.</dd>
+<dt><code>listtypes</code></dt>
+<dd>This causes the menu completion display to include characters indicating the
+types of the items (symbolic links, executables, etc.)</dd>
+<dt><code>menucomplete</code></dt>
+<dd>When attempting a completion on an ambiguous match, instead of simply
+appending all remaining characters shared by all possible matches and
+waiting (which is the usual behavior in most shells), immediately insert the
+entire first possible match and display the completion menu. This is better
+experienced than described, so try it out and see if you like it. I do.</dd>
+<dt><code>nolistbeep</code></dt>
+<dd>Zsh will emit a terminal bell when you attempt to do an ambiguous
+completion&hellip; Unless you set this option. Which I strongly recommend.</dd>
+</dl>
+<p>These are the options that I'm pretty happy with so far, although I'm still
+tweaking things here and there. Now let's get into the serious stuff!</p>
+<p>{% infobox %}
+Since I wrote this, I have decided that <code>menucomplete</code> is kind of annoying.
+When <code>menucomplete</code> is turned on, you can't drill down into partial
+completions by adding disambiguating characters because the menu appears
+immediately. So, give it a try, but I turned it back off.
+{% endinfobox %}</p>
+<h2 id="whats-in-a-name">What's in a Name?</h2>
+<p>Zsh has this pretty fantastic feature called named directories. If you are
+familiar with Linux shells at all, you are probably by now quite used to using
+<code>~</code> to stand in for the path to your home directory. This is supremely
+convenient when you want to, for example, copy a file from your current
+directory to your home directory, like this:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ cp some_file.txt ~
+</code></pre></div><p>Much easier than having to type out <code>/home/myusername/</code> or whatever it may be.
+So that's swell, but what if you could create your own symbols for long
+directory names that you use often? In zsh you can!</p>
+<p>The whole concept of &ldquo;named directories&rdquo; is based on zsh's &ldquo;expansion&rdquo; system,
+which you can read about in detail on <a href="http://www.cs.elte.hu/zsh-manual/zsh_6.html">this page</a>. Essentially, if any word
+entered at the zsh prompt begins with a tilde (<code>~</code>), zsh attempts to expand it
+in a few ways. Note that you can force this expansion &ldquo;live&rdquo; on the prompt by
+pressing tab (which is sometimes really helpful and cool).</p>
+<p>To name your own directory, all you need to do is define a shell variable (in
+zsh they call these &ldquo;parameters;&rdquo; I'm not sure why) that begins with a forward
+slash. Obviously named directories must be absolute, so that might be slightly
+limiting, but let's look at an example.</p>
+<p>Let's say you run an Apache webserver and the root of your main website is
+located at <code>/var/www/awesomesite</code>. Even with tab completion it can be annoying
+to type that over and over, so let's create a very short name for it:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ export wroot<span style="color:#f92672">=</span>/var/www/awesomesite
+</code></pre></div><p>In the above example, I have used the <code>export</code> command at the prompt to
+immediately add this variable to my environment. You can add that exact line
+to your <code>.zshrc</code> so that it is permanent (without the dollar sign prompt
+obviously). Now, if you want to change directories to your web root, you type:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ cd ~wr&lt;tab&gt;
+</code></pre></div><p>When you press tab, if there are no other named directories starting with
+&ldquo;wr,&rdquo; it will expand your command line to <code>cd ~wroot/</code>. You saved at least six
+or seven keystrokes even accounting for tab completion with the original full
+path. You can also use the <code>~wroot</code> shorthand anywhere where zsh expects a
+path and it will work. For example, <code>touch ~wroot/foo.txt</code> will work. Think of
+the possibilities.</p>
+<p>So what if you wind up with a whole bunch of named directories? No problem,
+zsh will continue to use your various completion options to disambiguate what
+you have typed, including the same menu it uses for normal commands and paths
+as described above.</p>
+<p>Named directories is one of my favorite zsh tricks.</p>
+<h2 id="what-else">What Else?</h2>
+<p>There are obviously a lot of options available and I have only scratched the
+surface here. I am still learning which combination of options I really like,
+but maybe you have some experience or ideas as well; feel free to share them!
+Remember, sharing is caring.</p>
+
+
+</article>
+
+
+<section class="post-nav">
+    <ul>
+        
+        <li>
+            <a href="http://example.org/post/2013/10/24/test-complex-vim-settings-easily/"><i class="fa fa-chevron-circle-left"></i> test complex vim settings easily</a>
+        </li>
+        
+        
+        <li>
+            <a href="http://example.org/post/2013/12/03/master-vim-registers-with-ctrl-r/">master vim registers with ctrl r <i class="fa fa-chevron-circle-right"></i> </a>
+        </li>
+        
+    </ul>
+</section>
+    
+
+
+
+
+
+</main>
+    <footer>
+        <h6> |
+            Rendered by <a href="https://gohugo.io" title="Hugo">Hugo</a> |
+            <a href="http://example.org/index.xml">Subscribe </a></h6>
+    </footer>
+</div>
+<script src="/js/scripts.js"></script>
+
+</body>
+
+</html>
+

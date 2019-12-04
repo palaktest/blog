@@ -1,0 +1,183 @@
+<!doctype html>
+
+<html lang="en-us">
+
+<head>
+  <title>My New Hugo Site</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="The HTML5 Herald" />
+  <meta name="author" content="" /><meta name="generator" content="Hugo 0.60.1" />
+    
+
+  <meta property="og:title" content="escaping the tar pit" />
+<meta property="og:description" content="If you don&#39;t know by now, I&#39;m sort of a personal efficiency maven. I don&#39;t like to waste keystrokes, I&#39;m always experimenting with different key bindings and shortcuts, and I feel almost personally offended when I see someone reach for their mouse to click a button that I know has a keyboard equivalent.
+But this isn&#39;t about my pet peeves; this is about tuning yourself in to the improvements you can make on a daily basis that will increase your lifetime efficiency dramatically." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://example.org/post/2016/04/07t064259/0400/escaping-the-tar-pit/" />
+<meta property="article:published_time" content="2016-04-07T06:42:59-04:00" />
+<meta property="article:modified_time" content="2016-04-07T06:42:59-04:00" />
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="escaping the tar pit"/>
+<meta name="twitter:description" content="If you don&#39;t know by now, I&#39;m sort of a personal efficiency maven. I don&#39;t like to waste keystrokes, I&#39;m always experimenting with different key bindings and shortcuts, and I feel almost personally offended when I see someone reach for their mouse to click a button that I know has a keyboard equivalent.
+But this isn&#39;t about my pet peeves; this is about tuning yourself in to the improvements you can make on a daily basis that will increase your lifetime efficiency dramatically."/>
+
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css" />
+  <script src="https://kit.fontawesome.com/b76b73e8e8.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Slab|Ruda" />
+  <link rel="stylesheet" type="text/css" href="/css/styles.css" /></head>
+
+<body>
+  <div id="container">
+    <header>
+      <h1>
+                <a href="/">My New Hugo Site</a>
+            </h1>
+
+      <ul id="social-media">
+      </ul>
+      
+    </header>
+
+    
+<nav>
+    <ul>
+        
+    </ul>
+</nav>
+
+    <main>
+
+
+
+
+<article>
+
+    <h1>run your own private shared git repository</h1>
+
+    
+        <aside>
+    <ul>
+        <li>
+            <time class="post-date" datetime="0001-01-01T00:00:00Z">Jan 1, 0001</time>
+        </li>
+        
+
+        
+
+        <li>4 minutes read</li>
+    </ul>
+</aside>
+
+    
+
+    <p>So everyone uses Github now, and that’s cool, because Github is awesome. But
+what if Github goes down, even just for a short time, and you’re sitting there
+trying to get your stuff deployed or whatever? You’re basically screwed.
+Though Github is a fantastically stable service, it does have the occasional
+availability hiccup and the only real solution to that problem is
+<em>redundancy</em>.</p>
+<p>So what’s a guy (or gal) to do? Run your own private git repository somewhere
+else!<del>MORE</del></p>
+<p>Push your changes to Github and to your own repository and you’ll never be
+without a version-controlled source. You may know that git itself is able to
+operate over several protocols:</p>
+<ul>
+<li>HTTP(S)</li>
+<li>SSH</li>
+<li>Git</li>
+</ul>
+<p>The HTTP and SSH protocols are obvious and they give you exactly the
+capabilities that you would expect. But who wants to have to type in:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ git push ssh://username@domain.com:/var/git/repos/myrepo.git
+</code></pre></div><p>That’s silly. On top of that, you want to have centralized access to
+repositories across a few users rather than spread all around on the remote
+system. In short, you want what Github provides. You want this:</p>
+<pre><code>$ git push git@github.com:username/repository.git
+</code></pre><p>Well, you can have it, and I’m going to tell you how.</p>
+<p>The trick is to use <code>git-shell</code> and the so-called “git protocol.” In reality,
+the git protocol wraps around SSH and SCP; it transfers the actual data to the
+remote system through an SSH tunnel and doesn’t require running any additional
+daemons or servers on the remote host. It does require that git is installed
+on the remote host, of course, so do that first.</p>
+<p>When you use a URL like <a href="mailto:%60git@github.com">`git@github.com</a>:this/is/a/path.git`, it actually logs
+into the remote host via SSH using the username “git” and makes changes to the
+repository found at “this/is/a/path.git”, which will most likely reside in the
+“git” user’s home directory. I did a very simple setup, so that directory is
+actually “/home/git”.</p>
+<p>To make all of this work, you need the following:</p>
+<ol>
+<li>A “git” user and group on the remote host.</li>
+<li>The git user’s home directory contains a directory called
+“git-shell-commands,” which is empty.</li>
+<li>The git user’s shell is set to <code>/usr/bin/git-shell</code> (or wherever it is on
+your system; try <code>which git-shell</code>).</li>
+<li>Your own public key on your local system is appended to
+<code>/home/git/.ssh/authorized_keys2</code>.</li>
+</ol>
+<p>To see it work, you will first need to create a bare repository on the remote
+system into which you will push some changesets. To create it, simply do this:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ cd /home/git
+$ mkdir -p username/new-repository.git
+$ cd username/new-repository.git
+$ git init --bare
+$ sudo chown -R git:git /home/git/username
+</code></pre></div><p>All of this is assuming that your username is <code>username</code>, which I’m using here
+just as a way to separate one user’s repositories from another in the way that
+Github does. You don’t need to do this; you could place each repository
+directly into git’s home directory if you wanted to.</p>
+<p>The important part is <code>git init --bare</code>, which creates an empty git repository
+without placing it into a <code>.git</code> folder; it simply dumps all of the repository
+metadata files right into the named path (or your current directory if no path
+is specified, as above). Now it is ready to receive data!</p>
+<p>To push to it, just use the same familiar syntax you would use with Github. I
+like to add actual remotes by name because it makes it easier later on:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ git remote add my-server git@mydomain.com:username/new-repository.git
+$ git push --all my-server
+</code></pre></div><p>You probably wouldn’t use the <code>--all</code> switch every time, but that tells git to
+push all refs and heads, not just the one(s) named. You could also just do:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ git push my-server master
+</code></pre></div><p>To push only the master head out to your new server. If you have an SSH agent
+available already, it should start pushing those files out with no trouble. If
+not, you may be prompted to enter your private key passphrase.</p>
+<p>Was this helpful? Let me know.</p>
+
+
+</article>
+
+
+<section class="post-nav">
+    <ul>
+        
+        <li>
+            <a href="http://example.org/post/welcome-to-my-chronicle/"><i class="fa fa-chevron-circle-left"></i> welcome to my chronicle</a>
+        </li>
+        
+        
+        <li>
+            <a href="http://example.org/post/2012/12/13/rediscovering-the-linux-desktop/">rediscovering the linux desktop <i class="fa fa-chevron-circle-right"></i> </a>
+        </li>
+        
+    </ul>
+</section>
+    
+
+
+
+
+
+</main>
+    <footer>
+        <h6> |
+            Rendered by <a href="https://gohugo.io" title="Hugo">Hugo</a> |
+            <a href="http://example.org/index.xml">Subscribe </a></h6>
+    </footer>
+</div>
+<script src="/js/scripts.js"></script>
+
+</body>
+
+</html>
+

@@ -1,0 +1,181 @@
+<!doctype html>
+
+<html lang="en-us">
+
+<head>
+  <title>My New Hugo Site</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="The HTML5 Herald" />
+  <meta name="author" content="" /><meta name="generator" content="Hugo 0.60.1" />
+    
+
+  <meta property="og:title" content="escaping the tar pit" />
+<meta property="og:description" content="If you don&#39;t know by now, I&#39;m sort of a personal efficiency maven. I don&#39;t like to waste keystrokes, I&#39;m always experimenting with different key bindings and shortcuts, and I feel almost personally offended when I see someone reach for their mouse to click a button that I know has a keyboard equivalent.
+But this isn&#39;t about my pet peeves; this is about tuning yourself in to the improvements you can make on a daily basis that will increase your lifetime efficiency dramatically." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://example.org/post/2016/04/07t064259/0400/escaping-the-tar-pit/" />
+<meta property="article:published_time" content="2016-04-07T06:42:59-04:00" />
+<meta property="article:modified_time" content="2016-04-07T06:42:59-04:00" />
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="escaping the tar pit"/>
+<meta name="twitter:description" content="If you don&#39;t know by now, I&#39;m sort of a personal efficiency maven. I don&#39;t like to waste keystrokes, I&#39;m always experimenting with different key bindings and shortcuts, and I feel almost personally offended when I see someone reach for their mouse to click a button that I know has a keyboard equivalent.
+But this isn&#39;t about my pet peeves; this is about tuning yourself in to the improvements you can make on a daily basis that will increase your lifetime efficiency dramatically."/>
+
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css" />
+  <script src="https://kit.fontawesome.com/b76b73e8e8.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Slab|Ruda" />
+  <link rel="stylesheet" type="text/css" href="/css/styles.css" /></head>
+
+<body>
+  <div id="container">
+    <header>
+      <h1>
+                <a href="/">My New Hugo Site</a>
+            </h1>
+
+      <ul id="social-media">
+      </ul>
+      
+    </header>
+
+    
+<nav>
+    <ul>
+        
+    </ul>
+</nav>
+
+    <main>
+
+
+
+
+<article>
+
+    <h1>introducing octopress el</h1>
+
+    
+        <aside>
+    <ul>
+        <li>
+            <time class="post-date" datetime="2016-01-23T17:41:34-05:00">Jan 23, 2016</time>
+        </li>
+        
+
+        
+
+        <li>4 minutes read</li>
+    </ul>
+</aside>
+
+    
+
+    <p>If you've ever scrolled all the way to the bottom of this blog, you'll know that
+I use Octopress (a Jekyll-powered blogging system written in Ruby) to build
+it. What I like about Octopress is a subject for a different post, but I like it
+a lot.</p>
+<p>Of course, as an Emacs user, it pains me to drop to a command line to do
+something that should be part of a fluid text editing workflow, and blogging is
+a great example of such a scenario.</p>
+<p>To solve that problem, I wrote Octopress.el, an Emacs package for blogging with
+Octopress. Using Octopress.el, you can view your drafts and posts, publish,
+unpublish, build, preview, and even deploy your Octopress blog right from within
+Emacs!</p>
+<p>Octopress.el can be installed <strong>right now</strong> from MELPA (package name:
+<a href="http://melpa.org/#/octopress">octopress</a>), or downloaded from my Github (repository:
+<a href="https://github.com/aaronbieber/octopress.el">octopress.el</a>). Go get it, give it a try, send me issues or pull requests,
+and get blogging!</p>
+<p>If you want to go on more of a detailed tour, continue reading!<del>MORE</del></p>
+<h2 id="how-to-octopress">How To Octopress</h2>
+<p>Naturally you need to have Octopress. I won't cover how to get started with it;
+if you want to begin using Octopress,
+<a href="https://github.com/octopress/octopress">follow the instructions here</a>. Note that Octopress.el will <em>only</em> work
+with Octopress 3.0, the gem distribution of Octopress.</p>
+<p>It's recommended that you use Bundler to install Octopress. If you have done so,
+and a Gemfile is present, all Octopress commands will be prefixed with <code>bundler exec</code> automatically so that your project local gems are used.</p>
+<p>The only configuration that Octopress.el requires is the location of your
+blog. At this time, it only supports working on a single blog. If you begin to
+use Octopress.el without configuring your blog location, you will be prompted to
+enter it.</p>
+<p>You can preconfigure your blog location by setting the custom value
+<code>octopress-blog-root</code> through the <code>customize</code> facility, or by setting the
+variable in your init files somewhere. If you have only one blog, this is
+convenient because you can run Octopress.el from anywhere within Emacs and begin
+working on that blog.</p>
+<h3 id="starting-octopressel">Starting Octopress.el</h3>
+<p>The main entry point into Octopress.el is the interactive function
+<code>octopress-status</code>. Similar to Magit and others, that function will pop to a
+status buffer displaying statistics about your blog and file lists that you can
+use to interact with your posts and drafts.</p>
+<p>Several key bindings are available and you can view a menu of them by pressing
+<code>?</code>. The &ldquo;Drafts&rdquo; and &ldquo;Posts&rdquo; headings can be expanded or collapsed by pressing
+<code>TAB</code>, and pressing <code>RET</code> on a file item will open it for editing.</p>
+<h3 id="creating-and-previewing">Creating and Previewing</h3>
+<p>Most of the commands should be self-explanatory, but I will go into a little bit
+of detail on the &ldquo;build&rdquo; and &ldquo;server&rdquo; functions because they are slightly more
+complicated.</p>
+<p>Some commands have sub-selections or flags. For example, when you press <code>c</code> to
+create a new item, you will be prompted to choose whether you want to create a
+&ldquo;draft,&rdquo; &ldquo;post,&rdquo; or &ldquo;page.&rdquo; Press the letter in brackets to indicate your
+selection.</p>
+<p>The &ldquo;build&rdquo; and &ldquo;server&rdquo; commands have flags, which configure which objects are
+included in your build or served by the local preview server. By pressing the
+letters in brackets, the color of the item will change to indicate whether the
+flag is on or off. To accommodate sight disabilities, the faces used for enabled
+and disabled flags is customizable through the <code>customize</code> facility. In
+addition, the default flag settings can also be customized.</p>
+<h3 id="publishing-and-unpublishing">Publishing and Unpublishing</h3>
+<p>Once you are happy with a draft and you're ready to publish, select the draft in
+the list and press <code>P</code>. Octopress will convert your draft into a published post
+and, if that draft is open in some window, Octopress.el will swap the window
+contents to display the post. If you elect to unpublish a post, the opposite
+will happen.</p>
+<p>Note that if you remove the &ldquo;date&rdquo; metadata from a post <em>before</em> unpublishing
+it, Octopress will throw a confusing nil error and fail. This is just an
+Octopress thing, so don't mess with the posted date until it's converted back to
+a draft.</p>
+<h3 id="happy-blogging">Happy Blogging</h3>
+<p>So that's it, a crash course on Octopress.el. I hope you enjoy using it as much
+as I do, and if you find issues please open them on the Github repository so I
+can dig in, or better yet, send a pull request with your fix!</p>
+
+
+</article>
+
+
+<section class="post-nav">
+    <ul>
+        
+        <li>
+            <a href="http://example.org/post/2016/01/23t143411/0500/living-in-evil/"><i class="fa fa-chevron-circle-left"></i> living in evil</a>
+        </li>
+        
+        
+        <li>
+            <a href="http://example.org/post/2016/01/30t155904/0500/dig-into-org-mode/">dig into org mode <i class="fa fa-chevron-circle-right"></i> </a>
+        </li>
+        
+    </ul>
+</section>
+    
+
+
+
+
+
+</main>
+    <footer>
+        <h6> |
+            Rendered by <a href="https://gohugo.io" title="Hugo">Hugo</a> |
+            <a href="http://example.org/index.xml">Subscribe </a></h6>
+    </footer>
+</div>
+<script src="/js/scripts.js"></script>
+
+</body>
+
+</html>
+

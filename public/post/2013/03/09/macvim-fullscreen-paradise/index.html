@@ -1,0 +1,148 @@
+<!doctype html>
+
+<html lang="en-us">
+
+<head>
+  <title>My New Hugo Site</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="The HTML5 Herald" />
+  <meta name="author" content="" /><meta name="generator" content="Hugo 0.60.1" />
+    
+
+  <meta property="og:title" content="escaping the tar pit" />
+<meta property="og:description" content="If you don&#39;t know by now, I&#39;m sort of a personal efficiency maven. I don&#39;t like to waste keystrokes, I&#39;m always experimenting with different key bindings and shortcuts, and I feel almost personally offended when I see someone reach for their mouse to click a button that I know has a keyboard equivalent.
+But this isn&#39;t about my pet peeves; this is about tuning yourself in to the improvements you can make on a daily basis that will increase your lifetime efficiency dramatically." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://example.org/post/2016/04/07t064259/0400/escaping-the-tar-pit/" />
+<meta property="article:published_time" content="2016-04-07T06:42:59-04:00" />
+<meta property="article:modified_time" content="2016-04-07T06:42:59-04:00" />
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="escaping the tar pit"/>
+<meta name="twitter:description" content="If you don&#39;t know by now, I&#39;m sort of a personal efficiency maven. I don&#39;t like to waste keystrokes, I&#39;m always experimenting with different key bindings and shortcuts, and I feel almost personally offended when I see someone reach for their mouse to click a button that I know has a keyboard equivalent.
+But this isn&#39;t about my pet peeves; this is about tuning yourself in to the improvements you can make on a daily basis that will increase your lifetime efficiency dramatically."/>
+
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css" />
+  <script src="https://kit.fontawesome.com/b76b73e8e8.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Slab|Ruda" />
+  <link rel="stylesheet" type="text/css" href="/css/styles.css" /></head>
+
+<body>
+  <div id="container">
+    <header>
+      <h1>
+                <a href="/">My New Hugo Site</a>
+            </h1>
+
+      <ul id="social-media">
+      </ul>
+      
+    </header>
+
+    
+<nav>
+    <ul>
+        
+    </ul>
+</nav>
+
+    <main>
+
+
+
+
+<article>
+
+    <h1>macvim fullscreen paradise</h1>
+
+    
+        <aside>
+    <ul>
+        <li>
+            <time class="post-date" datetime="2013-03-09T00:00:00Z">Mar 9, 2013</time>
+        </li>
+        
+
+        
+
+        <li>2 minutes read</li>
+    </ul>
+</aside>
+
+    
+
+    <p>I can't believe how utterly, totally, fully, and completely I overlooked this.
+I could add a few more adjectives to that list and it would still fail to
+capture the magnitude of sustained neglect it required on my part not to
+realize that this existed.<del>MORE</del></p>
+<p>OK, hold on, rewind about one month. I got a new MacBook Pro for work, which
+is almost exactly the same as my own MacBook Pro except it's running the
+latest OS X. I haven't been putting off upgrading because I honestly didn't
+feel like the new features were worth the trouble. One of the new features is
+the ability to full-screen just about any application. This ties into the
+Expose multi-desktop functionality so that when you full-screen an app, it
+slides to the right and receives its own dedicated viewport. This is really
+slick because you can three-finger swipe on the trackpad to get back to your
+normal desktop at any time.</p>
+<p>I was really enjoying that feature for both Chrome and MacVim, both of which I
+use often. No, often isn't the right word. Constantly. I use them
+<em>constantly</em>.</p>
+<p>When I would come back to my own laptop, though, I would miss the ability to
+full-screen MacVim. Chrome, of course, has had full-screen built in for all
+platforms for quite some time now, so that was always there. Just hit
+Command-Shift-F and it would pop into full-screen.</p>
+<p>Being the dense, neglectful, stolid, uncomprehending fellow that (apparently)
+I am, I never pressed those keys in MacVim. I have no idea why I never tried
+it, because it works. There's just one thing, though&hellip;</p>
+<p>If you full-screen MacVim using default settings, it will increase its height
+to the maximum number of lines that will fit on your screen and leave the
+width alone. The Vim control is centered and the remaining space is filled
+with black. This is inefficient.</p>
+<p>If you want the Vim control to fill the whole screen (at least to a multiple
+of the character block size, which is the maximum size you can have), you need
+to set this:</p>
+<pre><code>set fuoptions=maxvert,maxhorz
+</code></pre><p>The <code>maxvert</code> option is the default. <code>maxhorz</code> tells MacVim to also increase
+your columns to the maximum that will fit on your screen.</p>
+<p>It's really sweet. Especially sweet for writing blog posts without
+distraction.</p>
+
+
+</article>
+
+
+<section class="post-nav">
+    <ul>
+        
+        <li>
+            <a href="http://example.org/post/2013/03/08/github-resume-is-so-cool/"><i class="fa fa-chevron-circle-left"></i> github resume is so cool</a>
+        </li>
+        
+        
+        <li>
+            <a href="http://example.org/post/2013/03/11/rbenv-revisited/">rbenv revisited <i class="fa fa-chevron-circle-right"></i> </a>
+        </li>
+        
+    </ul>
+</section>
+    
+
+
+
+
+
+</main>
+    <footer>
+        <h6> |
+            Rendered by <a href="https://gohugo.io" title="Hugo">Hugo</a> |
+            <a href="http://example.org/index.xml">Subscribe </a></h6>
+    </footer>
+</div>
+<script src="/js/scripts.js"></script>
+
+</body>
+
+</html>
+
