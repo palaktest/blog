@@ -28,7 +28,7 @@ approved solutions.
 Nevertheless, Shadow IT *is* a sign of danger. It's an indication that approved
 solutions don't meet all of an organization's needs. It should be treated not
 strictly as a departure from the acceptable path, but as a strong signal that
-existing solutions are inadequate. ~~MORE~~
+existing solutions are inadequate. <!--more-->
 
 For example, collaboration tools tend to be adopted as "shadow IT" resources
 because so many free SaaS solutions exist and it's fall-down easy to sign up for

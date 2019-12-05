@@ -13,7 +13,7 @@ you can find stuff quickly.
 {% img noborder /images/uploads/playing-tag-in-org-mode/2500-org-files.png %}
 
 One way to collate related information across Org files is by using tags. I'm
-not a tagging expert, but I'll tell you what I know.~~MORE~~
+not a tagging expert, but I'll tell you what I know.<!--more-->
 
 Tags are not a new concept so I won't bother to explain the fundamental concept
 of the tag. I use tags to classify certain important items in my notes and TODO

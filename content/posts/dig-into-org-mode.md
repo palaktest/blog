@@ -14,7 +14,7 @@ so flexible that everyone uses it differently.
 I use Org mode primarily to capture tasks and keep track of their progress. I
 sometimes take notes in Org mode, but I haven't completely fleshed out my
 note-taking and searching workflow, so I'll talk mostly about task management
-here.~~MORE~~
+here.<!--more-->
 
 ## Org Setup Essentials ##
 

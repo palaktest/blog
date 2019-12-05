@@ -20,7 +20,7 @@ of Spectacle: the ability to cycle a window through three different sizes along
 one screen edge.
 
 Here I'll show you how it's done. If you don't desperately want to code up your
-own Slate system after reading this, I've done something terribly wrong.~~MORE~~
+own Slate system after reading this, I've done something terribly wrong.<!--more-->
 
 ## The Goal ##
 

@@ -11,7 +11,7 @@ you can't install it.
 That is, unless you have a little bit of bash-fu on your utility belt, which I 
 do. You can extract the utility from the installer package and run it directly 
 to configure your older-generation AirPort Express. Want to learn 
-how?~~MORE~~
+how?<!--more-->
 
 Step 1: Download [AirPort Utility 5.6](http://support.apple.com/kb/dl1482) 
 from Apple.

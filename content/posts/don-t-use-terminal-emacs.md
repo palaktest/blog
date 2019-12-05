@@ -13,7 +13,7 @@ The GUI Emacs program is not just a crutch for the ignorant fools with their
 fingers all gnarled by mouse overuse; no, GUI Emacs is much more powerful, and
 there is almost no reason at all to run Emacs in a terminal. Ever.
 
-Let me explain why.~~MORE~~
+Let me explain why.<!--more-->
 
 There are two reasons why GUI Emacs is superior to Emacs run in a terminal:
 

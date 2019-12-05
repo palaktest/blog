@@ -19,7 +19,7 @@ record it. The recording quality is not the best, but I think the point comes
 across just fine.
 
 The talk is called "Escaping the Tar Pit: Principles of Continuous Improvement."
-Video and full slides after the break.~~MORE~~
+Video and full slides after the break.<!--more-->
 
 <iframe width="100%" src="https://www.youtube.com/embed/2kXF7e9mfqY" frameborder="0" allowfullscreen></iframe>
 

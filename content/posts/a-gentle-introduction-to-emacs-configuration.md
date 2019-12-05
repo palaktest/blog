@@ -16,7 +16,7 @@ Lisp expressions, which is quite different from how Vim is configured.
 
 Here, I will gently guide you through the very basics of Emacs configuration and
 show you where to get help so that you can embark on your Emacs customization
-and personalization journey with confidence.~~MORE~~
+and personalization journey with confidence.<!--more-->
 
 [evil-mode]: {% post_url 2015-06-03-evil-mode %}
 

@@ -14,7 +14,7 @@ I've written and show you how you can use custom IDs to link or jump directly to
 a specific item in your notes.
 
 Also, as a special treat, I will debut my latest Emacs package,
-[Tiny Menu][tiny-menu] (available right now on MELPA).~~MORE~~
+[Tiny Menu][tiny-menu] (available right now on MELPA).<!--more-->
 
 ## Custom IDs ##
 

@@ -17,7 +17,7 @@ appropriate section of a composite view.
 
 I've tweaked and customized my interface to the agenda and so I want to share
 with you the most useful commands and a couple of the things I have
-added.~~MORE~~
+added.<!--more-->
 
 ## Moving Around ##
 

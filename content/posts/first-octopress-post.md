@@ -11,7 +11,7 @@ directly in Vim, it's also pretty cool to have the whole site built on SASS
 and sitting in a Git repository on my laptop.
 
 If you want to know more about why this is awesome and you should do it, too, 
-read on.~~MORE~~
+read on.<!--more-->
 
 There are a few reasons that Octopress is the correct choice for the hacker 
 writer:

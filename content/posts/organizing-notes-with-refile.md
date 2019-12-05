@@ -16,7 +16,7 @@ could possibly put effort toward, as I thought of them. This resulted in a
 pretty haphazard list of rough ideas and specific tasks intermingled. I needed
 to get this into a clean, prioritized list... So I learned how to use Refile.
 
-Let me teach you how to use it, too.~~MORE~~
+Let me teach you how to use it, too.<!--more-->
 
 ## What Is Refile?
 

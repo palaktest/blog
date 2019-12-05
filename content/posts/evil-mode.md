@@ -16,7 +16,7 @@ video here so you can all enjoy it in the privacy of your own homes!
 
 <iframe width="100%" src="https://www.youtube.com/embed/JWD1Fpdd4Pc" frameborder="0" allowfullscreen></iframe>
 
-~~MORE~~
+<!--more-->
 
 The goal of this talk was to explore some of the features that the Vim user
 community at large seems to value (asynchronous operations, etc.) as

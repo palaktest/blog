@@ -11,7 +11,7 @@ with jumbled key bindings and unexpected behaviors.
 
 In this post I'll explain how I set up my configuration to use Evil Mode in all
 of the places where I want it, but none of the places where it gets in the
-way.~~MORE~~
+way.<!--more-->
 
 ## Basic Configuration ##
 

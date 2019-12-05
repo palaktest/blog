@@ -17,7 +17,7 @@ of the tricks and concepts I've learned so you can hopefully have an easier time
 than I did.
 
 Introductory Lisp articles abound, so I will try to focus on the Emacs features
-and functions that make Elisp development unique.~~MORE~~
+and functions that make Elisp development unique.<!--more-->
 
 ## Lisp Interaction Mode ##
 

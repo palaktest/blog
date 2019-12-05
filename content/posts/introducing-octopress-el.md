@@ -26,7 +26,7 @@ and get blogging!
 [melpa]: http://melpa.org/#/octopress
 [gh]: https://github.com/aaronbieber/octopress.el
 
-If you want to go on more of a detailed tour, continue reading!~~MORE~~
+If you want to go on more of a detailed tour, continue reading!<!--more-->
 
 ## How To Octopress ##
 

@@ -8,7 +8,7 @@ Hopefully you already know that you can insert common markup blocks in Org Mode
 by entering a prefix like `<s` and pressing `<M-TAB>`. Org Mode publicly calls
 these "Easy Templates" but internally calls them "structure templates." I wanted
 to be able to insert a couple of other common Org-specific blocks, so I figured
-out how to add my own. ~~MORE~~
+out how to add my own. <!--more-->
 
 Org Mode supports a few "blocks," which you can read about beginning on the
 [Blocks page][doc-blocks] of the Org documentation.

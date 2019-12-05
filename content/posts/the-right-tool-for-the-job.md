@@ -20,7 +20,7 @@ asked pretty often. Those questions are, roughly:
 * Is Emacs the right editor for me if I am a: computer science student,
   professional programmer, astronaut, whatever?
 
-The answer is: maybe.~~MORE~~
+The answer is: maybe.<!--more-->
 
 First, chances are very high that your situation is different from mine, and so
 the reasoning behind my decision to give Emacs a try and then spend two years

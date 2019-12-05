@@ -17,7 +17,7 @@ This is what we'll build:
 
 {% img noborder /images/uploads/an-agenda-for-life-with-org-mode/composite-agenda-view.png %}
 
-~~MORE~~
+<!--more-->
 
 I classify all of my activities into one of four buckets:
 

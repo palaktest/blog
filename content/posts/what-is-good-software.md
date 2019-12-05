@@ -18,7 +18,7 @@ purpose, and that has both benevolent maintainership and a strong
 community. Because there is nuance of interpretation in these words, I decided
 to write more.
 
-Fair warning: this post is long.~~MORE~~
+Fair warning: this post is long.<!--more-->
 
 When I say that Emacs is "better software" than Vim, I am not only remarking on
 the well-known instances of [total insanity][insanity] in Vim's codebase, but

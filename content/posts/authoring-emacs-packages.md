@@ -13,7 +13,7 @@ available, both within Emacs itself and obviously on the Internet. There are a
 few things, though, that are conspicuously and annoyingly hard to find help with
 so I decided to document them for you.
 
-Come with me and learn how to create an Emacs Package from scratch.~~MORE~~
+Come with me and learn how to create an Emacs Package from scratch.<!--more-->
 
 An Emacs package, at its most basic level, is just an Elisp file. For a long
 time, authors simply distributed ".el" files via their own websites or FTP sites

@@ -17,7 +17,7 @@ here.
 {% endinfobox %}
 
 How is this achieved? Through a little bit of magic called "Org Protocol."
-~~MORE~~
+<!--more-->
 
 The goal of this exercise is to be able to click a button in Chrome and have
 your already-running GUI Emacs pop up with a capture buffer open containing the

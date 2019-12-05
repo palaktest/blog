@@ -10,7 +10,7 @@ availability hiccup and the only real solution to that problem is
 *redundancy*.
 
 So what’s a guy (or gal) to do? Run your own private git repository somewhere 
-else!~~MORE~~
+else!<!--more-->
     
 Push your changes to Github and to your own repository and you’ll never be 
 without a version-controlled source. You may know that git itself is able to 

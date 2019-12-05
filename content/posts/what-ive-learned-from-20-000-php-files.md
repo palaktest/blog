@@ -13,7 +13,7 @@ codebase with a large number of engineers brings its own challenges.
 Since joining Wayfair, I have had the opportunity to work on a larger system and
 with a larger team than I ever have before.
 
-This is what that experience has taught me. ~~MORE~~
+This is what that experience has taught me. <!--more-->
 
 First, a brief history.
 
