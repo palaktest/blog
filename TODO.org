@@ -3,6 +3,8 @@
 
 ** Convert ~~~MORE~~~ back to ~<!--more-->~
 
+** Fix ~post_url~ references
+
 ** Fix images
 
 *** Also copy over all images
