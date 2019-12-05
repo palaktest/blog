@@ -1,28 +1,23 @@
-<!DOCTYPE html>
-<html>
-  {{ partial "head.html" . }}
-<body>
+{{ define "main" }}
+<div class="blog-index">
+  {{ range $index, $page := first 10 site.RegularPages }}
+  <article>
+    <header>
+      <h1 class="entry-title"><a href="{{ .Permalink }}">{{ .Title | title }}</a></h1>
+      <p class="meta">
+        <span class="glyphicon glyphicon-calendar"></span> {{ .Date | dateFormat "January 2, 2006" }}
+      </p>
+    </header>
 
-  <div id="main">
-    <div id="content">
+    <div class="entry-content">{{ .Summary }}</div>
 
-      <div class="blog-index">
-        {{ range $index, $page := first 10 site.RegularPages }}
-        <article>
-          <header>
-            <h1 class="entry-title"><a href="{{ .Permalink }}">{{ .Title | title }}</a></h1>
-            <p class="meta">
-              <span class="glyphicon glyphicon-calendar"></span> {{ .Date | dateFormat "January 2, 2006" }}
-            </p>
-          </header>
 
-          <div class="entry-content">{{ .Summary }}</div>
-        </article>
-        {{ end }}
-      </div>
-
-    </div>
-  </div>
-
-</body>
-</html>
+    {{ if .Truncated }}
+    <footer>
+      <a rel="full-article" href="{{ .Permalink }}">Read on &#8594;</a>
+    </footer>
+    {{ end }}
+  </article>
+  {{ end }}
+</div>
+{{ end }}

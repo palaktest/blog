@@ -2,3 +2,11 @@
 * Content fixes
 
 ** Convert ~~~MORE~~~ back to ~<!--more-->~
+
+** Fix images
+
+*** Also copy over all images
+
+** Fix code block style
+
+Code blocks are styled but it's the wrong "theme"; probably a Compass thing

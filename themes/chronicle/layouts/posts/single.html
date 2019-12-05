@@ -1,0 +1,54 @@
+{{ define "main" }}
+
+<div class="blog-post">
+  <article class="hentry" role="article">
+    <header>
+      <h1 class="entry-title">{{ .Title | title }}</h1>
+      <p class="meta">
+        <span class="glyphicon glyphicon-calendar"></span> {{ .Date | dateFormat "Jan 2, 2006" }}
+        | <a href="{{ .Permalink }}#disqus_thread"
+            data-disqus-identifier="{{ .Permalink }}">Comments</a>
+      </p>
+    </header>
+
+    <div class="entry-content">{{ .Content }}</div>
+
+    <footer>
+      <p class="meta">
+
+        {{ if isset .Params "author" }}
+          {{ $author := index .Site.Data.authors .Params.author }}
+          <span class="byline author vcard">Posted by <span class="fn">{{ $author.name }}</span></span>
+        {{ else }}
+          {{ $author := index .Site.Data.authors .Site.Params.author }}
+          <span class="byline author vcard">Posted by <span class="fn">{{ $author.name }}</span></span>
+        {{ end }}
+
+        <time>{{ .Date | dateFormat "Jan 2, 2006" }}</time>
+
+        {{/*
+        {% include post/author.html %}
+        {% include post/date.html %}{% if updated %}{{ updated }}{% else %}{{ time }}{% endif %}
+        {% include post/categories.html %}
+        */}}
+      </p>
+      <div class="sharing"></div>
+      <p class="meta">
+        {{ with .Prev }}
+        <a class="basic-alignment left" href="{{ .Permalink }}" title="Previous Post: {{ .Title | title }}">&laquo; {{ .Title | title }}</a>
+        {{ end }}
+        {{ with .Next }}
+        <a class="basic-alignment right" href="{{ .Permalink }}" title="Next Post: {{ .Title | title }}">{{ .Title | title }} &raquo;</a>
+        {{ end }}
+      </p>
+    </footer>
+  </article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite">{{ partial "disqus" . }}</div>
+  </section>
+</div>
+
+
+{{ end }}
