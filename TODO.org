@@ -1,14 +1,18 @@
 
 * Content fixes
 
-** Convert ~~~MORE~~~ back to ~<!--more-->~
+** TODO Make the favicon work
 
-** Fix ~post_url~ references
+This should teach me about how to make static content work
 
-** Fix images
+** TODO Convert ~~~MORE~~~ back to ~<!--more-->~
 
-*** Also copy over all images
+** TODO Fix ~post_url~ references
 
-** Fix code block style
+** TODO Fix images
+
+*** TODO Also copy over all images
+
+** TODO Fix code block style
 
 Code blocks are styled but it's the wrong "theme"; probably a Compass thing
