@@ -3,7 +3,7 @@ title = "dig into org mode"
 date = "2016-01-30T15:59:04-05:00"
 +++
 
-{% img noborder /images/uploads/dig-into-org-mode/screenshot.png %}
+{{< img noborder "/images/uploads/dig-into-org-mode/screenshot.png" >}}
 
 Org mode was one of the main reasons I tried Emacs (and left behind 15 years of
 Vim), and now it is a central part of how I organize my work. Org mode can help
@@ -125,7 +125,7 @@ functions for historical reasons I won't go into; the important part is the
 `split` argument, which allows me to optionally allow the window to split as it
 does normally by specifying a prefix.
 
-{% infobox %}
+{{< infobox >}}
 When the `interactive` call specifies "P", the function will be passed an
 argument with a "truthy" or "falsy" value depending on whether the *prefix key*
 was pressed. In practice what that means is if you invoke the function by
@@ -135,7 +135,7 @@ true, otherwise it will be false.
 In the example above, `C-c t a` opens the agenda list and deletes all other
 windows, whereas `C-u C-c t a` (which I use much less often), allows the other
 windows to remain open.
-{% endinfobox %}
+{{< /infobox >}}
 
 My mnemonic for these key bindings is `t` for "todo" and `a` for "agenda." My
 other Org-related bindings all start the same way.

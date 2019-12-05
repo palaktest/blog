@@ -14,7 +14,7 @@ which things I should do first.
 
 This is what we'll build:
 
-{% img noborder /images/uploads/an-agenda-for-life-with-org-mode/composite-agenda-view.png %}
+{{< img noborder "/images/uploads/an-agenda-for-life-with-org-mode/composite-agenda-view.png" >}}
 
 <!--more-->
 
@@ -145,7 +145,7 @@ A couple of things are going on here that deserve some explanation:
 When you run this, you will see your scheduled items at the top, a divider line
 made up of equal signs, and all of your other TODO items at the bottom, like this:
 
-{% img noborder /images/uploads/an-agenda-for-life-with-org-mode/composite-1.png %}
+{{< img noborder "/images/uploads/an-agenda-for-life-with-org-mode/composite-1.png" >}}
 
 We are already much closer now to our goal of visualizing all of our activities
 in one place. This covers scheduled items, deadline items, and "eventually"
@@ -233,7 +233,7 @@ The `org-agenda-overriding-header` does what it sounds like: it changes the
 header line of this agenda section to the string specified. Here's what it all
 looks like together:
 
-{% img noborder /images/uploads/an-agenda-for-life-with-org-mode/composite-2.png %}
+{{< img noborder "/images/uploads/an-agenda-for-life-with-org-mode/composite-2.png" >}}
 
 #### Filtering the "Eventually" List ####
 
@@ -263,10 +263,10 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
       nil)))
 ~~~
 
-{% infobox %}
+{{< infobox >}}
 As always, note that `air` is simply a "namespace prefix" to ensure uniqueness
 of the function name.
-{% endinfobox %}
+{{< /infobox >}}
 
 The way priorities work internally is clever; the "lowest priority" is the upper
 bounding ASCII value of the letters used, such that the difference of that value
@@ -306,7 +306,7 @@ There are two changes here. First, I'm calling my new function to skip priority
 scheduled or deadline dates, which should appear in the middle section when
 appropriate, so I filtered those out as well. Here's what it looks like:
 
-{% img noborder /images/uploads/an-agenda-for-life-with-org-mode/composite-3.png %}
+{{< img noborder "/images/uploads/an-agenda-for-life-with-org-mode/composite-3.png" >}}
 
 Note here that the skip function is a whole quoted lisp form that is evaluated
 for each entry; it is not limited to a single function name. For this reason, it

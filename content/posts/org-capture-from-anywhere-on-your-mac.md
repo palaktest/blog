@@ -8,12 +8,12 @@ that will capture a note or link directly into Org Mode in your running
 Emacs. That's right, you press a button in, say, Chrome, and Emacs pops up and
 displays your Org capture interface with the current webpage's information in it.
 
-{% infobox %}
+{{< infobox >}}
 Fair warning: this is a Mac-only post. What I will talk about is surely possible
 in Windows, but I have no idea how, so don't ask. If you do know (or find out)
 feel free to use the comments section to share your knowledge with everyone else
 here.
-{% endinfobox %}
+{{< /infobox >}}
 
 How is this achieved? Through a little bit of magic called "Org Protocol."
 <!--more-->
@@ -54,7 +54,7 @@ Let's get started.
 
 ## Build a Protocol Handler ##
 
-[{% img noborder left /images/uploads/applescript-icon.png %}][oph]
+[{{< img left "/images/uploads/applescript-icon.png" >}}][oph]
 
 The code necessary to implement a system-level protocol handler in OS X is
 surprisingly simple, especially if you write it in AppleScript. Any application
@@ -125,10 +125,10 @@ javascript:(function () {
 })();
 ```
 
-{% infobox %}
+{{< infobox >}}
 Note that I've added newlines and indentation here strictly for legibility; you
 should format this as a single continuous line for use in your browser.
-{% endinfobox %}
+{{< /infobox >}}
 
 Create a new bookmark and supply this string as the URL. I think it really works
 best if you use a bookmark on your bookmarks toolbar so that it is a button you

@@ -266,12 +266,12 @@ library provides a ton of useful functions that are found in the more powerful
 Common Lisp language and many Emacs packages depend on it. `cl-lib.el` is now
 part of Emacs, so you can freely use these macros and functions.
  
-{% infobox %}
+{{< infobox >}}
 Many of the functions and macros in `cl-lib.el` are also aliased to their names
 without the `cl-` prefix (e.g. `incf`). _You are strongly encouraged_ to use the
 `cl-` prefixed versions! Some day the aliases may be deprecated, so heed my
 warning.
-{% endinfobox %}
+{{< /infobox >}}
 
 Congratulations, you just built an Elisp expression that returns a sorted word
 frequency for the current buffer. This is useful, but you'll probably want to be

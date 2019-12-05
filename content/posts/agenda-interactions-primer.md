@@ -112,13 +112,13 @@ These should be self-explanatory. The date/time shifting keys will affect
 `SCHEDULED` or `DEADLINE` items, but you have to press `g` to rebuild the buffer
 after making the change to see any effect it has on color-coding, etc.
 
-{% infobox %}
+{{< infobox >}}
 **Important!** Making changes to items in the agenda buffer edits the
 underlying buffers where the agenda items live, but it **does not** save those
 buffers! Get in the habit of pressing `s` to save all modified agenda buffers
 after making changes directly in the agenda view. I press `sg` after most edits
 to save and recompute the agenda.
-{% endinfobox %}
+{{< /infobox >}}
 
 In addition, I wanted an easy way to add things to my task list from this view,
 so I also bound `c` to my default capture command:

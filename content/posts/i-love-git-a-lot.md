@@ -94,10 +94,10 @@ existing files or symlinks and will instead print "Failed" for that file. If
 you are sure you want to wipe them out and replace them, just pass `-f` to the 
 script.
 
-{% infobox %}
+{{< infobox >}}
 There is only a small amount of bash-fu in this one; feel free to drop me a 
 comment below if you'd like me to explain how any of this actually works.
-{% endinfobox %}
+{{< /infobox >}}
 
 How cool is that? So now, on a new system, and assuming that git is installed, 
 setting up all of my preferences is as simple as:

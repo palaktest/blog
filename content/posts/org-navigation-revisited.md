@@ -108,11 +108,11 @@ properties, I've created a "global custom IDs" function, shown below:
     air-all-org-custom-ids))
 ```
 
-{% infobox %}
+{{< infobox >}}
 As always, note that `air` is simply a "namespace prefix" to ensure uniqueness
 and that the double hyphen is a convention for indicating that the function is
 "private" to its package and isn't intended to be a part of the public API.
-{% endinfobox %}
+{{< /infobox >}}
 
 Calling this function will scan all of the Org files in `org-agenda-files` and
 return an alist that looks like this:
@@ -249,7 +249,7 @@ lightweight solution... So I wrote one.
 
 ### Introducing Tiny Menu ###
 
-{% img noborder https://camo.githubusercontent.com/247cb7707c2dd5fb7b09cfabed6bf5200c71be58/687474703a2f2f6161726f6e6269656265722e636f6d2f6173736574732f696d616765732f74696e792d6d656e752d73637265656e73686f742e706e67 %}
+{{< img noborder "https://raw.githubusercontent.com/aaronbieber/tiny-menu.el/master/assets/screenshot.png" >}}
 
 As its name implies, [Tiny Menu][tiny-menu]
 is... Tiny. Hydra weighs in at about 1,100 lines of code excluding preamble,

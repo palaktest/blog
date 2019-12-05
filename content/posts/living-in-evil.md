@@ -14,10 +14,10 @@ way.<!--more-->
 
 ## Basic Configuration ##
 
-{% infobox %}
+{{< infobox >}}
 If you already have Evil working and you don't care how I load it into my Emacs,
 you can jump down to "Brass Tacks."
-{% endinfobox %}
+{{< /infobox >}}
 
 First, I use John Wiegley's great
 [use-package](https://github.com/jwiegley/use-package) system for importing
@@ -216,7 +216,7 @@ when I'm in Emacs state. Additionally, it defines some keys for a couple of
 other common Vim shortcuts that I often use in Occur and maps them to existing
 Evil functions.
 
-{% infobox %}
+{{< infobox >}}
 **A crash course on keymaps**
 
 Every major and minor mode has a keymap, even if it isn't used. When built-in
@@ -228,7 +228,7 @@ it's associated with is loaded, and then use `C-m v` to call the "Describe
 variable" function and enter the name of the map. If you have Helm installed,
 you will also see a narrowing list of variable names, which I use all the time
 to hunt down variables.
-{% endinfobox %}
+{{< /infobox >}}
 
 Sometimes you can get into a situation where one configuration relies on another
 piece of code to be loaded first. In the above example, I am assuming that Occur

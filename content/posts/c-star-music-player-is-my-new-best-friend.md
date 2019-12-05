@@ -1,5 +1,5 @@
 +++
-title = "c star music player is my new best friend"
+title = "c * music player is my new best friend"
 date = "2013-04-06"
 Categories = []
 +++
@@ -13,7 +13,7 @@ Debian-based Linuxes, Homebrew in OS X).
 
 It looks a little like this:
 
-{% img /images/uploads/cmus-cmus_screenshot.png %}
+{{< img noborder "/images/uploads/cmus-cmus_screenshot.png" >}}
 
 That's `cmus` running in a tmux session in iTerm 2, using the Zenburn color 
 theme that now ships along with it (finally).
@@ -57,7 +57,7 @@ that it displays what it's doing in the corner of the screen. Perfect.
 
 Here is what the workflow looks like for the "play" command:
 
-{% img center /images/uploads/cmus-alfred_workflow.png %}
+{{< img center "/images/uploads/cmus-alfred_workflow.png" >}}
 
 It's the "Run Script" step that's interesting. Here is the script we're 
 running:
@@ -108,7 +108,7 @@ Then, I set up the Growl notification step in the workflow to actually include
 the previous command output in the message, which in Alfred you can achieve by 
 using the special string `{query}`.
 
-{% img center /images/uploads/cmus-growl_panel.png %}
+{{< img center "/images/uploads/cmus-growl_panel.png" >}}
 
 Now when I press Control-Command-X, `cmus` begins playing and Alfred helpfully 
 pops up a Growl notification saying "Play (Artist - Track)". I duplicated this 

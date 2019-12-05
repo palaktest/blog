@@ -147,7 +147,7 @@ If all of that works, you're ready to start building your Emacs configuration
 empire, and the very first thing you'll probably want to do is use `evil-mode`
 by default.
 
-{% infobox %}
+{{< infobox >}}
 A "mode" in Emacs is similar to Vim's notion of a "filetype." A mode usually
 provides syntax highlighting and indentation rules, keyboard mappings, and other
 functionality useful for a particular type of task.
@@ -160,7 +160,7 @@ Emacs packages may also provide "minor modes," of which you may load as many as
 you like. Examples of useful minor modes are "flycheck," which gives you syntax
 checking, or "projectile," which provides functions for working with
 source-controlled projects, or "magit," which gives you interactive git commands.
-{% endinfobox %}
+{{< /infobox >}}
 
 To tell Emacs to use `evil-mode` immediately upon opening in all buffers, you
 simply load the package into memory and call the main mode function, which is

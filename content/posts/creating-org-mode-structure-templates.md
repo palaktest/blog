@@ -40,10 +40,10 @@ Exporting a subtree is very easy, simply trigger export with `C-c C-e`, toggle
 "export subtree" on with `C-s`, and press the appropriate export format buttons,
 like `h o` for "export as HTML and open in the default browser."
 
-{% infobox %}
+{{< infobox >}}
 If you're a pro like me, you have set `org-export-initial-scope` to `subtree` so
 that you can skip the second step.
-{% endinfobox %}
+{{< /infobox >}}
 
 Let's take HTML as an example. The default export settings when you export to
 HTML are crude at best. For one thing, the title of the document will be the
@@ -80,11 +80,11 @@ The goal is to be able to type something like `<p` and press `<TAB>` to insert
 the property drawer, and then something like `<eh` (for **e**xport **h**tml) and
 press `<TAB>` to insert my default HTML export options.
 
-{% infobox %}
+{{< infobox >}}
 Structure templates are inserted as part of the `org-cycle` function, and so I
 have bound `org-cycle` to `<TAB>` in my config. If `<TAB>` doesn't work for you,
 but `<M-TAB>` does, this is probably why.
-{% endinfobox %}
+{{< /infobox >}}
 
 On the [Easy Templates][easy-templates] manual page, it says:
 
@@ -127,12 +127,12 @@ the `:PROPERTIES:` one:
                                ":END:")))
 ```
 
-{% infobox %}
+{{< infobox >}}
 Note that I am using the `list` function rather than a quoted list because I
 need Emacs to evaluate the return value of the `concat` function within the
 list. I am only using `concat` here to make the code more legible because the
 template string is multiple lines long. I like pretty code.
-{% endinfobox %}
+{{< /infobox >}}
 
 You can evaluate this expression by placing your cursor outside of the last
 closing parenthesis and calling `eval-last-sexp` (which I have bound to `C-RET`
