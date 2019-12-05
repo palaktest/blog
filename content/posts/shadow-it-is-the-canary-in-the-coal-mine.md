@@ -1,7 +1,6 @@
 +++
 title = "shadow it is the canary in the coal mine"
 date = "2015-06-13T06:35:26-04:00"
-slug = "2015/06/13T06:35:26/04:00/shadow-it-is-the-canary-in-the-coal-mine"
 +++
 
 In the early 20th century, long before "information technology" was a phrase

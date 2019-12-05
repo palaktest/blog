@@ -1,7 +1,6 @@
 +++
 title = "first octopress post"
 date = "2013-03-07"
-slug = "2013/03/07/first-octopress-post"
 +++
 
 I have migrated the clunky, dusty old Wordpress blog into Octopress, the 

@@ -1,7 +1,6 @@
 +++
 title = "learning to love emacs"
 date = "2015-01-17"
-slug = "2015/01/17/learning-to-love-emacs"
 Tags = []
 +++
 

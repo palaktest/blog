@@ -1,7 +1,6 @@
 +++
 title = "getting started with emacs lisp"
 date = "2016-08-07T15:47:38-04:00"
-slug = "2016/08/07T15:47:38/04:00/getting-started-with-emacs-lisp"
 +++
 
 As you certainly know by now, I was an outspoken and enthusiastic Vim user for

@@ -1,7 +1,6 @@
 +++
 title = "i love git a lot"
 date = "2013-03-07"
-slug = "2013/03/07/i-love-git-a-lot"
 Categories = []
 +++
 I love git. A lot.

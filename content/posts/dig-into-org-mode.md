@@ -1,7 +1,6 @@
 +++
 title = "dig into org mode"
 date = "2016-01-30T15:59:04-05:00"
-slug = "2016/01/30T15:59:04/05:00/dig-into-org-mode"
 +++
 
 {% img noborder /images/uploads/dig-into-org-mode/screenshot.png %}

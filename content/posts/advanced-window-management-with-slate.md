@@ -1,7 +1,6 @@
 +++
 title = "advanced window management with slate"
 date = "2016-01-31T18:12:37-05:00"
-slug = "2016/01/31T18:12:37/05:00/advanced-window-management-with-slate"
 +++
 
 I am mildly obsessed with window management. When I ran Linux full-time, I tried

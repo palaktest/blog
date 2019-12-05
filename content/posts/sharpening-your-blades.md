@@ -1,7 +1,6 @@
 +++
 title = "sharpening your blades"
 date = "2014-02-12"
-slug = "2014/02/12/sharpening-your-blades"
 Categories = []
 +++
 The "toolbox" metaphor often used to describe a programmer's knowledge,

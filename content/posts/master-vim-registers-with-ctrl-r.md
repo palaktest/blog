@@ -1,7 +1,6 @@
 +++
 title = "master vim registers with ctrl r"
 date = "2013-12-03"
-slug = "2013/12/03/master-vim-registers-with-ctrl-r"
 Categories = []
 +++
 

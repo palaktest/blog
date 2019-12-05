@@ -1,7 +1,6 @@
 +++
 title = "dmenu plus xft equals awesome"
 date = "2013-03-12"
-slug = "2013/03/12/dmenu-plus-xft-equals-awesome"
 Categories = []
 +++
 Though I love my Macs, I often use Ubuntu. I have an old laptop running Ubuntu 

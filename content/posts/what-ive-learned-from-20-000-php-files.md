@@ -1,7 +1,6 @@
 +++
 title = "what ive learned from 20 000 php files"
 date = "2015-07-14T08:05:19-04:00"
-slug = "2015/07/14T08:05:19/04:00/what-ive-learned-from-20-000-php-files"
 +++
 
 {% img right /images/uploads/20-000-php-files/watch-mechanism.png %}

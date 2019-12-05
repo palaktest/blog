@@ -1,7 +1,6 @@
 +++
 title = "playing tag in org mode"
 date = "2016-03-05T16:35:07-05:00"
-slug = "2016/03/05T16:35:07/05:00/playing-tag-in-org-mode"
 +++
 
 Once you have achieved *Org Mode Nirvana* (hopefully with the help of my

@@ -1,7 +1,6 @@
 +++
 title = "authoring emacs packages"
 date = "2015-08-04T10:45:48-04:00"
-slug = "2015/08/04T10:45:48/04:00/authoring-emacs-packages"
 +++
 
 Have you extended Emacs in a novel way? Do you want to share your creation with

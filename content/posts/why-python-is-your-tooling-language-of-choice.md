@@ -1,7 +1,6 @@
 +++
 title = "why python is your tooling language of choice"
 date = "2013-04-08"
-slug = "2013/04/08/why-python-is-your-tooling-language-of-choice"
 Categories = []
 +++
 {% img left /images/uploads/why-python/python_logo.gif %}

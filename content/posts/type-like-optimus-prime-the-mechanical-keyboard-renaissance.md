@@ -1,7 +1,6 @@
 +++
 title = "type like optimus prime the mechanical keyboard renaissance"
 date = "2013-04-24"
-slug = "2013/04/24/type-like-optimus-prime-the-mechanical-keyboard-renaissance"
 Categories = []
 +++
 Set aside for the moment the fact that Optimus Prime's defining characteristic 

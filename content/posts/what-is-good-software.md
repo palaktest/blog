@@ -1,7 +1,6 @@
 +++
 title = "what is good software"
 date = "2016-08-06T10:06:54-04:00"
-slug = "2016/08/06T10:06:54/04:00/what-is-good-software"
 Tags = []
 +++
 

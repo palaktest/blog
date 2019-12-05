@@ -1,7 +1,6 @@
 +++
 title = "macvim fullscreen paradise"
 date = "2013-03-09"
-slug = "2013/03/09/macvim-fullscreen-paradise"
 Categories = []
 +++
 I can't believe how utterly, totally, fully, and completely I overlooked this. 

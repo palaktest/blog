@@ -1,7 +1,6 @@
 +++
 title = "c star music player is my new best friend"
 date = "2013-04-06"
-slug = "2013/04/06/c-star-music-player-is-my-new-best-friend"
 Categories = []
 +++
 Have you heard of C * Music Player, also commonly abbreviated as its command 

@@ -1,7 +1,6 @@
 +++
 title = "agenda interactions primer"
 date = "2016-09-25T11:28:59-04:00"
-slug = "2016/09/25T11:28:59/04:00/agenda-interactions-primer"
 +++
 
 Now that you have read [An Agenda for Life with Org Mode][agenda-4l], you know

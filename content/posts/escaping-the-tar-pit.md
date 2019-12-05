@@ -1,7 +1,6 @@
 +++
 title = "escaping the tar pit"
 date = "2016-04-07T06:42:59-04:00"
-slug = "2016/04/07T06:42:59/04:00/escaping-the-tar-pit"
 +++
 
 If you don't know by now, I'm sort of a personal efficiency maven. I don't like

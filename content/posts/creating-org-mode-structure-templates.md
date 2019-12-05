@@ -1,7 +1,6 @@
 +++
 title = "creating org mode structure templates"
 date = "2016-11-23T14:02:11-05:00"
-slug = "2016/11/23T14:02:11/05:00/creating-org-mode-structure-templates"
 +++
 
 Hopefully you already know that you can insert common markup blocks in Org Mode

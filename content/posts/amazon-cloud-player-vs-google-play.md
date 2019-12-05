@@ -1,7 +1,6 @@
 +++
 title = "amazon cloud player vs google play"
 date = "2013-03-14"
-slug = "2013/03/14/amazon-cloud-player-vs-google-play"
 Categories = []
 +++
 Perhaps you've heard of Amazon's new Cloud Player and Google Play (previously 

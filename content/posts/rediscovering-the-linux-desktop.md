@@ -1,6 +1,5 @@
 +++
 title = "rediscovering the linux desktop"
-slug = "2012/12/13/rediscovering-the-linux-desktop"
 +++
 Here at the day job, we are slowly moving our (production) systems away from 
 Windows and toward (Ubuntu LTS) Linux. The company has always been 

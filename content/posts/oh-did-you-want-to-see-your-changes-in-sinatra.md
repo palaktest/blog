@@ -1,6 +1,5 @@
 +++
 title = "oh did you want to see your changes in sinatra"
-slug = "2013/01/31/oh-did-you-want-to-see-your-changes-in-sinatra"
 +++
 
 I started fiddling with the neat, lightweight Ruby web application framework 

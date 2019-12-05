@@ -1,6 +1,5 @@
 +++
 title = "run your own private shared git repository"
-slug = "2013/01/14/run-your-own-private-shared-git-repository"
 +++
 So everyone uses Github now, and that’s cool, because Github is awesome. But 
 what if Github goes down, even just for a short time, and you’re sitting there 

@@ -1,7 +1,6 @@
 +++
 title = "from vim to emacs in fourteen days"
 date = "2015-05-24T17:04:07-04:00"
-slug = "2015/05/24T17:04:07/04:00/from-vim-to-emacs-in-fourteen-days"
 +++
 
 Yes, my friends, it is true. After more than fifteen years using Vim, teaching

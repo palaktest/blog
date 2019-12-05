@@ -1,7 +1,6 @@
 +++
 title = "github resume is so cool"
 date = "2013-03-08"
-slug = "2013/03/08/github-resume-is-so-cool"
 Categories = []
 +++
 Have you guys seen this? Github can generate a "resume" based on your 

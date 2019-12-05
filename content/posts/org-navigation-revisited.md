@@ -1,7 +1,6 @@
 +++
 title = "org navigation revisited"
 date = "2016-07-31T11:56:16-04:00"
-slug = "2016/07/31T11:56:16/04:00/org-navigation-revisited"
 +++
 
 In my previous post, [Playing Tag in Org Mode][tag], I talked about leveraging

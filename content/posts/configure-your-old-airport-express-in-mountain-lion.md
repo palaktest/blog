@@ -1,7 +1,6 @@
 +++
 title = "configure your old airport express in mountain lion"
 date = "2013-03-16"
-slug = "2013/03/16/configure-your-old-airport-express-in-mountain-lion"
 Categories = []
 +++
 Apple, in their ultimate wisdom, have made it impossible to install the 

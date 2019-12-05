@@ -1,7 +1,6 @@
 +++
 title = "org capture from anywhere on your mac"
 date = "2016-11-24T08:57:24-05:00"
-slug = "2016/11/24T08:57:24/05:00/org-capture-from-anywhere-on-your-mac"
 +++
 
 I'm going to show you how you can create a "bookmarklet" button in your browser

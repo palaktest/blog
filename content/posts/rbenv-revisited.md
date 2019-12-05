@@ -1,7 +1,6 @@
 +++
 title = "rbenv revisited"
 date = "2013-03-11"
-slug = "2013/03/11/rbenv-revisited"
 Categories = []
 +++
 A few days ago I wrote about my 

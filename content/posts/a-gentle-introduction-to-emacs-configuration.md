@@ -1,7 +1,6 @@
 +++
 title = "a gentle introduction to emacs configuration"
 date = "2015-07-05T13:06:22-04:00"
-slug = "2015/07/05T13:06:22/04:00/a-gentle-introduction-to-emacs-configuration"
 +++
 
 Since giving my talk,

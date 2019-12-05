@@ -1,7 +1,6 @@
 +++
 title = "organizing notes with refile"
 date = "2017-03-19T10:40:12-04:00"
-slug = "2017/03/19T10:40:12/04:00/organizing-notes-with-refile"
 +++
 
 {% img noborder /images/uploads/organizing-notes-with-refile/refile-screenshot.png %}

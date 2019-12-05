@@ -1,7 +1,6 @@
 +++
 title = "living in evil"
 date = "2016-01-23T14:34:11-05:00"
-slug = "2016/01/23T14:34:11/05:00/living-in-evil"
 +++
 
 Evil Mode is a phenomenal tool; it's a better Vim than Vim. The only problem is,

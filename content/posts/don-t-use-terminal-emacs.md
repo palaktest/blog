@@ -1,7 +1,6 @@
 +++
 title = "don't use terminal emacs"
 date = "2016-12-29T16:20:20-05:00"
-slug = "2016/12/29T16:20:20/05:00/don-t-use-terminal-emacs"
 +++
 
 If you are a terminal guy as I am, or if you're a terminal gal, you may be

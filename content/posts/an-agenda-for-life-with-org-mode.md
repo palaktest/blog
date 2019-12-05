@@ -1,7 +1,6 @@
 +++
 title = "an agenda for life with org mode"
 date = "2016-09-24T12:46:59-04:00"
-slug = "2016/09/24T12:46:59/04:00/an-agenda-for-life-with-org-mode"
 +++
 
 I've been promising the Twitterverse that I would write more about how I use Org

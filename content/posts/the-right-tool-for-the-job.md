@@ -1,7 +1,6 @@
 +++
 title = "the right tool for the job"
 date = "2017-08-26"
-slug = "2017/08/26T11:06:23/04:00/the-right-tool-for-the-job"
 author = "abieber"
 +++
 

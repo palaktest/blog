@@ -1,7 +1,6 @@
 +++
 title = "why you should give zsh another try"
 date = "2013-11-19"
-slug = "2013/11/19/why-you-should-give-zsh-another-try"
 Categories = []
 +++
 

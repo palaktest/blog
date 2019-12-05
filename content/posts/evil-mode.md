@@ -1,7 +1,6 @@
 +++
 title = "evil mode"
 date = "2015-06-03T20:16:47-04:00"
-slug = "2015/06/03T20:16:47/04:00/evil-mode"
 +++
 
 "Evil Mode, or, How I Learned to Stop Worrying and Love Emacs"

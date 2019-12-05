@@ -1,7 +1,6 @@
 +++
 title = "test complex vim settings easily"
 date = "2013-10-24"
-slug = "2013/10/24/test-complex-vim-settings-easily"
 Categories = []
 +++
 Have you ever wanted to test a new value for a complex Vim setting, like 

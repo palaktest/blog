@@ -1,7 +1,6 @@
 +++
 title = "rbenv for the win"
 date = "2013-03-08"
-slug = "2013/03/08/rbenv-for-the-win"
 Categories = []
 +++
 
