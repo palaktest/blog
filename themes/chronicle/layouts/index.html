@@ -10,14 +10,14 @@
         {{ range $index, $page := first 10 site.RegularPages }}
         <article>
           <header>
-            <h1>{{ .Title | title }}</h1>
+            <h1 class="entry-title"><a href="{{ .Permalink }}">{{ .Title | title }}</a></h1>
             <p class="meta">
-              <span class="glyphicon glyphicon-calendar"></span> {{ .Date | dateFormat "January 1, 2020" }}
+              <span class="glyphicon glyphicon-calendar"></span> {{ .Date | dateFormat "January 2, 2006" }}
             </p>
           </header>
+
+          <div class="entry-content">{{ .Summary }}</div>
         </article>
-
-
         {{ end }}
       </div>
 
