@@ -13,7 +13,7 @@ Vim meetups for quite a while, so this was an interesting experience for me.
 I think it might be an interesting experience for you, too, so I'm posting the
 video here so you can all enjoy it in the privacy of your own homes!
 
-<iframe width="100%" src="https://www.youtube.com/embed/JWD1Fpdd4Pc" frameborder="0" allowfullscreen></iframe>
+{{< youtube JWD1Fpdd4Pc >}}
 
 <!--more-->
 

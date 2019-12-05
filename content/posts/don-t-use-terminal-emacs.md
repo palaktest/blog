@@ -83,7 +83,7 @@ When using Org Mode to comprehensively organize my entire life, access to
 features like clipboard sharing and [protocol triggers][org-protocol] are
 totally killer.
 
-[org-protocol]: {% post_url 2016-11-24-org-capture-from-anywhere-on-your-mac %}
+[org-protocol]: {{% ref "org-capture-from-anywhere-on-your-mac" %}}
 
 ### Respond to Keys the Terminal Doesn't Understand ###
 

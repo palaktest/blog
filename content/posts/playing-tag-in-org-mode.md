@@ -4,7 +4,7 @@ date = "2016-03-05T16:35:07-05:00"
 +++
 
 Once you have achieved *Org Mode Nirvana* (hopefully with the help of my
-previous post, [Dig into Org Mode]({% post_url 2016-01-30-dig-into-org-mode %}))
+previous post, [Dig into Org Mode]({{% ref "dig-into-org-mode" %}}))
 and you have over 2,500 lines of Org notes and TODO lists as I do (I'm serious;
 see the screenshot below), you'll want to seriously up your agenda game so that
 you can find stuff quickly.

@@ -17,7 +17,7 @@ Here, I will gently guide you through the very basics of Emacs configuration and
 show you where to get help so that you can embark on your Emacs customization
 and personalization journey with confidence.<!--more-->
 
-[evil-mode]: {% post_url 2015-06-03-evil-mode %}
+[evil-mode]: {{< ref "evil-mode" >}}
 
 ## Overview ##
 
@@ -84,7 +84,7 @@ This should be enough to get you started. If you run into snags while installing
 and configuring packages, you should turn to Google to find help on the specific
 packages you're using or the scenarios you're encountering.
 
-[from-vim]: {% post_url 2015-05-24-from-vim-to-emacs-in-fourteen-days %}
+[from-vim]: {{< ref "from-vim-to-emacs-in-fourteen-days" >}}
 
 ## Customize ##
 

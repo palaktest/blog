@@ -1373,6 +1373,9 @@ article {
       article > footer a[rel=full-article]:hover {
         border-color: #000;
         text-shadow: none; }
+  article .embed-container {
+    margin-top: 2em;
+    margin-bottom: 2em; }
 
 #content > div.blog-archive .article-row {
   background: inline-image("dotted-border.png") top left repeat-x; }

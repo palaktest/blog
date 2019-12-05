@@ -325,5 +325,5 @@ comment below! I have received many requests to dive deeper into my use of Org
 Mode and I expect this to be one in a series of posts where I dissect certain
 bits of it.
 
-[tag]: {% post_url 2016-03-05-playing-tag-in-org-mode %}
+[tag]: {{% ref "playing-tag-in-org-mode" %}}
 [tiny-menu]: https://github.com/aaronbieber/tiny-menu.el

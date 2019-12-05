@@ -7,7 +7,7 @@ Now that you have read [An Agenda for Life with Org Mode][agenda-4l], you know
 how to build the perfect agenda for managing the tasks in your life. But, I ask
 you, what good is a task that you cannot complete?
 
-[agenda-4l]: {% post_url 2016-09-24-an-agenda-for-life-with-org-mode %})
+[agenda-4l]: {{< ref "an-agenda-for-life-with-org-mode" >}}
 
 Fortunately, Org Mode provides a rich set of interactive commands for
 manipulating your task entries directly from the agenda view and, in fine Emacs

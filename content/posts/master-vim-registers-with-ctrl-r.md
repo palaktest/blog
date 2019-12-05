@@ -125,4 +125,4 @@ replace the whole number with the sum!
 
 Now you have the power to *truly master CTRL-R*!
 
-[1]: {% post_url 2013-10-24-test-complex-vim-settings-easily %}
+[1]: {{% ref "test-complex-vim-settings-easily" %}}
