@@ -13,3 +13,7 @@ uglyURLs = true
 
 [permalinks]
   posts = "/:year/:month/:day/:title"
+
+[markup]
+  [markup.highlight]
+    style = "friendly"
