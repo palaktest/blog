@@ -1,0 +1,31 @@
+{{ define "main" }}
+
+<div class="blog-archive">
+  <h1>Blog Archive</h1>
+
+  {{ range ((where .Site.RegularPages "Type" "in" "posts").GroupByDate "2006") }}
+
+  <div class="article-list">
+    <div class="meta-year">
+      &nbsp;
+      {{ .Key }}
+    </div>
+
+    {{ range .Pages }}
+
+    <article>
+      <div class="meta-date">
+        {{ .Date | dateFormat "Jan 2" }}
+      </div>
+      <h2><a href="{{ .Permalink }}">{{ .Title | title }}</a></h2>
+    </article>
+
+    {{ end }}
+  </div>
+
+  {{ end }}
+</div>
+
+{{- partial "sidebar" . -}}
+
+{{ end }}

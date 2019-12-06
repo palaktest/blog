@@ -1,0 +1,19 @@
+<aside class="sidebar">
+  <div class="bio">
+    <img alt="" src="/images/aaron-bieber.png" />
+
+    <p>{{ .Site.Params.bio }}</p>
+  </div>
+
+  <section>
+    <h1>Recent Posts</h1>
+    <ul id="recent_posts">
+      {{ range (first .Site.Params.recentPosts .Site.RegularPages) }}
+      <li class="post">
+        <a href="{{ .Permalink }}">{{ .Title | title }}</a>
+      </li>
+      {{ end }}
+    </ul>
+  </section>
+</aside>
+<span class="toggle-sidebar"></span>

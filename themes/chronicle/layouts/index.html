@@ -1,6 +1,6 @@
 {{ define "main" }}
 <div class="blog-index">
-  {{ range $index, $page := first 10 site.RegularPages }}
+  {{ range (.Paginate (where site.RegularPages "Type" "in" "posts") 5).Pages }}
   <article>
     <header>
       <h1 class="entry-title"><a href="{{ .Permalink }}">{{ .Title | title }}</a></h1>
@@ -19,5 +19,20 @@
     {{ end }}
   </article>
   {{ end }}
+
+  {{ with .Paginator }}
+  <div class="pagination">
+    {{ if .HasNext }}
+      <a class="prev basic-alignment left" href="{{ .Next.URL }}">&larr; Older</a>
+    {{ end }}
+
+    {{ if .HasPrev }}
+      <a class="next basic-alignment right" href="{{ .Prev.URL }}">Newer &rarr;</a>
+    {{ end }}
+
+    <a class="basic-alignment center center-text" href="/archive.html">Blog Archives</a>
+  </div>
+  {{ end }}
+
 </div>
 {{ end }}

@@ -5,9 +5,7 @@
     <header>
       <h1 class="entry-title">{{ .Title | title }}</h1>
       <p class="meta">
-        <span class="glyphicon glyphicon-calendar"></span> {{ .Date | dateFormat "Jan 2, 2006" }}
-        | <a href="{{ .Permalink }}#disqus_thread"
-            data-disqus-identifier="{{ .Permalink }}">Comments</a>
+        <span class="glyphicon glyphicon-calendar"></span> {{ .Date | dateFormat "January 2, 2006" }}
       </p>
     </header>
 
@@ -49,6 +47,5 @@
     <div id="disqus_thread" aria-live="polite">{{ partial "disqus" . }}</div>
   </section>
 </div>
-
 
 {{ end }}
