@@ -7,21 +7,12 @@
 
 <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-{{ $style := resources.Get "sass/main.scss" | toCSS }}
-<link href="{{ $style.Permalink }}" rel="stylesheet" />
-
-{{/* {% if page.title %}<meta property="og:title" content="{{ page.title }}" />{% endif %}
-     {% if page.excerpt %}<meta property="og:description" content="{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}" />{% endif %}
-<link href="{{ "assets/bootstrap/css/bootstrap.min.css" | prepend: site.baseurl }}" rel="stylesheet">
-<link rel="stylesheet" href="{{ "css/main.css" | prepend: site.baseurl }}">
-<link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
-<link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ "feed.xml" | prepend: site.baseurl | prepend: site.url }}" />
-*/}}
-
+<link href="{{ (resources.Get "sass/main.scss" | toCSS).Permalink }}" rel="stylesheet" />
+<link rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}" href="/posts/index.xml" />
 <link rel="shortcut icon" href="/images/favicon.gif" />
 <link href='https://fonts.googleapis.com/css?family=Lora:400,400italic,700,700italic' rel='stylesheet' type='text/css' />
-<script src="//fast.eager.io/SHvf4DiSoU.js"></script>
 
+<script src="//fast.eager.io/SHvf4DiSoU.js"></script>
 <script src="/scripts/modernizr-2.0.js"></script>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
