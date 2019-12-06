@@ -8,7 +8,7 @@ uglyURLs = true
   disqusShortName = "aaronbieber"
   author = "abieber"
   subtitle = "of a ColdFusion Expatriate"
-  bio = "Hi, I'm Aaron Bieber. Once, long ago, I wrote ColdFusion for a living. Now I lead software engineers in Boston."
+  bio = "Hi, I'm Aaron Bieber. Once, long ago, I wrote ColdFusion for a living. Now I lead software engineers in Boston writing a variety of non-ColdFusion languages."
   recentPosts = 5
 
 [permalinks]
