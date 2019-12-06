@@ -7,6 +7,9 @@ uglyURLs = true
 [params]
   disqusShortName = "aaronbieber"
   author = "abieber"
+  subtitle = "of a ColdFusion Expatriate"
+  bio = "Hi, I'm Aaron Bieber. Once, long ago, I wrote ColdFusion for a living. Now I lead software engineers in Boston."
+  recentPosts = 5
 
 [permalinks]
   posts = "/:year/:month/:day/:title"

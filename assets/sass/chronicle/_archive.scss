@@ -2,9 +2,8 @@
   h1 {
   }
 
-  .article-row {
+  .article-list {
     @include pie-clearfix;
-    background: $img-border top left repeat-x;
 
     .meta-year {
       padding-top: 0.8em;
@@ -17,6 +16,8 @@
       padding-top: 0;
       padding-left: 100px;
       position: relative;
+
+      border-bottom: 1px dashed silver;
     }
 
     .meta-date {

@@ -1,1 +1,4 @@
 .pcmm
+resources
+public/*
+!public/.gitkeep
