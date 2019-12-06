@@ -1,0 +1,1 @@
+<img {{ if not (findRE "/" (.Get 0)) }}class="{{ .Get 0 }}"{{ end }} src="{{ if findRE "/" (.Get 0) }}{{ .Get 0 }}{{ else }}{{ .Get 1 }}{{ end }}">
