@@ -12,7 +12,7 @@ uglyURLs = true
   recentPosts = 5
 
 [permalinks]
-  posts = "/:year/:month/:day/:title"
+  posts = "/:year/:month/:day/:slug"
 
 [markup]
   [markup.highlight]
