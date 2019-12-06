@@ -1,5 +1,6 @@
 +++
 title = "oh did you want to see your changes in sinatra"
+date = "2013-01-31"
 +++
 
 I started fiddling with the neat, lightweight Ruby web application framework 

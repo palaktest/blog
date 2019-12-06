@@ -1,6 +1,6 @@
 +++
 title = "welcome to my chronicle"
-Tags = []
+date = "2012-05-17"
 +++
 I’ll try to keep this brief. Five years ago, I left my job as a production PHP 
 programmer at a national consulting firm (business consulting, not development 

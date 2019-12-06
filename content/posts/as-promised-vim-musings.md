@@ -1,6 +1,6 @@
 +++
 title = "as promised vim musings"
-Tags = []
+date = "2013-02-21"
 +++
 I love Vim, I really do. Having used Vim for about 12 years or so, I feel 
 really comfortable with it. Remarkably, I keep learning new things about it, 
