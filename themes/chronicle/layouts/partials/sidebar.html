@@ -8,7 +8,7 @@
   <section>
     <h1>Recent Posts</h1>
     <ul id="recent_posts">
-      {{ range (first .Site.Params.recentPosts .Site.RegularPages) }}
+      {{ range (first .Site.Params.recentPosts (where .Site.RegularPages "Type" "in" "posts")) }}
       <li class="post">
         <a href="{{ .Permalink }}">{{ .Title | title }}</a>
       </li>
