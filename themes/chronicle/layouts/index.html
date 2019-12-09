@@ -1,6 +1,6 @@
 {{ define "main" }}
 <div class="blog-index">
-  {{ range (.Paginate (where site.RegularPages "Type" "in" "posts") 5).Pages }}
+  {{ range (.Paginate (where .Site.RegularPages "Type" "in" "posts") 5).Pages }}
   <article>
     <header>
       <h1 class="entry-title"><a href="{{ .Permalink }}">{{ .Title | title }}</a></h1>
