@@ -1,0 +1,37 @@
+---
+title: "Introducing Hugo.el"
+date: 2019-12-10T16:32:57-05:00
+draft: true
+---
+
+I promised more posts, and more posts you shall have. Indeed I have been a busy
+little bee, and finally I have something to show for it.
+
+When I was blogging frequently, using Octopress, one of the things I did
+straight away was to write a wrapper for Emacs called `octopress.el`, which
+provides an interactive interface to its basic functions and a few ergonomic
+benefits like easy image and post URL insertion.
+
+Since I decided to move away from Octopress onto Hugo, I missed having
+that... So, I wrote one for Hugo. I call it `hugo.el`.
+
+<!--more-->
+
+A package like this one exists on MELPA already. It is called `easy-hugo`, and I
+did give it a try. It's OK, but it wasn't very intuitive for me and it felt like
+it was trying to do too much.
+
+I modeled `octopress.el` after the amazing, timeless Magit, and I followed the
+same pattern with `hugo.el`. In fact, `hugo.el` is a fork of `octopress.el` for
+all intents and purposes, though I did it all manually.
+
+The vast majority of the code is copied from the other package, with instances
+of `octopress` and `jekyll` replaced with `hugo`, but I took the time to move
+each block of functionality separately by hand to ensure that it all hangs
+together properly.
+
+There's plenty more that can be done, but it's in a workable state and I'll
+probably work on writing a nice `README` and try to get it into MELPA soon.
+
+For now, you can view the spartan repository such as it is: 
+[Hugo.el on GitHub](https://github.com/aaronbieber/hugo.el).

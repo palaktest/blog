@@ -1,6 +1,7 @@
 +++
-title = "introducing octopress el"
+title = "Introducing Octopress.el"
 date = "2016-01-23T17:41:34-05:00"
+slug = "introducing-octopress-el"
 +++
 
 If you've ever scrolled all the way to the bottom of this blog, you'll know that
