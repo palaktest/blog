@@ -44,7 +44,11 @@
 
   <section>
     <h1>Comments</h1>
+    {{ if eq hugo.Environment "production" }}
     <div id="disqus_thread" aria-live="polite">{{ partial "disqus" . }}</div>
+    {{ else }}
+    <p>Comments not displayed in development.</p>
+    {{ end }}
   </section>
 </div>
 
