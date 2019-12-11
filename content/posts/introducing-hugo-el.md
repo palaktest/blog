@@ -10,12 +10,18 @@ little bee, and finally I have something to show for it.
 {{< img noborder "/images/uploads/introducing-hugo-el/hugo-el-screenshot.png" >}}
 
 When I was blogging frequently, using Octopress, one of the things I did
-straight away was to write a wrapper for Emacs called `octopress.el`, which
-provides an interactive interface to its basic functions and a few ergonomic
-benefits like easy image and post URL insertion.
+straight away was to write a wrapper for Emacs called `octopress.el`
+([view on GitHub][octopress]), which provides an interactive interface to its
+basic functions and a few ergonomic benefits like easy image and post URL
+insertion.
 
-Since I decided to move away from Octopress onto Hugo, I missed having
-that... So, I wrote one for Hugo. I call it `hugo.el`.
+But, as I noted in my [previous post][hugo], Octopress is effectively dead (and
+slow, and tricky to set up), so I moved onto Hugo. I immediately missed having
+an Emacs-based interface directly into Hugo's essential functions (though eshell
+works surprisingly well)... So I wrote one. I call it `hugo.el`.
+
+[octopress]: https://github.com/aaronbieber/octopress.el
+[hugo]: {{< ref "something-seems-different" >}}
 
 <!--more-->
 
