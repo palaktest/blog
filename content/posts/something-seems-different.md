@@ -27,7 +27,7 @@ about the painstakingness of it later on):
 
 3. My site used a sophisticated Sass system called Compass, which is... Yes,
    it's a Ruby gem
-   
+
 But I really have nothing against Ruby, or gems for that matter; the real reason
 I couldn't deal with all of this anymore is that the Ruby and gem ecosystem was
 built to support *application development*, and I don't do Ruby application
