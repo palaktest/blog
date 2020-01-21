@@ -17,4 +17,7 @@ do read on.
 ## Why Surface Pro 6?
 
 Every good story has a beginning, a middle, and an end. At the beginning, I
-decided to buy a Microsoft Surface Pro 6. But why?
+decided to buy a Microsoft Surface Pro 6. But why? That's an extremely good
+question.
+
+
