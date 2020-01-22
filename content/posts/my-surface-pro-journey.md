@@ -1,7 +1,6 @@
 ---
 title: "My Surface Pro Journey"
 date: 2020-01-21T15:09:15-05:00
-draft: true
 ---
 
 To start, let me warn you that this journey is somewhat circular, as I venture
@@ -75,8 +74,8 @@ it was not likely that it would run Lightroom very well, but that I could take
 me.
 
 There are two CPU tiers of the Surface Pro 6: one with an 8th generation Intel
-Core-i5 8250U at 1.6 GHz (turbo to 3.4 GHz), and one with an 8th generation
-Intel Core-i7 8650U at 1.9 GHz (turbo to 4.2 GHz).
+Core-i5 at 1.6 GHz (turbo to 3.4 GHz), and one with an 8th generation
+Intel Core-i7 at 1.9 GHz (turbo to 4.2 GHz).
 
 I've had people tell me that I made a mistake not buying the i7, that Lightroom
 performance would have been significantly better. I suppose that is possible,
@@ -90,17 +89,28 @@ could get with the i7 was 256 GB. Nevertheless, $1,500 was too much for me to
 stomach, especially after adding the $100 "Surface Pen" and the $140 "Type
 Cover" keyboard folio.
 
-Moreover, performance isn't *really* the problem. It's just one of the
+Let me be clear: I do not believe in my heart of hearts that an i7-equipped
+Surface Pro 6 is a laptop replacement. I think it's a novelty. I simply did not
+want to spend laptop prices on a part-time use system.
+
+Moreover, performance isn't *really* the problem. It's just one of the many
 problems.
 
 ## Tell me about the problems!
 
-Oh I'd love to.
+I thought you'd never ask! First, let's just state what the Surface Pro 6 is
+actually good at.
 
-So, the i5 Surface Pro 6 doesn't perform very well, but as a "Chromebook" style
-of casual use device, or even for OneNote and various Windows-native
-productivity apps, it works great. You can certainly load up some Office apps,
-Dropbox, your chat programs, Firefox, and so forth and get rolling.
+So, the i5 Surface Pro 6 doesn't perform very well, but as a "Chromebook"-style
+casual use device, or even for OneNote and various Windows-native productivity
+apps, it works great. You can certainly load up some Office apps, Dropbox, your
+chat programs, Firefox, and so forth and get rolling.
+
+The Surface Pen is excellent. The tip has a bit of rubber on it so that the feel
+is quite natural and smooth and not too slippery and the digitizer is made by
+Wacom so it's accurate and quick and satisfying to use. In fact, the Surface Pen
+is probably the best thing about the Surface Pro. Palm rejection is perhaps just
+slightly less accurate than the iPad and Apple Pencil, but it is extremely usable.
 
 The Microsoft "Type Cover" keyboard is nice, easy to type on, feels pretty good,
 although the trackpad is unmitigated garbage, like virtually every trackpad for
@@ -113,16 +123,16 @@ other than a desktop or tabletop. It's workable, you can type on your lap, and
 really the biggest problem with lap use is not the keyboard but rather the
 "friction stand," but I won't go too much into that.
 
-I love the friction stand. If you set aside the "I can't type on this on my lap"
-problem, the friction stand lets you have exactly the viewing angle you want,
-and everyone should think about implementing something like this, it is truly
-freeing.
+I will say, I love the friction stand. If you set aside the "I can't type on
+this on my lap" problem, the friction stand lets you have exactly the viewing
+angle you want, and everyone should think about implementing something like
+this, it is truly freeing.
 
 But those are not the deal-breakers. The real deal-breakers for this device are:
 
 * Windows 10 "Tablet Mode" sucks, and
 * The Surface Pro 6 is a fragile, weak little plastic sandwich that is so
-  portable you want to take it everywhere, and yet cannot survive going
+  portable you want to take it everywhere, and yet it cannot survive going
   anywhere.
 
 OK, one thing at a time:
@@ -132,8 +142,8 @@ OK, one thing at a time:
 Windows 10 is such a fascinating demonstration of a product management team
 trying desperately to paint enough lipstick on a pig that the enlightened
 consumer, who has been programmed by Microsoft's competitors to desire and
-indeed expect a certain UI pedigree, will actually believe that Microsoft is
-advancing Windows boldly into the current generation of software.
+indeed expect a certain UI pedigree, will mistake the pig for a show-winning
+collie trained in CPR.
 
 What that wide-eyed and naive consumer does not realize is that Windows 10 is
 just the next thin layer of paint over an aging system that, in each of its many
@@ -146,10 +156,11 @@ Settings app, which presents a UI redesigned to appear modern and sleek and
 intuitive. You only have to click around for about two minutes before you
 see one of these "Additional XYZ options" links on the right, so you click it,
 and *what in the holy hell is that*?? Oh yes, it's the original Control Panel
-application in all of its 1995 glory, which has not gone away, but is rather
-*proxied* (in part) by the Settings app.
+application in all of its 1995 glory, which has not gone away, but is sitting
+right there, just out of view, and which I might add is also *necessary* for
+changing certain settings that still exist but are unreachable through the new UI.
 
-And that, in and of itself, is not a problem, but it's an example of the real
+That, in and of itself, is not a problem, but it's an example of the real
 problem, which is that Microsoft does not have the buy-in, or the wherewithal,
 or perhaps simply the balls, to *actually re-think anything*. They hired some UI
 people and they said "make this shit not look like shit," and those UI people
@@ -171,7 +182,7 @@ Because, as you most certainly are aware, the iPad is not a laptop. The iPad Pro
 gets as close as I think Apple is actually willing to get (topic for another
 post), but it is not a laptop. The Surface Pro 6 is absolutely a laptop, it runs
 full Windows 10, but full Windows 10 lacks any modicum of touchscreen usability,
-and so Microsoft in their deepest wisdom have created Tablet Mode.
+and so Microsoft in their deepest wisdom have created *Tablet Mode*.
 
 Tablet Mode is an attempt to make Windows 10 usable with only a touchscreen
 input device. It's not an altogether bad attempt, but it fails for a few
@@ -182,44 +193,53 @@ reasons:
    
 2. At times, and these times come more often than you'd like, it feels like
    Windows 10 itself was not designed to be usable with only a touchscreen input
-   device. If only there was some sort of "Tablet Mode..."
+   device.
 
 The experience feels like what you probably would expect from a touchscreen
 Windows computer. You can launch and switch between programs with touches that
 all make sense and work great. Then you have to interact with a program that
 isn't designed to be touched with a finger or stylus and it fails in hilarious
-ways.
+ways, so you try to avoid doing those things, but people have to change
+Explorer's view mode or insert a graph into a Word document eventually and so
+the circus continues.
 
 Then you have to enter some text, and the keyboard pops up, and sometimes it
 overlaps something you need to see, such as *the actual field you're entering
 text into*, but that's OK because it's dreadfully hard to move the keyboard
 around in any predictable way so you end up mashing your fingers all over the
 screen and finally throwing the entire Surface Pro 6 out the window because if
-you see it hit someone and knock them down at least that will tickle some of the
-schadenfreude that has been building up gradually in your entire body since you
-started using the infernal thing.
-
-For a moment you imagine what it would be like to use the Surface Pro 6 as a
-paddle to beat the living shit out of whoever it is who thought that this pig
-could be painted a dainty shade of red in just the right places so as to, even
-momentarily, convince an onlooker that it is something other than the pig that
-it is.
+you see it hit someone and knock them down at least that will relieve some of
+the schadenfreude that has been building up gradually in your entire body since
+you started using the thing and the tremors are starting to make it hard to
+perform simple tasks.
 
 Ultimately, this is what it looks like when you try to glue a completely
 distinct and singularly nuanced input paradigm onto an operating system and its
 ecosystem of software that was entirely conceived of in an era when such an
 input paradigm could only be imagined by the big brains at Bell Labs or Xerox
-PARC. This is what happens when you make the *timid move*.
+PARC. It feels like design by committee. It feels like being *involved* but not
+*committed*. It feels like ticking a box on a form for "user interface
+requirements in 2019."
 
 If you're reading this, Microsoft, the lesson to take away here is that the
 sales of the iPad are not any indication that the public wants a *tablet
 computer*, it's only an indication that they want *an iPad*. And that's a
 completely different thing, isn't it?
 
+Anyway, a lot of these frustrations are muted by attaching some kind of keyboard
+to the thing, even though none of them have a halfway serviceable trackpad, but
+you can always do that thing that Windows laptop users have done since the dawn
+of this new age where every Windows laptop has a touchscreen for some reason,
+which is to scroll and tap and type and drag interchangeably.
+
+In fact, when you connect the Type Cover, Windows will ask you if you want to
+turn off Tablet Mode automatically when that happens. Of course you accept,
+because it rescues you from the bizarre hell that is Tablet Mode.
+
 ## The Surface Pro 6 is a fragile plastic sandwich
 
 My first real test for the Surface Pro 6 was a family trip to Bermuda, on which
-I was poised to take lots of photographs and videos, so I could exercise my
+I was prepared to take lots of photographs and videos, so I could exercise my
 Lightroom setup.
 
 Getting ready to go, I packed up my photography backpack, which is a Peak Design
@@ -266,6 +286,9 @@ setting it to "Damn It Feels Good to be a Gangsta," which I would do immediately
 if I wasn't terrified of being hunted down and killed by the Geto Boys'
 attorneys, or, "fixers," or whatever they have.
 
+Since that trip, my Surface Pro 6 has sat on a shelf in my office. Too broken to
+use, too expensive to fix.
+
 ## So, should you buy one?
 
 I mean, knee-jerk reaction here... Hell no.
@@ -287,14 +310,7 @@ constant nagging feeling that you're trying to force a square peg into a round
 hole. This feeling is only magnified by even 30 seconds of experience with an
 iPad, which, I repeat, *is not a laptop*, but nevertheless feels not only
 natural but actually *delightful* in the way that an interface does when it is
-thoughtfully designed from the ground up to be so.
-
-I spent very little time talking about the Surface Pen here. Quick thoughts: the
-Surface Pen is amazing. Microsoft put a Wacom digitizer in there and it is every
-bit as responsive and satisfying to use as you would hope. The Surface Pen is
-the best thing about the Surface Pro. You just have to fight with everything
-else about it during every other moment that you're touching it, and for me
-that did not average out to a tolerable experience.
+thoughtfully designed from the ground up to work exactly the way it does.
 
 So yeah, those are my totally unfiltered thoughts about the Microsoft Surface
 Pro 6.
