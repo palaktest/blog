@@ -9,7 +9,12 @@
       </p>
     </header>
 
-    <div class="entry-content">{{ .Content }}</div>
+    <div class="entry-content">
+      {{ if .Params.toc }}
+        {{ .TableOfContents }}
+      {{ end }}
+      {{ .Content }}
+    </div>
 
     <footer>
       <p class="meta">
