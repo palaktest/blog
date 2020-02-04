@@ -13,9 +13,9 @@ Within this post, you can expect to find:
 
 * Unvarnished opinions of both Apple and Microsoft
 
-* Links to useful software
-
 * Light cursing
+
+* Too many words
 
 A forewarning: this post is really long, which is why I've provided a table of
 contents. Please feel free to read the part(s) that interest you, my feelings
