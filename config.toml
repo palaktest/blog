@@ -1,4 +1,4 @@
-baseURL = "https://blog.aaronbieber.com/"
+baseURL = ""
 languageCode = "en-us"
 title = "The Chronicle"
 theme = "chronicle"
